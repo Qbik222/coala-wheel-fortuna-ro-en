@@ -1,7 +1,9 @@
 $blue: #000055
+$dark-blue: #00003d
 $white: #ffffff
 $magenta: #FF267E
 $dark-magenta: #97024C
+$purple: #5C107D
 $green: #05C489
 $yellow: #BB8531
 $light-yellow: #FFF06D
@@ -117,6 +119,9 @@ body
     transition: all ease-in-out
     &._lock
       .wheel
+        &__lock
+          &-buble
+            display: flex
         &__sections
           filter: brightness(.4)
         &__arrow
@@ -500,7 +505,6 @@ body
         width: 100%
         height: 100%
         background: url("../img/days/days-info-icon.svg") no-repeat 0 0/contain
-
       &::before
         content: ""
         display: block
@@ -567,7 +571,38 @@ body
           font-size: 20px
           line-height: 34px
           text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
-
+  &__lock
+    &-buble
+      display: none
+      position: absolute
+      top: 35%
+      right: 22%
+      width: 360px
+      height: 160px
+      background: url("../img/wheel/wheel-buble-bg.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      z-index: 6
+      flex-direction: column
+      align-items: center
+      justify-content: flex-start
+      padding:  30px 10px 10px 5px
+    &-title
+      font-size: 30px
+      line-height: 34px
+      color: $white
+      font-family: $font-lobster-reg
+      text-align: center
+      max-width: 275px
+      transform: rotate(-2deg)
+      text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
+    &-text
+      transform: rotate(-2deg)
+      color: $white
+      font-size: 14px
+      line-height: 22px
+      font-family: $font-suisse-intl-med
+      text-align: center
+      margin-top: 5px
 
 .progress
   max-width: 970px
@@ -589,11 +624,16 @@ body
     border: 1px solid #6500ED
     background: linear-gradient(180deg, #6E2A9A 0%, #410DBD 47.11%, #23009A 57.13%, #2A00B9 100.24%)
     justify-content: center
+    .current, .total
+      font-family: inherit
+      font-size: inherit
+      color: inherit
     &-status
       position: absolute
       right: 0
       top: -35px
       z-index: 1
+      min-width: 68px
       font-size: 19px
       transform: translate(50%, 0)
       font-family: $font-lobster-reg
@@ -629,8 +669,8 @@ body
       height: 17px
       width: 50%
       min-width: 3%
-      max-width: 94%
-      border-radius: 10px 2px 2px 10px
+      max-width: 97%
+      border-radius: 10px
       //box-shadow: 0px 0px 8px 0px #FFF06D, 0px 0px 3px 0px #FFF06D, 0px 0px 3px 0px #FFF06D
 
       //min-width: 5%
@@ -645,13 +685,13 @@ body
         position: absolute
         top: 0
         left: 0
-        border-radius: 10px 2px 2px 10px
+        border-radius: 10px
         background: rgba($light-yellow, .8)
         filter: drop-shadow(0px 0px 2px rgba(255, 229, 0, 0.60)) drop-shadow(0px 0px 2px rgba(255, 230, 14, 0.70)) drop-shadow(0px 0px 2px rgba(255, 229, 0, 0.30)) drop-shadow(0px 0px 5px rgba(255, 229, 0, 0.40))
       &::after
         content: ""
         display: block
-        width: 94%
+        width: 97%
         height: 78%
         border-radius: 10px
         background: $yellow
@@ -685,7 +725,7 @@ body
       &::before
         content: ""
         display: block
-        z-index: 0
+        z-index: -1
         position: absolute
         width: 200px
         height: 0px
@@ -780,7 +820,7 @@ body
       font-size: 17px
       line-height: 24px
       color: $white
-      padding: 20px
+      padding: 10px 20px
       font-family: $font-suisse-intl-semib
       display: flex
       align-items: center
@@ -822,6 +862,639 @@ body
         color: inherit
         &:not(:last-child)
           margin-bottom: 15px
+
+.popups
+  //z-index: 10
+  position: fixed
+  opacity: 0
+  z-index: -2
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba($dark-blue, .7)
+  .popup
+    padding: 60px 0 0 0
+    max-height: 100%
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    &._incomplete
+      .popup
+        &__bottom._incomplete
+          display: flex
+    &._done
+      .popup
+        &__bottom._done
+            display: flex
+    &__close
+      width: 38px
+      height: 38px
+      background: url("../img/popups/btn-close.png") no-repeat 0 0/contain
+      position: absolute
+      top: 30px
+      right: -10px
+      cursor: pointer
+      z-index: 5
+    &__item
+      display: none
+    &__buble
+      background: url("../img/popups/popup-buble-bg.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      width: 375px
+      min-height: 204px
+      padding: 30px 15px 30px 20px
+      z-index: 2
+      display: none
+      transform: translate(0, -100%)
+      opacity: 0
+      &-title, &-text
+        color: $white
+        font-family: $font-lobster-reg
+        transform: rotate(-3deg)
+        text-align: center
+      &-title
+        font-size: 42px
+        text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
+      &-text
+        font-size: 26px
+        text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
+    .popupBubleAnim
+      transition: all .6s ease-in-out
+      transform: translate(0, 0)
+      opacity: 1
+    &__main
+      background: url("../img/popups/popup-main-bg.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      width: 495px
+      height: 545px
+      z-index: 1
+      display: flex
+      flex-direction: column
+      align-items: center
+      position: relative
+      opacity: 0
+    .popupMainAnim
+      opacity: 1
+      transition: all .6s ease-in-out
+    &__title
+      transform: scale(1.25) rotate(-3deg)
+      opacity: 0
+      font-size: 42px
+      color: rgba($light-yellow, .52)
+      text-align: center
+      text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+      -webkit-text-stroke-width: 1px
+      -webkit-text-stroke-color: $light-yellow
+      font-family: $font-lobster-reg
+      background: $yellow
+      background-clip: text
+      z-index: 3
+      position: relative
+    .popupTitleAnim
+      transform: scale(1) rotate(-3deg)
+      opacity: 1
+      transition: all .6s ease-in-out
+    &__prize
+      position: relative
+      transform: scale(1.2)
+      opacity: 0
+      picture
+        position: relative
+        z-index: 1
+      &::before, &::after
+        content: ""
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 0
+      &::before
+        background: url("../img/popups/prize-decor-big.svg") no-repeat 0 0/cover
+        background-size: 100% 100%
+        animation: spin 8s linear infinite
+      &::after
+        background: url("../img/popups/prize-decor-small.svg") no-repeat 0 0/cover
+        background-size: 100% 100%
+        animation: spin 8.3s linear infinite
+
+      &-bottom._bonus
+        display: none
+      &-bottom
+        position: relative
+        z-index: 3
+        color: $white
+        font-family: $font-suisse-intl-reg
+        font-size: 12px
+        text-align: center
+        max-width: 235px
+        background: #15005C
+        border-radius: 10px
+        padding: 9px 5px 8px 5px
+        margin: -105px 0 0 0
+        &::before
+          content: ""
+          display: block
+          width: 37px
+          height: 22px
+          background: url("../img/popups/contact-icon.png") no-repeat 0 0/contain
+          position: absolute
+          top: 0
+          left: 50%
+          transform: translate(-50%, -50%)
+
+    .popupPrizeAnim
+      animation: popupPrizeAnim .6s ease-in-out
+      transform: scale(1)
+      opacity: 1
+      transition: all .6s ease-in-out
+    &__decor
+      &-left, &-right
+        position: absolute
+        width: 100%
+        height: 100%
+        z-index: 2
+        top: 23px
+        left: 0
+        &:before, &:after
+          position: absolute
+          content: ""
+          display: block
+          background: url("../img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
+          background-size: 100% 100%
+          filter: drop-shadow(0px 0px 2px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 0px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 10px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 0px rgba(0, 198, 255, 0.62))
+      &-left
+        &::before
+          width: 94px
+          height: 58px
+          transform: rotate(17deg) scale(-1, -1)
+          top: 50px
+          //left: 41px
+          left: 0
+          opacity: 0
+          transition: all .6s ease-in-out
+        &::after
+          width: 75px
+          height: 46px
+          transform: rotate(-12deg) scale(-1, -1)
+          top: 210px
+          //left: 41px
+          left: 0
+          opacity: 0
+          transition: all .8s ease-in-out
+      &-right
+        &::after
+          width: 75px
+          height: 46px
+          transform: rotate(-17deg)
+          top: 50px
+          //right: 51px
+          right: 0
+          opacity: 0
+          transition: all .6s ease-in-out
+        &::before
+          width: 94px
+          height: 58px
+          transform: rotate(12deg)
+          top: 190px
+          //right: 41px
+          right: 0
+          opacity: 0
+          transition: all .8s ease-in-out
+
+
+    .popupLeftArrAnim
+      &::before, &::after
+        left: 41px
+        opacity: 1
+    .popupRightArrAnim
+      &::before
+        right: 41px
+        opacity: 1
+      &::after
+        right: 56px
+        opacity: 1
+    &__bottom
+      display: none
+      //display: flex
+      flex-direction: column
+      align-items: center
+      position: relative
+      z-index: 3
+      &._done
+        .popup
+          &__bottom
+            &-title
+                font-size: 14px
+                line-height: 22px
+                color: $white
+                font-family: $font-suisse-intl-med
+                text-align: center
+                max-width: 285px
+          &__prize
+            &-title
+              font-family: $font-lobster-reg
+              color: $white
+              transform: rotate(-2.867deg)
+              position: relative
+              width: 260px
+              display: flex
+              align-items: center
+              justify-content: center
+              margin-top: 10px
+              flex-direction: column
+              &-item
+                &:nth-child(1)
+                  font-size: 30px
+                  line-height: 34px
+                  text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
+                  text-align: center
+                  text-transform: uppercase
+                  display: flex
+                  justify-content: space-between
+                  align-items: center
+                  width: 100%
+                  &:before, &:after
+                    content: ""
+                    display: block
+                    width: 54px
+                    height: 33px
+                    background: url("../img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
+                    background-size: 100% 100%
+                    filter: drop-shadow(0px 0px 15px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62))
+                  &::before
+                    transform: scale(-1, -1)
+
+                &:nth-child(2)
+                  font-size: 20px
+                  line-height: 34px
+                  text-shadow: 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62), 0px 0px 55px rgba(0, 198, 255, 0.62)
+            &-text
+              color: $white
+              font-size: 13px
+              line-height: 18px
+              font-family: $font-suisse-intl-reg
+              margin-top: 5px
+          &__wrap
+            position: relative
+          &__text
+            font-size: 24px
+            color: rgba($light-yellow, .52)
+            text-align: center
+            text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+            -webkit-text-stroke-width: 1px
+            -webkit-text-stroke-color: $light-yellow
+            font-family: $font-lobster-reg
+            background: $yellow
+            background-clip: text
+            margin-top: 15px
+            z-index: 2
+          &__btn
+            //width: 185px
+            padding: 0 25px
+            height: 62px
+            z-index: 1
+            background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+            background-size: 100% 100%
+            display: inline flex
+            align-items: center
+            justify-content: center
+            transition: background .4s ease-in-out
+            color: $white
+            font-size: 16px
+            font-family: $font-suisse-intl-bold
+            text-shadow: 3.75px 5.25px 3px rgba(0, 0, 0, 0.25), 1.5px 1.5px 0.75px #108662
+            position: relative
+            margin-top: 10px
+            &::before
+              content: ""
+              display: block
+              width: 90%
+              height: 90%
+              position: absolute
+              box-shadow: 0px 0px 20px 0px #76FFD5
+            &:hover
+              background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+              background-size: 100% 100%
+              cursor: pointer
+      &._incomplete
+        .popup
+          &__btn
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+            width: 100%
+            position: relative
+            z-index: 1
+            margin-bottom: -60px
+            &-left, &-right
+              width: 178px
+              height: 61px
+              background-size: 100% 100%
+              display: flex
+              align-items: center
+              justify-content: center
+              font-size: 16px
+              line-height: 18px
+              text-align: center
+              font-family: $font-suisse-intl-bold
+              color: $white
+              text-transform: uppercase
+              text-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25), 2px 2px 1px #108662
+              &::before
+                content: ""
+                display: block
+                z-index: -1
+                position: absolute
+                width: 130px
+                height: 10px
+                box-shadow: 0px 0px 16px 16px #76FFD5
+              span
+                font-family: inherit
+                color: inherit
+                font-size: inherit
+              //&:hover
+              //  &::before
+              //    box-shadow: 0px 0px 44px 24px #7FFFD7
+            &-left
+              background: url("../img/progress/mob-btn-left.png") no-repeat 0 0/cover
+              background-size: 100% 100%
+              padding: 3px 7px 0 0
+              transition: background .6s ease-in-out
+              margin-right: 10px
+              &:hover
+                background: url("../img/progress/mob-btn-left-hover.png") no-repeat 0 0/cover
+                background-size: 100% 100%
+              span
+                transform: rotate(2.004deg)
+                position: relative
+                z-index: 1
+            &-right
+              background: url("../img/progress/mob-btn-right.png") no-repeat 0 0/cover
+              background-size: 100% 100%
+              padding: 3px 0 0 7px
+              transition: background .6s ease-in-out
+              &:hover
+                background: url("../img/progress/mob-btn-right-hover.png") no-repeat 0 0/cover
+                background-size: 100% 100%
+              span
+                transform: rotate(-2.004deg)
+                position: relative
+                z-index: 1
+            &-wrap
+              display: flex
+              justify-content: space-between
+              margin-top: 15px
+          &__prize
+            &-text
+              text-align: center
+              font-size: 14px
+              line-height: 18px
+              color: $white
+              font-family: $font-suisse-intl-reg
+              margin-top: 5px
+          &__days
+            display: flex
+            align-items: center
+            justify-content: center
+            position: relative
+            margin-top: 15px
+            &::before
+              content: ""
+              position: absolute
+              right: -23px
+              top: 7px
+              width: 34px
+              height: 34px
+              background: url("../img/days/days-gift.svg") no-repeat 0 0/contain
+            &-item
+              width: 59px
+              height: 48px
+              &-text
+                font-size: 12px
+                line-height: 12px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: flex-start
+                padding-top: 3px
+                span
+                  font-family: inherit
+                  font-size: 30px
+                  line-height: 30px
+                  margin-bottom: -15px
+              &:not(:last-child)
+                margin-right: -5px
+              &.past, &.next
+                background: url("../img/days/next-mob.png") no-repeat 0 0/cover
+                background-size: 100% 100%
+              &.active
+                background: url("../img/days/active-mob.png") no-repeat 0 0/cover
+                background-size: 100% 100%
+              &.active, &.past
+                .popup__days-item-text
+                  color: rgba($light-yellow, .52)
+                  text-align: center
+                  text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+                  -webkit-text-stroke-width: 1px
+                  -webkit-text-stroke-color: $light-yellow
+                  font-family: $font-lobster-reg
+                  background: $yellow
+                  background-clip: text
+              &.next
+                .popup__days-item-text
+                  font-family: $font-lobster-reg
+                  color: $purple
+          &__text
+            font-size: 24px
+            color: rgba($light-yellow, .52)
+            text-align: center
+            text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+            -webkit-text-stroke-width: 1px
+            -webkit-text-stroke-color: $light-yellow
+            font-family: $font-lobster-reg
+            background: $yellow
+            background-clip: text
+            margin-top: 5px
+            z-index: 2
+    &__pers
+      transform: translate(0, 60%)
+      opacity: 0
+      picture
+        display: none
+    .popupPersAnim
+      transform: translate(0, 0)
+      opacity: 1
+      transition: all .6s ease-in-out
+    &._iphone
+      .popup
+        &__buble._iphone
+          display: block
+        &__item._iphone
+          display: block
+        &__main
+          padding: 15px 0 0 0
+        &__buble
+          margin: 0 0 -10px -50px
+        &__pers
+          align-self: center
+          max-width: 435px
+          z-index: 0
+          margin: -20px 0 -205px 0
+          ._iphone
+            display: block
+        &__title
+          //transform: rotate(-3deg)
+        &__prize
+          z-index: 1
+          margin: -65px 0 0 10px
+          max-width: 350px
+    &._ecoflow
+      .popup
+        &__buble._ecoflow
+          display: block
+        &__pers
+          max-width: 250px
+          margin: -25px auto -200px 125px
+          ._ecoflow
+            display: block
+        &__title
+          //transform: rotate(-3deg)
+          margin-top: 15px
+        &__prize
+          max-width: 360px
+          margin-top: -75px
+        &__item._ecoflow
+          display: block
+    &._bonus
+      .popup
+        &__buble._bonus, &__item._bonus
+          display: block
+        &__buble._bonus
+          display: flex
+          align-items: center
+          justify-content: center
+          transform: rotate(-5.474deg)
+        &__btn-wrap
+          display: none
+        &__buble
+          padding-top: 0
+          margin-left: -40px
+          &-text
+            font-size: 30px
+            line-height: 41px
+            max-width: 340px
+        &__pers
+          max-width: 410px
+          margin: -70px auto -75px 70px
+          ._bonus
+            display: block
+        &__title
+          line-height: 42px
+          //transform: rotate(-3deg)
+          margin-top: 15px
+        &__prize
+          &-bottom
+            display: none
+          &-bottom._bonus
+            display: block
+          &-bottom
+            margin-top: 25px
+            a
+              color: inherit
+              font-family: inherit
+              font-size: inherit
+              text-decoration: underline
+              &:hover
+                cursor: pointer
+                text-decoration: none
+            &::before
+              background: url("../img/popups/account-icon.png") no-repeat 0 0/contain
+        &__main
+          height: 460px
+        &__bottom._done
+          .popup__btn
+            display: none
+        &__btn
+          width: 185px
+          height: 62px
+          z-index: 1
+          background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+          background-size: 100% 100%
+          display: flex
+          align-items: center
+          justify-content: center
+          transition: background .4s ease-in-out
+          color: $white
+          font-size: 16px
+          font-family: $font-suisse-intl-bold
+          text-shadow: 3.75px 5.25px 3px rgba(0, 0, 0, 0.25), 1.5px 1.5px 0.75px #108662
+          position: relative
+          margin-top: 15px
+          &::before
+            content: ""
+            display: block
+            width: 90%
+            height: 90%
+            position: absolute
+            box-shadow: 0px 0px 10px 0px #76FFD5
+          &:hover
+            background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+            background-size: 100% 100%
+            cursor: pointer
+        &__item._bonus
+          display: flex
+          flex-direction: column
+          align-items: center
+    &._merch
+      .popup
+        &__buble._merch, &__item._merch
+          display: block
+        &__prize
+          max-width: 370px
+          margin-top: -70px
+          &-bottom
+            margin-top: -120px
+        &__buble
+          padding-top: 20px
+        &__title
+          //transform: rotate(-3deg)
+          margin-top: 15px
+        &__pers
+          max-width: 290px
+          margin: -30px auto -65px 100px
+          ._merch
+            display: block
+    &._nothing
+      .popup
+        &__buble._nothing
+          display: block
+          margin-left: -30px
+          transform: rotate(-5.474deg)
+        &__main
+          height: 310px
+          //width: 495px
+          padding-top: 73px
+          background: url("../img/popups/popup-main-bg-small.png") no-repeat 0 0/cover
+          background-size: 100% 100%
+        &__prize
+          &-bottom
+            display: none
+          &-text
+            font-size: 14px
+        &__pers
+          max-width: 285px
+          margin: -30px auto -55px auto
+          ._nothing
+            display: block
+
+
 
 
 ///// animations
@@ -989,8 +1662,8 @@ body
 
 ._opacity
   opacity: 1
-  transition: opacity 2s ease-in-out
-
+._zIndex
+  z-index: 10
 @keyframes salut-one
   0%
     opacity: 0
@@ -1065,6 +1738,12 @@ body
   50%
     transform: scale(1.2)
 
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
 .daysAnim
   animation: scaleAnimation 1s ease-in-out infinite
 
@@ -1079,3 +1758,9 @@ body
 //
 //.wheelScale
 //  animation: wheelScale 2s ease-in-out
+
+
+
+
+
+
