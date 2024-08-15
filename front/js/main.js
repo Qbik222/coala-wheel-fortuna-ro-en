@@ -143,7 +143,7 @@ function firstSpin(sections, btn, wheel, arrow, prize, spinBg, salut){
     })
 }
 
-firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
+firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, getRandomPrize(prizes), spinBg, salut)
 
 
 
