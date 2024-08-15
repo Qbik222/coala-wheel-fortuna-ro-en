@@ -1,6 +1,7 @@
 const days = document.querySelectorAll(".wheel__days-item")
 const popupDays = document.querySelectorAll(".popup__days-item");
-let currentDay = 4
+const popupDaysMob = document.querySelectorAll(".days__item");
+let currentDay = 5
 
 function setDays(days, currentDay){
     days.forEach((day, i) =>{
@@ -35,6 +36,7 @@ function setDays(days, currentDay){
 
 setDays(days, currentDay)
 setDays(popupDays, currentDay)
+setDays(popupDaysMob, currentDay)
 // addAnimationClass()
 
 /// wheel logic
@@ -69,27 +71,32 @@ function showPopup(sections, wheel, showClass, currentDay, spinBg, closeBtn, pop
     const prize = document.querySelectorAll(".popup__prize")
     const buble = document.querySelectorAll(".popup__buble")
     const popupBody = document.querySelector(".popup__main")
-    const popupTitle = document.querySelector(".popup__title")
-    const popupLeftArrow = document.querySelector(".popup__decor-left")
-    const popupRightArrow = document.querySelector(".popup__decor-right")
+    const popupTitle = document.querySelectorAll(".popup__title")
+    const popupLeftArrow = document.querySelectorAll(".popup__decor-left")
+    const popupRightArrow = document.querySelectorAll(".popup__decor-right")
+    currentDay === 7 ? popupBody.classList.add("_done") : popup.classList.add("_incomplete")
+
     function addAnim(arr, classAnim){
         arr.forEach(item => item.classList.add(`${classAnim}`) )
     }
 
-
+    //popup animations
     popupBody.classList.add("popupMainAnim")
     setTimeout(() =>{
         addAnim(pers, "popupPersAnim")
         addAnim(buble, "popupBubleAnim")
     }, 600)
     setTimeout( () => addAnim(prize, "popupPrizeAnim"), 1200)
-    setTimeout( () => popupTitle.classList.add("popupTitleAnim"), 1800)
-    setTimeout( () => popupLeftArrow.classList.add("popupLeftArrAnim"), 2400)
-    setTimeout( () => popupRightArrow.classList.add("popupRightArrAnim"), 2700)
+    setTimeout( () => popupTitle.forEach(item => item.classList.add("popupTitleAnim")), 1800)
+    setTimeout( () => popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim")), 2400)
+    setTimeout( () => popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim")), 2700)
+
+    //popup animations
+
 
     closeBtn.addEventListener("click", () =>{
         wheel.classList.add("_lock")
-        wheel.style.transform = "scale(1)"
+        wheel.classList.remove("wheelSizeIncrease")
         document.body.style.overflow = "auto"
         popupContainer.classList.remove("_opacity", "_zIndex")
         popup.classList.remove(`${showClass}`, '_done', '_incomplete')
@@ -133,21 +140,21 @@ function firstSpin(sections, btn, wheel, arrow, prize, spinBg, salut){
     })
 }
 
-firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "iphone", spinBg, salut)
+firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
 
 
 
-// getRandomPrize(prizes)
+
 
 
 //// accordion
 
-const accordionHeaders = document.querySelectorAll('.accordion-header');
+const accordionHeaders = document.querySelectorAll('.accordion__header');
 accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const content = header.nextElementSibling;
 
-        document.querySelectorAll('.accordion-content').forEach(item => {
+        document.querySelectorAll('.accordion__content').forEach(item => {
             if (item !== content) {
                 item.style.display = 'none';
                 item.previousElementSibling.classList.remove('open');
@@ -162,5 +169,43 @@ accordionHeaders.forEach(header => {
         }
     });
 });
+
+
+//// for test
+
+const btnsWrap = document.querySelector('.btns-wrap');
+
+const buttons = btnsWrap.querySelectorAll('button');
+
+const dropIphoneButton = document.querySelector('.drop-iphone');
+const dropEcoflowButton = document.querySelector('.drop-ecoflow');
+const dropNothingButton = document.querySelector('.drop-nothing');
+const dropMerchButton = document.querySelector('.drop-merch');
+const dropBonusButton = document.querySelector('.drop-bonus');
+const dropDone = document.querySelector('.drop-done');
+// const dropIncomplete = document.querySelector('.drop-incomplete');
+const dropMenu = document.querySelector('.drop-menu');
+
+dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
+
+firstSpin(wheelSections, dropIphoneButton, wheelWrap, wheelArrow, "iphone", spinBg, salut)
+firstSpin(wheelSections, dropEcoflowButton, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
+firstSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, "nothing", spinBg, salut)
+firstSpin(wheelSections, dropMerchButton, wheelWrap, wheelArrow, "merch", spinBg, salut)
+firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
+
+buttons.forEach(item =>{
+    item.addEventListener("click", () => {
+        wheelSections.style.animationDuration = "0.1s"
+        wheelSections.addEventListener("animationend", () =>{
+            wheelSections.style.animationDuration = "8s"
+        })
+    })
+})
+
+dropDone.addEventListener("click", () => currentDay = 7)
+// localStorage.setItem(currentDay, currentDay)
+// dropIncomplete.addEventListener("click", () => currentDay = 3)
+
 
 

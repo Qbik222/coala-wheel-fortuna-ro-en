@@ -1,3 +1,15 @@
+.drop
+    button.drop-menu popups
+    .btns-wrap._hidden
+        button.drop-iphone iphone
+        button.drop-ecoflow ecoflow
+        button.drop-nothing nothing
+        button.drop-merch merch
+        button.drop-bonus bonus
+        button.drop-done done-popup
+        //button.drop-incomplete incomplete-popup
+
+
 .fav-page
     .wheel
         .spin-bg
@@ -10,7 +22,9 @@
             .firework
             .firework
         .wheel__logo
-            img(src="./img/wheel/wheel-logo.png" alt="favbet")
+            picture
+                source(srcset="../img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
+                img(src="./img/wheel/wheel-logo.png" alt="favbet")
         .wheel__wrap
             .wheel__lock-buble
                 .wheel__lock-title Сьогодні ти вже зробив прокрут.
@@ -41,23 +55,38 @@
                         .wheel__days-item #[span.wheel__days-item-text #[span 7] <br> день]
     .progress
         .progress__top
-            a(href="#").progress__top-left #[span грати в казино]
+            a(href="#").progress__top-left #[span грати <br> в казино]
             .progress__bar
                 .progress__bar-thumb
                     .progress__bar-wrap
                         .progress__bar-line
                             .progress__bar-status 1000 ₴
                     .progress__bar-sum #[span.current 1000] / #[span.total 2000 ₴]
-            a(href="#").progress__top-right #[span ставити на спорт]
+            a(href="#").progress__top-right #[span ставити <br> на спорт]
         .progress__bottom
             .progress__bottom-wrap
                 .progress__bottom-title 1 день - 1 спроба
                 .progress__bottom-text Зроби оборот виграшних ставок на 2 000 ₴ та отримай оберт у «Колесі Сема»
 
+    .days
+        .days__title Челендж від Сема крути 7 днів поспіль
+        .days__wrap
+            .days__container
+                .days__item #[span.days__item-text #[span 1] <br> день]
+                .days__item #[span.days__item-text #[span 2] <br> день]
+                .days__item #[span.days__item-text #[span 3] <br> день]
+                .days__item #[span.days__item-text #[span 4] <br> день]
+                .days__item #[span.days__item-text #[span 5] <br> день]
+                .days__item #[span.days__item-text #[span 6] <br> день]
+                .days__item #[span.days__item-text #[span 7] <br> день]
+            .days__text Виконуй челендж та автоматично отримуй додатковий бонус
+            .days__prize
+                .days__prize-item 202 FS
+                .days__prize-item + 207 ₴ страховка ставки
     .accordion
-        .accordion-item
-            .accordion-header Коли та як можна крутити колесо ?
-            .accordion-content
+        .accordion__item
+            .accordion__header #[span.accordion__header-text Коли та як можна крутити колесо ?]
+            .accordion__content
                 p 1. Як взяти участь?
                 p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
                 p 2. Набір балів
@@ -72,9 +101,9 @@
                 p Чим більше балів, тим більше шансів здобути приз.
                 p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                 p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
-        .accordion-item
-            .accordion-header Як рахуються  бали в прогрес-бар ?
-            .accordion-content
+        .accordion__item
+            .accordion__header #[span.accordion__header-text Як рахуються  бали в прогрес-бар ?]
+            .accordion__content
                 p 1. Як взяти участь?
                 p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
                 p 2. Набір балів
@@ -89,9 +118,9 @@
                 p Чим більше балів, тим більше шансів здобути приз.
                 p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                 p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
-        .accordion-item
-            .accordion-header Які бонуси та фізичні призи я можу отримати ?
-            .accordion-content
+        .accordion__item
+            .accordion__header #[span.accordion__header-text Які бонуси та фізичні призи я можу отримати ?]
+            .accordion__content
                 p 1. Як взяти участь?
                 p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
                 p 2. Набір балів
@@ -106,9 +135,9 @@
                 p Чим більше балів, тим більше шансів здобути приз.
                 p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                 p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
-        .accordion-item
-            .accordion-header Що таке «Челендж від Сема» ?
-            .accordion-content
+        .accordion__item
+            .accordion__header #[span.accordion__header-text Що таке «Челендж від Сема» ?]
+            .accordion__content
                 p 1. Як взяти участь?
                 p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
                 p 2. Набір балів
@@ -123,9 +152,9 @@
                 p Чим більше балів, тим більше шансів здобути приз.
                 p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                 p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
-        .accordion-item._rules
-            .accordion-header Офіційні правила акції
-            .accordion-content
+        .accordion__item._rules
+            .accordion__header #[span.accordion__header-text Офіційні правила акції]
+            .accordion__content
                     p 1. Як взяти участь?
                     p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
                     p 2. Набір балів
@@ -141,6 +170,7 @@
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
     .popups
+        .fav-header-bar
         .popup
             .popup__buble._iphone
                 .popup__buble-title Оце так везіння!
@@ -215,7 +245,7 @@
                         .popup__days-item #[span.popup__days-item-text #[span 7] <br> день]
                     .popup__btn-wrap
                         a(href="#").popup__btn-left #[span грати <br> в казино]
-                        a(href="#").popup__btn-right ставити <br> на спорт
+                        a(href="#").popup__btn-right #[span ставити <br> на спорт]
                 .popup__bottom._done
                     .popup__text Мій челендж пройдено! Лови бонус:
                     .popup__prize-title
@@ -224,3 +254,4 @@
                     .popup__prize-text Активуй бонус протягом 3 днів в Особистому кабінеті
                     a(href="#").popup__btn ЗАБРАТИ БОНУС
                 .popup__close
+        .fav-bottom-bar
