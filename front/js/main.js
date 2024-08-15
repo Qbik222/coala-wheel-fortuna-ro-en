@@ -12,27 +12,30 @@ function setDays(days, currentDay){
     })
 }
 
-// function addAnimationClass() {
-//     const pastAndActive = document.querySelectorAll(".wheel__days-item.past, .wheel__days-item.active");
-//     console.log(pastAndActive)
-//
-//     pastAndActive.forEach((item, i) => {
-//         let day = item.querySelector(".wheel__days-item-text")
-//         const randomDelay = Math.random() * 20000;
-//
-//         setTimeout(() => {
-//             // console.log(day)
-//             day.style.animationDelay = `${i/ 2}s`;
-//             day.classList.add('daysAnim');
-//             day.addEventListener("click", () =>{
-//                 console.log(day)
-//                 day.classList.remove('daysAnim');
-//             }, {once: true})
-//         }, randomDelay);
-//     });
-// }
+function daysRemind(days, classAnim) {
+    let delay = 900;
+    days.forEach((day, i) => {
+        setTimeout(() => {
+            day.classList.add(classAnim);
+            setTimeout(() => day.classList.remove(classAnim), 1200)
+        }, delay * i);
+    });
+}
+
+const randomInterval = Math.random() * (20000 - 10000) + 10000;
 
 
+function startRandomInterval() {
+    const randomInterval = Math.random() * (20000 - 10000) + 10000; // Випадковий інтервал між 10 і 20 секундами
+    daysRemind(days, "remind");
+    daysRemind(popupDays, "remind");
+    daysRemind(popupDaysMob, "remind");
+    setTimeout(startRandomInterval, randomInterval);
+}
+
+// Запускаємо перший раз
+startRandomInterval();
+daysRemind(days, "remind")
 
 setDays(days, currentDay)
 setDays(popupDays, currentDay)
