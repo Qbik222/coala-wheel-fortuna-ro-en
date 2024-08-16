@@ -186,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const dropMerchButton = document.querySelector('.drop-merch');
     const dropBonusButton = document.querySelector('.drop-bonus');
     const dropDone = document.querySelector('.drop-done');
+    const dropLock = document.querySelector('.drop-lock');
 // const dropIncomplete = document.querySelector('.drop-incomplete');
     const dropMenu = document.querySelector('.drop-menu');
 
@@ -206,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         })
     })
 
+    dropLock.addEventListener("click", () => wheelWrap.classList.toggle("_lock"))
     dropDone.addEventListener("click", () => currentDay = 7)
 // localStorage.setItem(currentDay, currentDay)
 // dropIncomplete.addEventListener("click", () => currentDay = 3)
