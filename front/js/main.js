@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         });
     }
 
-    const randomInterval = Math.random() * (20000 - 10000) + 10000;
+    // const randomInterval = Math.random() * (20000 - 10000) + 10000;
+    const randomInterval = Math.random() * (6000 - 4000) + 4000;
 
 
     function startRandomInterval() {
@@ -108,13 +109,13 @@ document.addEventListener("DOMContentLoaded", () =>{
     function spinWheel(position, animation, sections, btn, wheel, arrow, prize, spinBg, salut){
         sections.addEventListener("animationend", () =>{
             sections.style.transform = `translate(-50%, -50%) rotate(${position}deg)`
+            prize === "nothing" ? null : salut.classList.add("_opacity")
             console.log(prize)
         }, {once: true})
         sections.classList.add(`${animation}`)
         arrow.style.opacity = "0"
         wheel.classList.add("wheelSizeIncrease")
         spinBg.classList.add("showSpinBg")
-        salut.classList.add("_opacity")
         btn.style.pointerEvents = "none"
     }
 
