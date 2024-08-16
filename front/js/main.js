@@ -147,6 +147,9 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
 
+
+
+
 //// accordion
 
     const accordionHeaders = document.querySelectorAll('.accordion__header');
@@ -172,38 +175,38 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
 //// for test
-//
-//     const btnsWrap = document.querySelector('.btns-wrap');
-//
-//     const buttons = btnsWrap.querySelectorAll('button');
-//
-//     const dropIphoneButton = document.querySelector('.drop-iphone');
-//     const dropEcoflowButton = document.querySelector('.drop-ecoflow');
-//     const dropNothingButton = document.querySelector('.drop-nothing');
-//     const dropMerchButton = document.querySelector('.drop-merch');
-//     const dropBonusButton = document.querySelector('.drop-bonus');
-//     const dropDone = document.querySelector('.drop-done');
-// // const dropIncomplete = document.querySelector('.drop-incomplete');
-//     const dropMenu = document.querySelector('.drop-menu');
-//
-//     dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
-//
-//     firstSpin(wheelSections, dropIphoneButton, wheelWrap, wheelArrow, "iphone", spinBg, salut)
-//     firstSpin(wheelSections, dropEcoflowButton, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
-//     firstSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, "nothing", spinBg, salut)
-//     firstSpin(wheelSections, dropMerchButton, wheelWrap, wheelArrow, "merch", spinBg, salut)
-//     firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
-//
-//     buttons.forEach(item =>{
-//         item.addEventListener("click", () => {
-//             wheelSections.style.animationDuration = "0.1s"
-//             wheelSections.addEventListener("animationend", () =>{
-//                 wheelSections.style.animationDuration = "8s"
-//             })
-//         })
-//     })
-//
-//     dropDone.addEventListener("click", () => currentDay = 7)
+
+    const btnsWrap = document.querySelector('.btns-wrap');
+
+    const buttons = btnsWrap.querySelectorAll('button');
+
+    const dropIphoneButton = document.querySelector('.drop-iphone');
+    const dropEcoflowButton = document.querySelector('.drop-ecoflow');
+    const dropNothingButton = document.querySelector('.drop-nothing');
+    const dropMerchButton = document.querySelector('.drop-merch');
+    const dropBonusButton = document.querySelector('.drop-bonus');
+    const dropDone = document.querySelector('.drop-done');
+// const dropIncomplete = document.querySelector('.drop-incomplete');
+    const dropMenu = document.querySelector('.drop-menu');
+
+    dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
+
+    firstSpin(wheelSections, dropIphoneButton, wheelWrap, wheelArrow, "iphone", spinBg, salut)
+    firstSpin(wheelSections, dropEcoflowButton, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
+    firstSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, "nothing", spinBg, salut)
+    firstSpin(wheelSections, dropMerchButton, wheelWrap, wheelArrow, "merch", spinBg, salut)
+    firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
+
+    buttons.forEach(item =>{
+        item.addEventListener("click", () => {
+            wheelSections.style.animationDuration = "0.1s"
+            wheelSections.addEventListener("animationend", () =>{
+                wheelSections.style.animationDuration = "8s"
+            })
+        })
+    })
+
+    dropDone.addEventListener("click", () => currentDay = 7)
 // localStorage.setItem(currentDay, currentDay)
 // dropIncomplete.addEventListener("click", () => currentDay = 3)
 
