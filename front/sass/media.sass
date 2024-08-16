@@ -455,14 +455,17 @@
       position: relative
       margin-bottom: -43px
       text-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25), 1px 2px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 17px rgba(255, 229, 0, 0.30), 0px 0px 7px rgba(255, 230, 14, 0.70)
-      &::before
+      &::before, &::after
         content: ""
         position: absolute
         right: -77px
         top: 80px
         width: 22px
         height: 22px
-        background: url("../img/days/days-gift.svg") no-repeat 0 0/contain
+        background: url("../img/days/days-gift.png") no-repeat 0 0/contain
+      &::after
+        background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
+        animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
     &__text
       color: $white
       text-align: center

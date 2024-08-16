@@ -1407,14 +1407,17 @@ body
             justify-content: center
             position: relative
             margin-top: 15px
-            &::before
+            &::before, &::after
               content: ""
               position: absolute
               right: -23px
               top: 7px
               width: 34px
               height: 34px
-              background: url("../img/days/days-gift.svg") no-repeat 0 0/contain
+              background: url("../img/days/days-gift.png") no-repeat 0 0/contain
+            &::after
+              background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
+              animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
             &-item
               width: 59px
               height: 48px
