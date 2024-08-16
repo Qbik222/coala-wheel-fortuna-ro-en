@@ -120,8 +120,6 @@ body
       top: 20%
       right: 13%
       animation: salut-one 2.3s ease-in-out infinite
-
-
 .fav-page
   background: url("../img/bg-desc.jpg") no-repeat 50% 0/cover
   background-size: 100% auto
@@ -164,15 +162,32 @@ body
         &__lock
           &-buble
             display: flex
-        &__sections
-          filter: brightness(.4)
+        //&__sections
+          //filter: brightness(.4)
+        &__border
+          &::before
+            content: ""
+            display: block
+            background: #0F0043
+            opacity: .6
+            position: absolute
+            border-radius: 50%
+            top: 91px
+            left: 92px
+            width: 74%
+            height: 74.5%
+            @media screen and (max-width: 870px)
+              top: 70px
+              left: 71px
         &__arrow
           display: none
         &__btn
           filter: grayscale(1)
           pointer-events: none
+          &::before
+            background: url("../img/wheel/btn-bg-lock.png") no-repeat 0 0/contain
           &-text
-            filter: grayscale(1) brightness(.75)
+            filter: grayscale(1) brightness(.78)
             text-shadow: none
           &::after
             content: none
@@ -205,7 +220,6 @@ body
       animation: spinWheelDecor 25s linear infinite
       @media screen and (max-width: 1050px)
         background: url("../img/wheel/mob/wheel-decor.png") no-repeat 0 0/contain
-
   &__leg
     position: absolute
     bottom: -55px
@@ -216,7 +230,6 @@ body
     background: url("../img/wheel/wheel-leg.png") no-repeat 0 0/contain
     @media screen and (max-width: 1050px)
       background: url("../img/wheel/mob/wheel-leg.png") no-repeat 0 0/contain
-
   &__sections, &__border, &__bulbs, &__btn
     position: absolute
     top: 50%
@@ -932,33 +945,35 @@ body
       width: 40px
       height: 40px
       background: url("../img/drop-arrow.png") no-repeat 0 0/contain
-
-
   &__content
     display: none
     padding: 35px 20px 15px 20px
-    color: $white
     border: 2px solid #313FFF
     background-color: $blue
     border-radius: 20px
     margin-top: 5px
-    font-family: $font-suisse-intl-reg
-    font-size: 17px
-    line-height: 27px
-    max-height: 360px
-    overflow: auto
-    &::-webkit-scrollbar
-      width: 3px
-      background: transparent
-    &::-webkit-scrollbar-thumb
-      width: 3px
-      background: $magenta
-    p
-      font-family: inherit
-      font-size: inherit
-      color: inherit
-      &:not(:last-child)
-        margin-bottom: 15px
+    overflow: hidden
+    &-wrap
+      overflow: auto
+      height: 330px
+      font-family: $font-suisse-intl-reg
+      font-size: 17px
+      line-height: 27px
+      max-height: 360px
+      color: $white
+      &::-webkit-scrollbar
+        padding: 10px
+        width: 3px
+        background: transparent
+      &::-webkit-scrollbar-thumb
+        width: 3px
+        background: $magenta
+      p
+        font-family: inherit
+        font-size: inherit
+        color: inherit
+        &:not(:last-child)
+          margin-bottom: 15px
 
 .popups
   //z-index: 10
@@ -970,7 +985,14 @@ body
   width: 100%
   height: 100%
   min-height: 1170px
-  background: rgba($dark-blue, .7)
+  background: url("../img/bg-desc.jpg") no-repeat 50% 0/cover
+  @media screen and (max-width: 1050px)
+    background: url("../img/bg-tab.jpg") no-repeat 50% 0/contain
+  @media screen and (max-width: 600px)
+    background: url("../img/bg-mob.jpg") no-repeat 50% 0/contain
+  @media screen and (max-width: 950px) and (max-height: 450px) and (orientation: landscape)
+    background: url("../img/bg-landscape.jpg") no-repeat 50% 0/contain
+  //background: rgba($dark-blue, .7)
   .popup
     max-height: 100%
     position: absolute
@@ -1408,14 +1430,18 @@ body
                 background-size: 100% 100%
               &.active, &.past
                 .popup__days-item-text
-                  color: rgba($light-yellow, .52)
                   text-align: center
-                  text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
-                  -webkit-text-stroke-width: 1px
-                  -webkit-text-stroke-color: $light-yellow
                   font-family: $font-lobster-reg
-                  background: $yellow
-                  background-clip: text
+                  color: $light-yellow
+                  text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+
+                  span
+                    color: rgba($light-yellow, .52)
+                    text-shadow: 1px 1px 0px #AD7402, 0px 0px 24px rgba(255, 229, 0, 0.40), 0px 0px 5px rgba(255, 229, 0, 0.60)
+                    -webkit-text-stroke-width: 1px
+                    -webkit-text-stroke-color: $light-yellow
+                    background: $yellow
+                    background-clip: text
               &.next
                 .popup__days-item-text
                   font-family: $font-lobster-reg
