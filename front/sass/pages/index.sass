@@ -591,6 +591,15 @@ body
       z-index: 3
       &:hover
         cursor: pointer
+      &-decor
+        width: 55px
+        height: 56px
+        position: absolute
+        left: -43px
+        top: -10px
+        background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
+        z-index: 2
+        animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
       &::after
         content: ""
         display: block
@@ -599,6 +608,7 @@ body
         right: 0
         width: 100%
         height: 100%
+        z-index: 3
         background: url("../img/days/days-info-icon.svg") no-repeat 0 0/contain
       &::before
         content: ""
@@ -608,7 +618,7 @@ body
         position: absolute
         left: -43px
         top: -10px
-        background: url("../img/days/days-gift.svg") no-repeat 0 0/contain
+        background: url("../img/days/days-gift.png") no-repeat 0 0/contain
   &__buble
     position: absolute
     top: -70px
@@ -1931,6 +1941,18 @@ body
     transform: translate(-50%, -50%) rotate(0deg)
   100%
     transform: translate(-50%, -50%) rotate(360deg)
+
+@keyframes giftAnim
+  0%
+    transform: rotate(80deg)
+  25%
+    transform: rotate(180deg)
+  50%
+    transform: rotate(270deg)
+  75%
+    transform: rotate(360deg)
+  100%
+    transform: rotate(440deg)
 
 //@keyframes wheelScale
 //  0%
