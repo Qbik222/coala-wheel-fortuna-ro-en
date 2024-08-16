@@ -27,6 +27,64 @@ document.addEventListener("DOMContentLoaded", () =>{
     const randomInterval = Math.random() * (6000 - 4000) + 4000;
 
 
+
+    function addFireworks(containerSelector, numberOfFireworks) {
+        // Створення нового блоку .fireworks-wrap
+        const fireworksWrap = document.createElement('div');
+        fireworksWrap.className = 'fireworks-wrap';
+
+        // Додавання вказаної кількості .firework елементів до fireworksWrap
+        for (let i = 0; i < numberOfFireworks; i++) {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            fireworksWrap.appendChild(firework);
+        }
+
+        // Знаходимо контейнер, в який хочемо додати fireworksWrap
+        const container = document.querySelector(containerSelector);
+
+        // Додаємо fireworksWrap до контейнера
+        if (container) {
+            container.appendChild(fireworksWrap);
+        } else {
+            console.error(`Контейнер з селектором "${containerSelector}" не знайдено.`);
+        }
+    }
+
+    function removeFireworks(containerSelector) {
+        // Знаходимо контейнер
+        const container = document.querySelector(containerSelector);
+
+        // Якщо контейнер існує, знаходимо в ньому блок .fireworks-wrap і видаляємо його
+        if (container) {
+            const fireworksWrap = container.querySelector('.fireworks-wrap');
+            if (fireworksWrap) {
+                fireworksWrap.remove();
+            } else {
+                console.warn(`Елемент з класом ".fireworks-wrap" не знайдено в контейнері ${containerSelector}.`);
+            }
+        } else {
+            console.error(`Контейнер з селектором "${containerSelector}" не знайдено.`);
+        }
+    }
+
+// Використання функції для видалення блоку
+//     removeFireworks('.container');
+
+
+
+
+// Використання функції для додавання блоку
+//
+
+
+
+
+
+
+
+
+
     function startRandomInterval() {
         const randomInterval = Math.random() * (20000 - 10000) + 10000; // Випадковий інтервал між 10 і 20 секундами
         daysRemind(days, "remind");
@@ -66,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         return arr[Math.floor(Math.random() * prizes.length)];
     }
     function showPopup(sections, wheel, showClass, currentDay, spinBg, closeBtn, popupContainer, popup){
+        // document.querySelector(".fav-page").classList.add("popupBg")
         popup.classList.add(`${showClass}`)
+        popup.classList.contains('_nothing') === true ? null : addFireworks(".popups", 7)
         currentDay === 7 ? popup.classList.add("_done") : popup.classList.add("_incomplete")
         popupContainer.classList.add("_opacity", "_zIndex")
         document.body.style.overflow = "hidden"
@@ -79,6 +139,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         const popupLeftArrow = document.querySelectorAll(".popup__decor-left")
         const popupRightArrow = document.querySelectorAll(".popup__decor-right")
         currentDay === 7 ? popupBody.classList.add("_done") : popup.classList.add("_incomplete")
+        document.querySelector(".fav-page").classList.remove("bgScale")
+
+
 
         function addAnim(arr, classAnim){
             arr.forEach(item => item.classList.add(`${classAnim}`) )
@@ -99,22 +162,30 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
         closeBtn.addEventListener("click", () =>{
+            popup.classList.contains('_nothing') === true ? null : addFireworks(".wheel", 7)
             wheel.classList.add("_lock")
             wheel.classList.remove("wheelSizeIncrease")
             document.body.style.overflow = "auto"
             popupContainer.classList.remove("_opacity", "_zIndex")
             popup.classList.remove(`${showClass}`, '_done', '_incomplete')
+            removeFireworks(".popups");
+            console.log(popup.classList.contains('_nothing'))
+
+            // popupContainer.classList.contains('_nothing') === true ?  null :
+
+
         })
     }
     function spinWheel(position, animation, sections, btn, wheel, arrow, prize, spinBg, salut){
         sections.addEventListener("animationend", () =>{
             sections.style.transform = `translate(-50%, -50%) rotate(${position}deg)`
-            prize === "nothing" ? null : salut.classList.add("_opacity")
+            // prize === "nothing" ? null : salut.classList.add("_opacity", "_zIndex")
             console.log(prize)
         }, {once: true})
         sections.classList.add(`${animation}`)
         arrow.style.opacity = "0"
         wheel.classList.add("wheelSizeIncrease")
+        document.querySelector(".fav-page").classList.add("bgScale")
         spinBg.classList.add("showSpinBg")
         btn.style.pointerEvents = "none"
     }
