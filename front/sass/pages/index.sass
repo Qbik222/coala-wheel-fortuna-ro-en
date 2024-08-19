@@ -185,7 +185,49 @@ body
   flex-direction: column
   align-items: center
   position: relative
-  //overflow: hidden
+  &__sign
+    &-buble
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 331px
+      height: 159px
+      background: url("../img/wheel/mob/wheel-buble-bg.png") no-repeat 0 0/contain
+      z-index: 10
+      display: none
+      //display: flex
+      align-items: center
+      justify-content: center
+      padding-bottom: 5px
+    &-btn
+      padding: 0 25px
+      height: 62px
+      z-index: 1
+      background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      display: inline flex
+      align-items: center
+      text-transform: uppercase
+      justify-content: center
+      transition: background .4s ease-in-out
+      color: $white
+      font-size: 16px
+      font-family: $font-suisse-intl-bold
+      text-shadow: 3.75px 5.25px 3px rgba(0, 0, 0, 0.25), 1.5px 1.5px 0.75px #108662
+      position: relative
+      &::before
+        content: ""
+        display: block
+        width: 90%
+        height: 90%
+        position: absolute
+        box-shadow: 0px 0px 20px 0px #76FFD5
+      &:hover
+        background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+        background-size: 100% 100%
+        cursor: pointer
+
   &__days
     position: absolute
   &__logo
@@ -220,11 +262,17 @@ body
     justify-content: center
     transition: all ease-in-out
     transform-origin: center
+    &._sign
+      .wheel
+        &__sign-buble
+          display: flex
     &._lock
       .wheel
         &__lock
           &-buble
             display: flex
+    &._lock, &._sign
+      .wheel
         //&__sections
           //filter: brightness(.4)
         &__border
@@ -653,31 +701,33 @@ body
       width: 30px
       height: 30px
       z-index: 3
+      //background: url("../img/days/days-info-icon.png") no-repeat 0 0/contain
+      //transition: background .5s ease-in-out
       &:hover
         cursor: pointer
         &::after
-          background: url("../img/days/days-info-icon-hover.svg") no-repeat 0 0/contain
-
+          background: url("../img/days/days-info-icon-hover.png") no-repeat 0 0/contain
       &-decor
         width: 55px
         height: 56px
-        position: absolute
+        //position: absolute
         left: -43px
         top: -10px
         background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
-        z-index: 2
+        position: relative
+        z-index: 0
         animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
       &::after
         content: ""
         display: block
-        position: absolute
         top: 0
         right: 0
         width: 100%
         height: 100%
+        position: absolute
         z-index: 3
         transition: background .5s ease-in-out
-        background: url("../img/days/days-info-icon.svg") no-repeat 0 0/contain
+        background: url("../img/days/days-info-icon.png") no-repeat 0 0/contain
       &::before
         content: ""
         display: block
@@ -687,6 +737,7 @@ body
         left: -43px
         top: -10px
         background: url("../img/days/days-gift.png") no-repeat 0 0/contain
+        z-index: -1
   &__buble
     position: absolute
     top: -70px
@@ -818,10 +869,10 @@ body
       background: url("../img/progress/progress-status-bg.png") no-repeat 0 0/cover
       background-size: 100% 100%
       padding: 2px 10px 6px 29px
-      color: $yellow
-      text-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25), 1px 1px 0px #AD7402, 0px 0px 7px rgba(255, 230, 14, 0.70), 0px 0px 5px rgba(255, 229, 0, 0.60)
-      -webkit-text-stroke-width: 1px
-      -webkit-text-stroke-color: $light-yellow
+      color: #d4ba2c
+      //text-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25), 1px 1px 0px #AD7402, 0px 0px 7px rgba(255, 230, 14, 0.70), 0px 0px 5px rgba(255, 229, 0, 0.60)
+      //-webkit-text-stroke-width: 1px
+      //-webkit-text-stroke-color: $light-yellow
 
     &-sum
       position: relative
@@ -983,6 +1034,30 @@ body
       font-size: 17px
       line-height: 26px
       color: $white
+  &._lock, &._sign
+    .progress
+      &__top
+        &-left, &-right
+          background-size: 100% 100%
+          text-shadow: none
+          color: rgba($white, .3)
+          pointer-events: none
+          &::before
+            content: none
+        &-left
+          background: url("../img/progress/btn-left-lock.png") no-repeat 0 0/cover
+          background-size: 100% 100%
+          @media screen and (max-width: 870px)
+            background: url("../img/progress/mob-btn-left-lock.png") no-repeat 0 0/cover
+            background-size: 100% 100%
+            padding-top: 4px
+        &-right
+          background: url("../img/progress/btn-right-lock.png") no-repeat 0 0/cover
+          background-size: 100% 100%
+          @media screen and (max-width: 870px)
+            padding-top: 4px
+            background: url("../img/progress/mob-btn-right-lock.png") no-repeat 0 0/cover
+            background-size: 100% 100%
 
 .days
   display: none

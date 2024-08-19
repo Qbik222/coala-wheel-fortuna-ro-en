@@ -114,9 +114,11 @@ document.addEventListener("DOMContentLoaded", () =>{
     const popup = document.querySelector(".popup")
     const popupCloseBtn = document.querySelector(".popup__close")
 
-    bubleBtn.addEventListener("click", (e) =>{
-        wheelBuble.classList.toggle("_hidden")
-        document.addEventListener("click", (e) => {if(e.target !== bubleBtn) wheelBuble.classList.add("_hidden")})
+    bubleBtn.addEventListener("mouseover", (e) =>{
+        wheelBuble.classList.remove("_hidden")
+    })
+    bubleBtn.addEventListener("mouseout", (e) =>{
+        wheelBuble.classList.add("_hidden")
     })
 
     let prizes = ['iphone', 'ecoflow', 'merch', 'nothing', "bonuses"]
@@ -164,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         closeBtn.addEventListener("click", () =>{
             popup.classList.contains('_nothing') === true ? null : addFireworks(".wheel", 7)
             wheel.classList.add("_lock")
+            document.querySelector(".progress").classList.add("_lock")
             wheel.classList.remove("wheelSizeIncrease")
             document.body.style.overflow = "auto"
             popupContainer.classList.remove("_opacity", "_zIndex")
@@ -259,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const dropBonusButton = document.querySelector('.drop-bonus');
     const dropDone = document.querySelector('.drop-done');
     const dropLock = document.querySelector('.drop-lock');
+    const dropSign = document.querySelector('.drop-sign');
 // const dropIncomplete = document.querySelector('.drop-incomplete');
     const dropMenu = document.querySelector('.drop-menu');
 
@@ -279,12 +283,22 @@ document.addEventListener("DOMContentLoaded", () =>{
         })
     })
 
-    dropLock.addEventListener("click", () => wheelWrap.classList.toggle("_lock"))
+
+    dropLock.addEventListener("click", () =>{
+    wheelWrap.classList.toggle("_lock")
+    document.querySelector(".progress").classList.toggle("_lock")
+    })
+    dropSign.addEventListener("click", () =>{
+        wheelWrap.classList.toggle("_sign")
+        document.querySelector(".progress").classList.toggle("_sign")
+
+    })
+
     dropDone.addEventListener("click", () => currentDay = 7)
-// localStorage.setItem(currentDay, currentDay)
-// dropIncomplete.addEventListener("click", () => currentDay = 3)
 
 })
+
+
 
 
 
