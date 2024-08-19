@@ -287,10 +287,14 @@ document.addEventListener("DOMContentLoaded", () =>{
     dropLock.addEventListener("click", () =>{
     wheelWrap.classList.toggle("_lock")
     document.querySelector(".progress").classList.toggle("_lock")
+    wheelWrap.classList.remove("_sign")
+    document.querySelector(".progress").classList.remove("_sign")
     })
     dropSign.addEventListener("click", () =>{
         wheelWrap.classList.toggle("_sign")
         document.querySelector(".progress").classList.toggle("_sign")
+        wheelWrap.classList.remove("_lock")
+        document.querySelector(".progress").classList.remove("_lock")
 
     })
 
