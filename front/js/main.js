@@ -121,6 +121,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         wheelBuble.classList.add("_hidden")
     })
 
+    document.addEventListener("click", e => e.target === bubleBtn ? null : wheelBuble.classList.add("_hidden"))
+
     let prizes = ['iphone', 'ecoflow', 'merch', 'nothing', "bonuses"]
     function getRandomPrize(arr) {
         return arr[Math.floor(Math.random() * prizes.length)];
