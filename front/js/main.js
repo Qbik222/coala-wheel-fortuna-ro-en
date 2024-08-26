@@ -107,15 +107,24 @@ document.addEventListener("DOMContentLoaded", () =>{
             arr.forEach(item => item.classList.add(`${classAnim}`) )
         }
         //popup animations
-        popupBody.classList.add("popupMainAnim")
         setTimeout(() =>{
+            popupBody.classList.add("popupMainAnim")
             addAnim(pers, "popupPersAnim")
             addAnim(buble, "popupBubleAnim")
+        }, 100)
+
+        setTimeout(() =>{
+            addAnim(prize, "popupPrizeAnim")
+            popupTitle.forEach(item => item.classList.add("popupTitleAnim"))
+
         }, 600)
-        setTimeout( () => addAnim(prize, "popupPrizeAnim"), 1200)
-        setTimeout( () => popupTitle.forEach(item => item.classList.add("popupTitleAnim")), 1800)
-        setTimeout( () => popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim")), 2400)
-        setTimeout( () => popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim")), 2700)
+        setTimeout( () => {
+            popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim"))
+            popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim"))
+        }, 1200)
+        // setTimeout( () => popupTitle.forEach(item => item.classList.add("popupTitleAnim")), 1800)
+        // setTimeout( () => popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim")), 2400)
+        // setTimeout( () => popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim")), 2700)
         //popup animations
         closeBtn.addEventListener("click", () =>{
             popup.classList.contains('_nothing') === true ? null : addFireworks(".wheel", 7)
@@ -154,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                 spinWheel(1711, "merchPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
             if(prize === "nothing"){
+                popup.classList.add("_nothing")
                 sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", currentDay, spinBg, popupCloseBtn, popupContainer, popup))
                 spinWheel(1755, "nothingPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
@@ -163,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         })
     }
-    firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, getRandomPrize(prizes), spinBg, salut)
+    firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "merch", spinBg, salut)
 //// accordion
     const accordionHeaders = document.querySelectorAll('.accordion__header');
     accordionHeaders.forEach(header => {
@@ -184,4 +194,11 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         });
     });
+
+
+
+
+
+        firstSpin(wheelSections, document.querySelector(".nothing-btn"), wheelWrap, wheelArrow, "nothing", spinBg, salut)
+
 })
