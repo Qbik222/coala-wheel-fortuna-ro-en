@@ -122,9 +122,6 @@ document.addEventListener("DOMContentLoaded", () =>{
             popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim"))
             popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim"))
         }, 1200)
-        // setTimeout( () => popupTitle.forEach(item => item.classList.add("popupTitleAnim")), 1800)
-        // setTimeout( () => popupLeftArrow.forEach(item => item.classList.add("popupLeftArrAnim")), 2400)
-        // setTimeout( () => popupRightArrow.forEach(item => item.classList.add("popupRightArrAnim")), 2700)
         //popup animations
         closeBtn.addEventListener("click", () =>{
             popup.classList.contains('_nothing') === true ? null : addFireworks(".wheel", 7)
@@ -143,8 +140,10 @@ document.addEventListener("DOMContentLoaded", () =>{
         }, {once: true})
         sections.classList.add(`${animation}`)
         arrow.style.opacity = "0"
+
         wheel.classList.add("wheelSizeIncrease")
         document.querySelector(".fav-page").classList.add("bgScale")
+        document.querySelector(".sector-prize").style.opacity = "1"
         spinBg.classList.add("showSpinBg")
         btn.style.pointerEvents = "none"
     }

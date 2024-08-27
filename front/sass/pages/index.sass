@@ -136,6 +136,18 @@ body
   flex-direction: column
   align-items: center
   position: relative
+  .sector-prize
+    width: 100%
+    height: 1000px
+    max-height: 100%
+    position: absolute
+    top: 7px
+    left: 0
+    opacity: 0
+    transition: opacity .3s ease-in-out
+    background: url("../img/wheel/sector-prize.png") no-repeat 0 0/contain
+    @media screen and (max-width: 1050px)
+      background: url("../img/wheel/mob/sector-prize.png") no-repeat 0 0/contain
   &__sign
     &-buble
       position: absolute
@@ -1853,8 +1865,8 @@ body
   animation: wheelSpinNothing .4s ease-in-out
 
 .merchPrize
-  //animation: wheelSpinMerch 8s ease-in-out
-  animation: wheelSpinMerch .4s ease-in-out
+  animation: wheelSpinMerch 8s ease-in-out
+  //animation: wheelSpinMerch .4s ease-in-out
 
 .ecoflowPrize
   animation: wheelSpinEcoflow 8s ease-in-out
