@@ -19,57 +19,57 @@ button.nothing-btn nothing
             .wheel__arrow
             .wheel__point
             .wheel__leg
-            .wheel__btn #[span.wheel__btn-text Крути]
+            .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn") Крути]
             .wheel__days
-                .wheel__days-title Челенжд від Сема <br> Крути 7 днів поспіль
+                .wheel__days-title(data-translate="daysTitle") Челенжд від Сема <br> Крути 7 днів поспіль
                 .wheel__days-container
                     .wheel__days-icons
                         .wheel__days-icons-decor
                         .wheel__buble._hidden
-                            .wheel__buble-title Виконуй челендж та автоматично отримуй додатковий бонус
+                            .wheel__buble-title(data-translate="wheelBubbleTitle") Виконуй челендж та автоматично отримуй додатковий бонус
                             .wheel__buble-prize
-                                .wheel__buble-prize-item 202 fs
-                                .wheel__buble-prize-item + 207 ₴ страховка ставки
+                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans") 202 fs
+                                .wheel__buble-prize-item(data-translate="wheelBubblePrize") + 207 ₴ страховка ставки
                     .wheel__days-wrap
-                        .wheel__days-item #[span.wheel__days-item-text #[span 1] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 2] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 3] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 4] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 5] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 6] <br> день]
-                        .wheel__days-item #[span.wheel__days-item-text #[span 7] <br> день]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") день ]]
     .progress
         .progress__top
-            a(href="#").progress__top-left #[span грати <br> в казино]
+            a(href="#").progress__top-left #[span(data-translate="btnCasino")  грати <br> в казино]
             .progress__bar
                 .progress__bar-thumb
                     .progress__bar-wrap
                         .progress__bar-line
                             .progress__bar-status 1000 ₴
                     .progress__bar-sum #[span.current 1000] / #[span.total 2000 ₴]
-            a(href="#").progress__top-right #[span ставити <br> на спорт]
+            a(href="#").progress__top-right #[span(data-translate="btnSportBet")  ставити <br> на спорт]
         .progress__bottom
             .progress__bottom-wrap
-                .progress__bottom-title 1 день - 1 спроба
-                .progress__bottom-text Зроби оборот виграшних ставок на 2 000 ₴ та отримай оберт у «Колесі Сема»
+                .progress__bottom-title(data-translate="progressBottomTitle") 1 день - 1 спроба
+                .progress__bottom-text(data-translate="progressBottomText") Зроби оборот виграшних ставок на 2 000 ₴ та отримай оберт у «Колесі Сема»
     .days
-        .days__title Челендж від Сема крути 7 днів поспіль
+        .days__title(data-translate="daysTitle")  Челендж від Сема крути 7 днів поспіль
         .days__wrap
             .days__container
-                .days__item #[span.days__item-text #[span 1] <br> день]
-                .days__item #[span.days__item-text #[span 2] <br> день]
-                .days__item #[span.days__item-text #[span 3] <br> день]
-                .days__item #[span.days__item-text #[span 4] <br> день]
-                .days__item #[span.days__item-text #[span 5] <br> день]
-                .days__item #[span.days__item-text #[span 6] <br> день]
-                .days__item #[span.days__item-text #[span 7] <br> день]
+                .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") день ]]
             .days__text Виконуй челендж та автоматично отримуй додатковий бонус
             .days__prize
-                .days__prize-item 202 FS
-                .days__prize-item + 207 ₴ страховка ставки
+                .days__prize-item(data-translate="wheelBubbleSpans") 202 FS
+                .days__prize-item(data-translate="wheelBubblePrize") + 207 ₴ страховка ставки
     .accordion
         .accordion__item._spins
-            .accordion__header #[span.accordion__header-text Мої прокрути]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins") Мої прокрути]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -87,7 +87,7 @@ button.nothing-btn nothing
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
-            .accordion__header #[span.accordion__header-text Коли та як можна крутити колесо ?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules") Коли та як можна крутити колесо ?]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -105,7 +105,7 @@ button.nothing-btn nothing
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
-            .accordion__header #[span.accordion__header-text Як рахуються  бали в прогрес-бар ?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules") Як рахуються  бали в прогрес-бар ?]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -123,7 +123,7 @@ button.nothing-btn nothing
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
-            .accordion__header #[span.accordion__header-text Які бонуси та фізичні призи я можу отримати ?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules") Які бонуси та фізичні призи я можу отримати ?]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -141,7 +141,7 @@ button.nothing-btn nothing
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
-            .accordion__header #[span.accordion__header-text Що таке «Челендж від Сема» ?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge") Що таке «Челендж від Сема» ?]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -159,7 +159,7 @@ button.nothing-btn nothing
                     p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item._rules
-            .accordion__header #[span.accordion__header-text Офіційні правила акції]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionRules") Офіційні правила акції]
             .accordion__content
                 .accordion__content-wrap
                     p 1. Як взяти участь?
@@ -179,19 +179,19 @@ button.nothing-btn nothing
     .popups
         .popup
             .popup__buble._iphone
-                .popup__buble-title Оце так везіння!
-                .popup__buble-text Ти виграв топовий приз у «Колесі Сема»
+                .popup__buble-title(data-translate="popupIphoneTitle") Оце так везіння!
+                .popup__buble-text(data-translate="popupIphoneText") Ти виграв топовий приз у «Колесі Сема»
             .popup__buble._ecoflow
-                .popup__buble-title Оце топчик!!!
-                .popup__buble-text Енергонезалежність — твоє друге імʼя
+                .popup__buble-title(data-translate="popupEcoflowTitle") Оце топчик!!!
+                .popup__buble-text(data-translate="popupEcoflowText") Енергонезалежність — твоє друге імʼя
             .popup__buble._bonus
-                .popup__buble-text Фортуна на твоєму боці! Лови крутий бонус
+                .popup__buble-text(data-translate="popupBonusText") Фортуна на твоєму боці! Лови крутий бонус
             .popup__buble._merch
-                .popup__buble-title Пссссс
-                .popup__buble-text як на рахунок спеціального подарунку від мене?
+                .popup__buble-title(data-translate="popupMerchTitle") Пссссс
+                .popup__buble-text(data-translate="popupMerchText") як на рахунок спеціального подарунку від мене?
             .popup__buble._nothing
-                .popup__buble-title Сьогодні без призів
-                .popup__buble-text Ну що поробиш, фортуна повернулась іншим боком.
+                .popup__buble-title(data-translate="popupNothingTitle") Сьогодні без призів
+                .popup__buble-text(data-translate="popupNothingText") Ну що поробиш, фортуна повернулась іншим боком.
             .popup__pers
                 picture._iphone
                     source(srcset="./img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
@@ -210,7 +210,7 @@ button.nothing-btn nothing
                     img(src="./img/popups/nothing/pers.png" alt="sam favbet")
             .popup__main
                 .popup__item._iphone
-                    .popup__title Iphone 15 Pro
+                    .popup__title(data-translate="popupIphonePrize") Iphone 15 Pro
                     .popup__prize
                         picture
                             source(srcset="./img/popups/iphone/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
@@ -218,7 +218,7 @@ button.nothing-btn nothing
                     .popup__decor-left
                     .popup__decor-right
                 .popup__item._ecoflow
-                    .popup__title EcoFlow RIVER 2
+                    .popup__title(data-translate="popupEcoflowPrize") EcoFlow RIVER 2
                     .popup__prize
                         picture
                             source(srcset="./img/popups/ecoflow/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
@@ -226,37 +226,37 @@ button.nothing-btn nothing
                     .popup__decor-left
                     .popup__decor-right
                 .popup__item._bonus
-                    .popup__title 103 грн <br> Страховка ставки
-                    .popup__prize-bottom._bonus Заходь в #[a(href="#") особистий кабінет] та активуй свій бонус протягом 3 днів.
-                    a(href="#").popup__btn ЗАБРАТИ БОНУС
+                    .popup__title(data-translate="popupBonusPrize") 103 грн <br> Страховка ставки
+                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Заходь в #[a(href="#") особистий кабінет] та активуй свій бонус протягом 3 днів.
+                    a(href="#").popup__btn(data-translate="popupTakeBonusBtn") ЗАБРАТИ БОНУС
                 .popup__item._merch
-                    .popup__title Мерч Favbet City
+                    .popup__title(data-translate="popupMerchPrize") Мерч Favbet City
                     .popup__prize
                         picture
                             source(srcset="./img/popups/merch/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
                             img(src="./img/popups/merch/prize-desc.png" alt="sam favbet")
                     .popup__decor-left
                     .popup__decor-right
-                .popup__prize-bottom Наша команда звʼяжеться з тобою для уточнення всіх деталей.
+                .popup__prize-bottom(data-translate="popupCallback") Наша команда звʼяжеться з тобою для уточнення всіх деталей.
                 .popup__bottom._incomplete
-                    .popup__text Також не забудь про челендж
-                    .popup__prize-text Крути «Колесі Сема» 7 днів поспіль <br> та автоматично отримуй додатковий бонус
+                    .popup__text(data-translate="popupRemindSpinTitle") Також не забудь про челендж
+                    .popup__prize-text(data-translate="popupRemindSpin") Крути «Колесі Сема» 7 днів поспіль <br> та автоматично отримуй додатковий бонус
                     .popup__days
-                        .popup__days-item #[span.popup__days-item-text #[span 1] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 2] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 3] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 4] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 5] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 6] <br> день]
-                        .popup__days-item #[span.popup__days-item-text #[span 7] <br> день]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") день ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") день ]]
                     .popup__btn-wrap
-                        a(href="#").popup__btn-left #[span грати <br> в казино]
-                        a(href="#").popup__btn-right #[span ставити <br> на спорт]
+                        a(href="#").popup__btn-left #[span(data-translate="btnCasino") грати <br> в казино]
+                        a(href="#").popup__btn-right #[span(data-translate="btnSportBet")  ставити <br> на спорт]
                 .popup__bottom._done
-                    .popup__text Мій челендж пройдено! Лови бонус:
+                    .popup__text(data-translate="popupChallengeDone") Мій челендж пройдено! Лови бонус:
                     .popup__prize-title
-                        .popup__prize-title-item 202 fs
-                        .popup__prize-title-item + 207 ₴ страховка ставки
-                    .popup__prize-text Активуй бонус протягом 3 днів в Особистому кабінеті
-                    a(href="#").popup__btn ЗАБРАТИ БОНУС
+                        .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 fs
+                        .popup__prize-title-item(data-translate="wheelBubblePrize") + 207 ₴ страховка ставки
+                    .popup__prize-text(data-translate="popupActiveBonusRemind") Активуй бонус протягом 3 днів в Особистому кабінеті
+                    a(href="#").popup__btn(data-translate="popupTakeBonusBtn") ЗАБРАТИ БОНУС
                 .popup__close
