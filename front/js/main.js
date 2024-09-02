@@ -193,4 +193,60 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         });
     });
+
+    /// for test
+
+
+//// for test
+
+    const btnsWrap = document.querySelector('.btns-wrap');
+
+    const buttons = btnsWrap.querySelectorAll('button');
+
+    const dropIphoneButton = document.querySelector('.drop-iphone');
+    const dropEcoflowButton = document.querySelector('.drop-ecoflow');
+    const dropNothingButton = document.querySelector('.drop-nothing');
+    const dropMerchButton = document.querySelector('.drop-merch');
+    const dropBonusButton = document.querySelector('.drop-bonus');
+    const dropDone = document.querySelector('.drop-done');
+    const dropLock = document.querySelector('.drop-lock');
+    const dropSign = document.querySelector('.drop-sign');
+// const dropIncomplete = document.querySelector('.drop-incomplete');
+    const dropMenu = document.querySelector('.drop-menu');
+
+    dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
+
+    firstSpin(wheelSections, dropIphoneButton, wheelWrap, wheelArrow, "iphone", spinBg, salut)
+    firstSpin(wheelSections, dropEcoflowButton, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
+    firstSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, "nothing", spinBg, salut)
+    firstSpin(wheelSections, dropMerchButton, wheelWrap, wheelArrow, "merch", spinBg, salut)
+    firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
+
+    buttons.forEach(item =>{
+        item.addEventListener("click", () => {
+            wheelSections.style.animationDuration = "0.1s"
+            wheelSections.addEventListener("animationend", () =>{
+                wheelSections.style.animationDuration = "8s"
+            })
+        })
+    })
+
+
+    dropLock.addEventListener("click", () =>{
+        wheelWrap.classList.toggle("_lock")
+        document.querySelector(".progress").classList.toggle("_lock")
+        wheelWrap.classList.remove("_sign")
+        document.querySelector(".progress").classList.remove("_sign")
+    })
+    dropSign.addEventListener("click", () =>{
+        wheelWrap.classList.toggle("_sign")
+        document.querySelector(".progress").classList.toggle("_sign")
+        wheelWrap.classList.remove("_lock")
+        document.querySelector(".progress").classList.remove("_lock")
+
+    })
+
+    dropDone.addEventListener("click", () => currentDay = 7)
+
+
 })

@@ -13,6 +13,23 @@ $font-suisse-intl-semib: SuisseIntl-SemiBold, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
 $font-lobster-reg: Lobster, sans-serif
 
+
+
+.drop
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 999
+  width: 100px
+  height: 50px
+  &-menu
+    width: 60px
+    height: 20px
+    color: black
+    font-size: 12px
+
+//// for test
+
 body
   overscroll-behavior: none
   -webkit-tap-highlight-color: transparent
@@ -2015,3 +2032,67 @@ body
     background-size: 100% auto
   100%
     background-size: 120% auto
+
+
+/// en css
+
+.en
+  .wheel
+    &__buble
+      padding: 31px 60px 0px 50px
+    &__sign
+      &-btn
+        min-width: 172px
+    &__btn
+      &-text
+        &::before, &::after
+          left: -55px
+  .popup
+    &__main
+      height: 575px
+    &__bottom._done
+      .popup__text
+        br
+          display: block
+          @media screen and (max-width: 600px)
+            display: block
+    &__bottom._incomplete
+      .popup__text
+        br
+          display: none
+        //@media screen and (max-width: 600px)
+        //  display: block
+    &._iphone, &._ecoflow
+      .popup
+        &__main
+          height: 595px
+    &._nothing
+      .popup
+        &__text
+          br
+            display: block
+        &__main
+          padding-top: 50px
+    &._bonus
+      .popup
+        &__main
+          height: 490px
+
+@media screen and (max-width: 600px)
+  .en
+    .popups
+      .popup
+        &__text
+          max-width: 200px
+        &__main
+          min-height: 515px
+          max-height: 515px
+        &._nothing
+          .popup
+            &__main
+              padding-top: 45px
+            &__main._done
+              padding-top: 60px
+            &__buble
+              &-text
+                font-size: 18px
