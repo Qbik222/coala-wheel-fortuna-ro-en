@@ -5,7 +5,15 @@
         //button.drop-ecoflow ecoflow
         button.drop-nothing nothing
         //button.drop-merch merch
-        button.drop-bonus bonus
+        button.drop-bonus.fs22 fs22
+        button.drop-bonus.fs33 fs33
+        button.drop-bonus.fs44 fs44
+        button.drop-bonus.fs55 fs55
+        button.drop-bonus.fs66 fs66
+        button.drop-bonus.euro10 euro10
+        button.drop-bonus.euro20 euro20
+        button.drop-bonus.euro30 euro30
+        //button.drop-bonus.respin respin
         button.drop-done done-popup
         button.drop-lock lock
         button.drop-sign sign
@@ -188,21 +196,11 @@
                     p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
     .popups
         .popup
-            //.popup__buble._iphone
-            //    .popup__buble-title(data-translate="popupIphoneTitle") What luck!
-            //    .popup__buble-text(data-translate="popupIphoneText") You’ve won the top prize in <br> "Sam's Wheel".
-            //.popup__buble._ecoflow
-            //    .popup__buble-title(data-translate="popupEcoflowTitle") That's awesome!!!
-            //    .popup__buble-text(data-translate="popupEcoflowText") Energy independence is your middle name.
-            .popup__buble._bonus
+            .popup__buble._bonus.fs22
                 .popup__buble-title(data-translate="popupBonusTitle") Igraj - Haj!
                 .popup__buble-text(data-translate="popupBonusText") Iskušao si svoju sreću i <br> ostvario sjajan bonus
-            //.popup__buble._merch
-            //    .popup__buble-title(data-translate="popupMerchTitle") Pssst
-            //    .popup__buble-text(data-translate="popupMerchText") how about a special gift <br> from me?
             .popup__buble._nothing
                 .popup__buble-title(data-translate="popupNothingTitle") Frende, danas nažalost nisi osvojio nagradu
-                //.popup__buble-text(data-translate="popupNothingText") Well, what can you do? Fortune has turned the other way.
             .popup__pers
                 picture._iphone
                     source(srcset="./img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
@@ -220,34 +218,18 @@
                     source(srcset="./img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
                     img(src="./img/popups/nothing/pers.png" alt="sam favbet")
             .popup__main
-                .popup__item._iphone
-                    .popup__title(data-translate="popupIphonePrize") Iphone 15 Pro
-                    .popup__prize
-                        picture
-                            source(srcset="./img/popups/iphone/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                            img(src="./img/popups/iphone/prize-desc.png" alt="sam favbet")
-                    .popup__decor-left
-                    .popup__decor-right
-                .popup__item._ecoflow
-                    .popup__title(data-translate="popupEcoflowPrize") EcoFlow RIVER 2
-                    .popup__prize
-                        picture
-                            source(srcset="./img/popups/ecoflow/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                            img(src="./img/popups/ecoflow/prize-desc.png" alt="sam favbet")
-                    .popup__decor-left
-                    .popup__decor-right
-                .popup__item._bonus
-                    .popup__title(data-translate="popupBonusPrize") 33 € <br> Risk-free bet
+                .popup__item._bonus.fs22
+                    .popup__title.fs22(data-translate="popup22FsPrize") 22 FS <br> Risk-free bet
+                    .popup__title.fs33(data-translate="popup33FsPrize") 33 FS <br> Risk-free bet
+                    .popup__title.fs44(data-translate="popup44FsPrize") 44 FS <br> Risk-free bet
+                    .popup__title.fs55(data-translate="popup55FsPrize") 55 FS <br> Risk-free bet
+                    .popup__title.fs66(data-translate="popup66FsPrize") 66 FS <br> Risk-free bet
+                    .popup__title.euro10(data-translate="popupEuro10Prize") 10 € <br> Risk-free bet
+                    .popup__title.euro20(data-translate="popupEuro20Prize") 20 € <br> Risk-free bet
+                    .popup__title.euro30(data-translate="popupEuro30Prize") 30 € <br> Risk-free bet
+                    //.popup__title.respin(data-translate="popupRespinPrize") Respin <br> Risk-free bet
                     .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Uđi u svoj #[a(href="#") korisnički pretinac] i aktiviraj svoj bonus unutar 3 dana.
                     a(href="#" data-translate="popupTakeBonusBtn").popup__btn preuzmi svoj bonus
-                .popup__item._merch
-                    .popup__title(data-translate="popupMerchPrize") Favbet City merch
-                    .popup__prize
-                        picture
-                            source(srcset="./img/popups/merch/prize-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                            img(src="./img/popups/merch/prize-desc.png" alt="sam favbet")
-                    .popup__decor-left
-                    .popup__decor-right
                 .popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
                 .popup__bottom._incomplete
                     .popup__text(data-translate="popupRemindSpinTitle") Također ne zaboravi na <br> “Samov izazov”

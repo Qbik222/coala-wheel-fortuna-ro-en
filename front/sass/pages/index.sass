@@ -316,7 +316,7 @@ body
     position: absolute
     z-index: 1
     transform-origin: center
-    transform: translate(-50%, -50%) rotate(-112deg)
+    transform: translate(-50%, -50%) rotate(72.5deg)
     &::before, &::after
       content: ""
       display: block
@@ -1178,6 +1178,7 @@ body
       opacity: 1
       transition: all .6s ease-in-out
     &__title
+      display: none
       transform: scale(1.25) rotate(-3deg)
       opacity: 0
       font-size: 42px
@@ -1575,48 +1576,10 @@ body
       transform: translate(0, 0)
       opacity: 1
       transition: all .6s ease-in-out
-    //&._iphone
-    //  .popup
-    //    &__buble._iphone
-    //      display: block
-    //    &__item._iphone
-    //      display: block
-    //    &__main
-    //      padding: 15px 0 0 0
-    //    &__buble
-    //      margin: 0 0 -10px -50px
-    //    &__pers
-    //      align-self: center
-    //      max-width: 435px
-    //      z-index: 0
-    //      margin: -20px 0 -205px 0
-    //      //._iphone
-    //      //  display: block
-    //    &__prize
-    //      z-index: 1
-    //      margin: -65px 0 0 10px
-    //      max-width: 350px
-    //&._ecoflow
-    //  .popup
-    //    &__buble._ecoflow
-    //      display: block
-    //    &__pers
-    //      max-width: 250px
-    //      margin: -25px auto -200px 125px
-    //      ._ecoflow
-    //        display: block
-    //    &__title
-    //      margin-top: 15px
-    //    &__prize
-    //      max-width: 360px
-    //      margin-top: -75px
-    //    &__item._ecoflow
-    //      display: block
     &._bonus
       .popup
         &__text
           font-size: 20px
-
           br
             display: none
         &__buble._bonus, &__item._bonus
@@ -1709,24 +1672,6 @@ body
     &._done
       .popup__main
         height: 475px
-    //&._merch
-    //  .popup
-    //    &__buble._merch, &__item._merch
-    //      display: block
-    //    &__prize
-    //      max-width: 370px
-    //      margin-top: -70px
-    //      &-bottom
-    //        margin-top: -120px
-    //    &__buble
-    //      padding-top: 20px
-    //    &__title
-    //      margin-top: 15px
-    //    &__pers
-    //      max-width: 290px
-    //      margin: -30px auto -65px 100px
-    //      ._merch
-    //        display: block
     &._nothing
       .popup
         &__buble._nothing
@@ -1823,92 +1768,222 @@ body
   transform: scale(1.15)
   transition: all 2s ease-in-out
 
-@keyframes wheelSpinIphone
-  0%
-    transform: translate(-50%, -50%) rotate(-112deg)
-  10%
-    transform: translate(-50%, -50%) rotate(-125deg)
-  70%
-    transform: translate(-50%, -50%) rotate(1814deg)
-  80%
-    transform: translate(-50%, -50%) rotate(1784deg)
-  90%
-    transform: translate(-50%, -50%) rotate(1808deg)
-  100%
-    transform: translate(-50%, -50%) rotate(1800deg)
-
-@keyframes wheelSpinEcoflow
-  0%
-    transform: translate(-50%, -50%) rotate(-112deg)
-  10%
-    transform: translate(-50%, -50%) rotate(-125deg)
-  70%
-    transform: translate(-50%, -50%) rotate(1680deg)
-  80%
-    transform: translate(-50%, -50%) rotate(1650deg)
-  90%
-    transform: translate(-50%, -50%) rotate(1670deg)
-  100%
-    transform: translate(-50%, -50%) rotate(1665deg)
-
-@keyframes wheelSpinMerch
-  0%
-    transform: translate(-50%, -50%) rotate(-112deg)
-  10%
-    transform: translate(-50%, -50%) rotate(-125deg)
-  70%
-    transform: translate(-50%, -50%) rotate(1735deg)
-  80%
-    transform: translate(-50%, -50%) rotate(1695deg)
-  90%
-    transform: translate(-50%, -50%) rotate(1715deg)
-  100%
-    transform: translate(-50%, -50%) rotate(1711deg)
 
 @keyframes wheelSpinNothing
   0%
-    transform: translate(-50%, -50%) rotate(-112deg)
+    transform: translate(-50%, -50%) rotate(72.5deg)
   10%
-    transform: translate(-50%, -50%) rotate(-125deg)
+    transform: translate(-50%, -50%) rotate(58deg)
   70%
-    transform: translate(-50%, -50%) rotate(1780deg)
+    transform: translate(-50%, -50%) rotate(1897deg)
   80%
-    transform: translate(-50%, -50%) rotate(1730deg)
+    transform: translate(-50%, -50%) rotate(1847deg)
   90%
-    transform: translate(-50%, -50%) rotate(1760deg)
+    transform: translate(-50%, -50%) rotate(1877deg)
   100%
-    transform: translate(-50%, -50%) rotate(1755deg)
+    transform: translate(-50%, -50%) rotate(1872deg)
 
-@keyframes wheelSpinBonuses
+@keyframes wheelSpin22fs
   0%
-    transform: translate(-50%, -50%) rotate(-112deg)
+    transform: translate(-50%, -50%) rotate(72.5deg)
   10%
-    transform: translate(-50%, -50%) rotate(-125deg)
+    transform: translate(-50%, -50%) rotate(58deg)
   70%
-    transform: translate(-50%, -50%) rotate(1951deg)
+    transform: translate(-50%, -50%) rotate(1825deg)
   80%
-    transform: translate(-50%, -50%) rotate(1921deg)
+    transform: translate(-50%, -50%) rotate(1775deg)
   90%
-    transform: translate(-50%, -50%) rotate(1941deg)
+    transform: translate(-50%, -50%) rotate(1805deg)
   100%
-    transform: translate(-50%, -50%) rotate(1935deg)
+    transform: translate(-50%, -50%) rotate(1800deg)
+
+@keyframes wheelSpin33fs
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(1787deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1737deg)
+  90%
+    transform: translate(-50%, -50%) rotate(1767deg)
+  100%
+    transform: translate(-50%, -50%) rotate(1762deg)
+
+@keyframes wheelSpin44fs
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(2117deg)
+  80%
+    transform: translate(-50%, -50%) rotate(2067deg)
+  90%
+    transform: translate(-50%, -50%) rotate(2093deg)
+  100%
+    transform: translate(-50%, -50%) rotate(2088deg)
+
+@keyframes wheelSpin55fs
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(2081.32deg)
+  80%
+    transform: translate(-50%, -50%) rotate(2023.08deg)
+  90%
+    transform: translate(-50%, -50%) rotate(2058.02deg)
+  100%
+    transform: translate(-50%, -50%) rotate(2052.2deg)
+
+@keyframes wheelSpin66fs
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(2046deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1987deg)
+  90%
+    transform: translate(-50%, -50%) rotate(2021deg)
+  100%
+    transform: translate(-50%, -50%) rotate(2016.5deg)
+
+@keyframes wheelSpin10Euro
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(2008deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1952deg)
+  90%
+    transform: translate(-50%, -50%) rotate(1984deg)
+  100%
+    transform: translate(-50%, -50%) rotate(1980deg)
+
+@keyframes wheelSpin20Euro
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(1970deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1914deg)
+  90%
+    transform: translate(-50%, -50%) rotate(1945deg)
+  100%
+    transform: translate(-50%, -50%) rotate(1942deg)
+
+@keyframes wheelSpin30Euro
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(1934deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1882deg)
+  90%
+    transform: translate(-50%, -50%) rotate(1913deg)
+  100%
+    transform: translate(-50%, -50%) rotate(1908deg)
+
+@keyframes wheelSpinRespin
+  0%
+    transform: translate(-50%, -50%) rotate(72.5deg)
+  10%
+    transform: translate(-50%, -50%) rotate(58deg)
+  70%
+    transform: translate(-50%, -50%) rotate(1899deg)
+  80%
+    transform: translate(-50%, -50%) rotate(1846deg)
+  90%
+    transform: translate(-50%, -50%) rotate(1878deg)
+  100%
+    transform: translate(-50%, -50%) rotate(1872.5deg)
+
 
 .nothingPrize
-  //animation: wheelSpinNothing 8s ease-in-out
-  animation: wheelSpinNothing .4s ease-in-out
+  animation: wheelSpinNothing 8s ease-in-out
 
-.merchPrize
-  animation: wheelSpinMerch 8s ease-in-out
-  //animation: wheelSpinMerch .4s ease-in-out
+.popups
+  .popup.fs22
+    .popup__title.fs22
+      display: block !important
 
-.ecoflowPrize
-  animation: wheelSpinEcoflow 8s ease-in-out
+.popups
+  .popup.fs33
+    .popup__title.fs33
+      display: block !important
 
-.iphonePrize
-  animation: wheelSpinIphone 8s ease-in-out
+.popups
+  .popup.fs44
+    .popup__title.fs44
+      display: block !important
 
-.bonusesPrize
-  animation: wheelSpinBonuses 8s ease-in-out
+.popups
+  .popup.fs55
+    .popup__title.fs55
+      display: block !important
+
+.popups
+  .popup.fs66
+    .popup__title.fs66
+      display: block !important
+
+.popups
+  .popup.euro10
+    .popup__title.euro10
+      display: block !important
+
+.popups
+  .popup.euro20
+    .popup__title.euro20
+      display: block !important
+
+.popups
+  .popup.euro30
+    .popup__title.euro30
+      display: block !important
+
+.fs22anim
+  animation: wheelSpin22fs 8s ease-in-out
+
+.fs33anim
+  animation: wheelSpin33fs 8s ease-in-out
+
+.fs44anim
+  animation: wheelSpin44fs 8s ease-in-out
+
+.fs55anim
+  animation: wheelSpin55fs 8s ease-in-out
+
+.fs66anim
+  animation: wheelSpin66fs 8s ease-in-out
+
+.euro10anim
+  animation: wheelSpin10Euro 8s ease-in-out
+
+.euro20anim
+  animation: wheelSpin20Euro 8s ease-in-out
+
+.euro30anim
+  animation: wheelSpin30Euro 8s ease-in-out
+
+.respinAnim
+  animation: wheelSpinRespin 8s ease-in-out
+
+//.fs44
+//.fs55
+//.fs66
+
 
 @keyframes spinBg
   0%

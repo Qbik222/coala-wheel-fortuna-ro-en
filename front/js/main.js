@@ -86,8 +86,12 @@ document.addEventListener("DOMContentLoaded", () =>{
     function getRandomPrize(arr) {
         return arr[Math.floor(Math.random() * prizes.length)];
     }
-    function showPopup(sections, wheel, showClass, currentDay, spinBg, closeBtn, popupContainer, popup){
+    function showPopup(sections, wheel, showClass, currentDay, spinBg, closeBtn, popupContainer, popup, classPrize){
         // document.querySelector(".fav-page").classList.add("popupBg")
+        if(classPrize){
+            popup.classList.add(`${classPrize}`);
+        }
+        if(classPrize === "respin") return
         popup.classList.add(`${showClass}`)
         popup.classList.contains('_nothing') === true ? null : addFireworks(".popups", 7)
         currentDay === 7 ? popup.classList.add("_done") : popup.classList.add("_incomplete")
@@ -137,30 +141,66 @@ document.addEventListener("DOMContentLoaded", () =>{
     function spinWheel(position, animation, sections, btn, wheel, arrow, prize, spinBg, salut){
         sections.addEventListener("animationend", () =>{
             sections.style.transform = `translate(-50%, -50%) rotate(${position}deg)`
+            sections.classList.remove(`${animation}`)
         }, {once: true})
         sections.classList.add(`${animation}`)
         arrow.style.opacity = "0"
-
         wheel.classList.add("wheelSizeIncrease")
         document.querySelector(".fav-page").classList.add("bgScale")
         document.querySelector(".sector-prize").style.opacity = "1"
         spinBg.classList.add("showSpinBg")
-        btn.style.pointerEvents = "none"
+        if(animation !== "respinAnim"){
+            btn.style.pointerEvents = "none"
+        }
     }
     function firstSpin(sections, btn, wheel, arrow, prize, spinBg, salut){
         btn.addEventListener("click", () =>{
             if(prize === "nothing"){
                 popup.classList.add("_nothing")
-                sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", currentDay, spinBg, popupCloseBtn, popupContainer, popup))
-                spinWheel(1755, "nothingPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
+                sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", currentDay, spinBg, popupCloseBtn, popupContainer, popup), {once: true})
+                spinWheel(1872, "nothingPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
-            if(prize === "bonuses"){
-                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup))
-                spinWheel(1935, "bonusesPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
+            if(prize === "fs22"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "fs22"), {once: true})
+                spinWheel(1800, "fs22anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs33"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "fs33"), {once: true})
+                spinWheel(1762, "fs33anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs44"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "fs44"), {once: true})
+                spinWheel(2088, "fs44anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs55"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "fs55"), {once: true})
+                spinWheel(2052.5, "fs55anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs66"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "fs66"), {once: true})
+                spinWheel(2016.5, "fs66anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro10"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "euro10"), {once: true})
+                spinWheel(1980, "euro10anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro20"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "euro20"), {once: true})
+                spinWheel(1942, "euro20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro30"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "euro30"), {once: true})
+                spinWheel(1908, "euro30anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "respin"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", currentDay, spinBg, popupCloseBtn, popupContainer, popup, "respin"), {once: true})
+                spinWheel(72.5, "respinAnim", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
         })
     }
-    firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
+    firstSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, "respin", spinBg, salut)
+
+
 //// accordion
     const accordionHeaders = document.querySelectorAll('.accordion__header');
     accordionHeaders.forEach(header => {
@@ -189,11 +229,14 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     const buttons = btnsWrap.querySelectorAll('button');
 
-    const dropIphoneButton = document.querySelector('.drop-iphone');
-    const dropEcoflowButton = document.querySelector('.drop-ecoflow');
-    const dropNothingButton = document.querySelector('.drop-nothing');
-    const dropMerchButton = document.querySelector('.drop-merch');
-    const dropBonusButton = document.querySelector('.drop-bonus');
+    const dropBonusfs22 = document.querySelector('.drop-bonus.fs22');
+    const dropBonusfs33 = document.querySelector('.drop-bonus.fs33');
+    const dropBonusfs44 = document.querySelector('.drop-bonus.fs44');
+    const dropBonusfs55 = document.querySelector('.drop-bonus.fs55');
+    const dropBonusfs66 = document.querySelector('.drop-bonus.fs66');
+    const dropBonusEuro10 = document.querySelector('.drop-bonus.euro10 ');
+    const dropBonusEuro20 = document.querySelector('.drop-bonus.euro20 ');
+    const dropBonusEuro30 = document.querySelector('.drop-bonus.euro30 ');
     const dropDone = document.querySelector('.drop-done');
     const dropLock = document.querySelector('.drop-lock');
     const dropSign = document.querySelector('.drop-sign');
@@ -202,11 +245,15 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
 
-    // firstSpin(wheelSections, dropIphoneButton, wheelWrap, wheelArrow, "iphone", spinBg, salut)
-    // firstSpin(wheelSections, dropEcoflowButton, wheelWrap, wheelArrow, "ecoflow", spinBg, salut)
-    firstSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, "nothing", spinBg, salut)
-    // firstSpin(wheelSections, dropMerchButton, wheelWrap, wheelArrow, "merch", spinBg, salut)
-    firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
+    firstSpin(wheelSections, dropBonusfs22, wheelWrap, wheelArrow, "fs22", spinBg, salut)
+    firstSpin(wheelSections, dropBonusfs33, wheelWrap, wheelArrow, "fs33", spinBg, salut)
+    firstSpin(wheelSections, dropBonusfs44, wheelWrap, wheelArrow, "fs44", spinBg, salut)
+    firstSpin(wheelSections, dropBonusfs55, wheelWrap, wheelArrow, "fs55", spinBg, salut)
+    firstSpin(wheelSections, dropBonusfs66, wheelWrap, wheelArrow, "fs66", spinBg, salut)
+    firstSpin(wheelSections, dropBonusEuro10, wheelWrap, wheelArrow, "euro10", spinBg, salut)
+    firstSpin(wheelSections, dropBonusEuro20, wheelWrap, wheelArrow, "euro20", spinBg, salut)
+    firstSpin(wheelSections, dropBonusEuro30, wheelWrap, wheelArrow, "euro30", spinBg, salut)
+    // firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
 
     buttons.forEach(item =>{
         item.addEventListener("click", () => {
