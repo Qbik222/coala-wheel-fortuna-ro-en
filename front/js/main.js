@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const dropSign = document.querySelector('.drop-sign');
 // const dropIncomplete = document.querySelector('.drop-incomplete');
     const dropMenu = document.querySelector('.drop-menu');
+    const dropNothing = document.querySelector('.drop-nothing');
 
     dropMenu.addEventListener("click", ()=> btnsWrap.classList.toggle("_hidden"))
 
@@ -253,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     firstSpin(wheelSections, dropBonusEuro10, wheelWrap, wheelArrow, "euro10", spinBg, salut)
     firstSpin(wheelSections, dropBonusEuro20, wheelWrap, wheelArrow, "euro20", spinBg, salut)
     firstSpin(wheelSections, dropBonusEuro30, wheelWrap, wheelArrow, "euro30", spinBg, salut)
+    firstSpin(wheelSections, dropNothing, wheelWrap, wheelArrow, "nothing", spinBg, salut)
     // firstSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, "bonuses", spinBg, salut)
 
     buttons.forEach(item =>{
