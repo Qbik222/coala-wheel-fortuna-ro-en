@@ -1022,6 +1022,45 @@ body
       .accordion
         &__content
           border: 1px solid $magenta
+          &-wrap
+            height: auto
+            max-height: 330px
+            .no-spins
+              display: none
+          &-item
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            padding: 8px 20px 5px 20px
+            background: #000067
+            border-radius: 13px
+            text-align: right
+            &:first-child
+              background: transparent
+              &::before
+                content: none
+            &:not(:last-child)
+              margin-bottom: 5px
+            &::before
+              content: ""
+              display: block
+              width: 28px
+              min-width: 28px
+              height: 28px
+              background: url("../img/icon-spins.png") no-repeat 0 0/contain
+              margin: 0 5px 3px 0
+            span
+              font-family: inherit
+              color: inherit
+              font-size: inherit
+              margin-right: auto
+              padding-right: 15px
+          &.no-spins
+            padding-top: 15px
+            .accordion__content-item
+              display: none
+            .no-spins
+              display: block
         &__header
           border: 1px solid $magenta
           &::before
