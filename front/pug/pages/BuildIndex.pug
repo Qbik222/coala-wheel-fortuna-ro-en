@@ -13,7 +13,7 @@
         button.drop-done done-popup
         button.drop-lock lock
         button.drop-sign sign
-.fav-page
+.fav-page#wheel
     .wheel
         .spin-bg
         .wheel__logo
@@ -25,7 +25,8 @@
                 .wheel__lock-title(data-translate="lockTitle") Danas si već zavrtio Kolo sreće.
                 .wheel__lock-text(data-translate="lockText") Dođi opet sutra od 00:01 do 23:59 i <br> iskušaj sreću
             .wheel__sign-buble
-                a(href="#" data-translate="signBtn").wheel__sign-btn Prijavi se
+                a(href="/login/" data-translate="signBtn").wheel__sign-btn.unauth-msg Prijavi se
+                .wheel__sign-btn.btn-join.hide(data-translate="partBtn") Sudjeluj
             .wheel__border
                 .sector-prize
             .wheel__sections
@@ -35,7 +36,7 @@
             .wheel__leg
             .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn") Zavrti]
             .wheel__days
-                .wheel__days-title(data-translate="daysTitle") Također ne zaboravi <br> na “Samov izazov”
+                .wheel__days-title(data-translate="wheelDaysTitle") Također ne zaboravi <br> na “Samov izazov”
                 .wheel__days-container
                     .wheel__days-icons
                         .wheel__days-icons-decor
@@ -54,14 +55,14 @@
                         .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") dan ]]
     .progress
         .progress__top
-            a(href="#").progress__top-left #[span(data-translate="btnCasino")  Igraj <br> casino]
+            a(href="/casino/").progress__top-left #[span(data-translate="btnCasino")  Igraj <br> casino]
             .progress__bar
                 .progress__bar-thumb
                     .progress__bar-wrap
                         .progress__bar-line
-                            .progress__bar-status 25 €
-                    .progress__bar-sum #[span.current 25€] / #[span.total 50€]
-            a(href="#").progress__top-right #[span(data-translate="btnSportBet")   Kladi se <br> na sport]
+                            .progress__bar-status 10 €
+                    .progress__bar-sum #[span.current 10€] / #[span.total 50€]
+            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Kladi se <br> na sport]
         .progress__bottom
             .progress__bottom-wrap
                 .progress__bottom-title(data-translate="progressBottomTitle") 1 dan - 1 okretaj
@@ -86,106 +87,37 @@
             .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins") Povijest okretaja]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentSpins")
-                    .accordion__content-item(data-translate='spinsHeadPrize') #[span.content-date(data-translate='spinsHeadDate') ДАТА] ПРИЗ
+                    .accordion__content-item.head-drop(data-translate='spinsHeadPrize') #[span.content-date ДАТА] ПРИЗ
                     .accordion__content-item(data-translate="spinsNoSpin").no-spins в тебе ще не було прокрутів
-                    .accordion__content-item #[span.content-date 18.03] Iphone 15 Pro
-                    .accordion__content-item #[span.content-date 18.03] EcoFlow RIVER 2
-                    .accordion__content-item #[span.content-date 18.03] Без призу
-                    .accordion__content-item #[span.content-date 18.03] до 103 ₴ Страховка ставки
-                    .accordion__content-item #[span.content-date 18.03] Iphone 15 Pro
-                    .accordion__content-item #[span.content-date 18.03] EcoFlow RIVER 2
-                    .accordion__content-item #[span.content-date 18.03] Без призу
-                    .accordion__content-item #[span.content-date 18.03] до 103 ₴ Страховка ставки
+                    .accordion__list
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Iphone 15 Pro]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize EcoFlow RIVER 2]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Без призу]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize до 103 ₴ Страховка ставки]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Iphone 15 Pro]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize EcoFlow RIVER 2]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Без призу]
+                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize до 103 ₴ Страховка ставки]
         .accordion__item
             .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules") When and how can you spin the wheel?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentSpinRules")
-                    p 1. Як взяти участь?
-                    p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
-                    p 2. Набір балів
-                    p З 14.06.2024 до 14.07.2024 роби виграшні ставки на спортивні події в рамках Євро 2024 у розділах «Спорт» та «LIVE» заробляй бали в загальну турнірну таблицю. 
-                    p Ставки на спортивні події повинні бути від 200 грн, розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар), або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».
-                    p 3.Вгадай точний рахунок топ-матчів етапу.
-                    p Вгадай точний рахунок запропонованих топ-матчів та помнож свої бали в турнірній таблиці. 
-                    p За 1 вгаданий рахунок - бали помножуються на х2.
-                    p За 2 вгаданих рахунки - бали помножуються на х3.
-                    p За 3 вгаданих ранунки- бали помножуються на х5.
-                    p 4. Отримуй бали та можливість виграти призи.
-                    p Чим більше балів, тим більше шансів здобути приз.
-                    p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
-                    p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
             .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules") How are points calculated in the progress bar?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentProgressRules")
-                    p 1. Як взяти участь?
-                    p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
-                    p 2. Набір балів
-                    p З 14.06.2024 до 14.07.2024 роби виграшні ставки на спортивні події в рамках Євро 2024 у розділах «Спорт» та «LIVE» заробляй бали в загальну турнірну таблицю. 
-                    p Ставки на спортивні події повинні бути від 200 грн, розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар), або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».
-                    p 3.Вгадай точний рахунок топ-матчів етапу.
-                    p Вгадай точний рахунок запропонованих топ-матчів та помнож свої бали в турнірній таблиці. 
-                    p За 1 вгаданий рахунок - бали помножуються на х2.
-                    p За 2 вгаданих рахунки - бали помножуються на х3.
-                    p За 3 вгаданих ранунки- бали помножуються на х5.
-                    p 4. Отримуй бали та можливість виграти призи.
-                    p Чим більше балів, тим більше шансів здобути приз.
-                    p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
-                    p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
             .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules") What bonuses and physical prizes can I receive?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentPrizeRules")
-                    p 1. Як взяти участь?
-                    p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
-                    p 2. Набір балів
-                    p З 14.06.2024 до 14.07.2024 роби виграшні ставки на спортивні події в рамках Євро 2024 у розділах «Спорт» та «LIVE» заробляй бали в загальну турнірну таблицю. 
-                    p Ставки на спортивні події повинні бути від 200 грн, розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар), або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».
-                    p 3.Вгадай точний рахунок топ-матчів етапу.
-                    p Вгадай точний рахунок запропонованих топ-матчів та помнож свої бали в турнірній таблиці. 
-                    p За 1 вгаданий рахунок - бали помножуються на х2.
-                    p За 2 вгаданих рахунки - бали помножуються на х3.
-                    p За 3 вгаданих ранунки- бали помножуються на х5.
-                    p 4. Отримуй бали та можливість виграти призи.
-                    p Чим більше балів, тим більше шансів здобути приз.
-                    p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
-                    p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item
             .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge") What is “Sam's Challenge”?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentAboutChallenge")
-                    p 1. Як взяти участь?
-                    p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
-                    p 2. Набір балів
-                    p З 14.06.2024 до 14.07.2024 роби виграшні ставки на спортивні події в рамках Євро 2024 у розділах «Спорт» та «LIVE» заробляй бали в загальну турнірну таблицю. 
-                    p Ставки на спортивні події повинні бути від 200 грн, розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар), або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».
-                    p 3.Вгадай точний рахунок топ-матчів етапу.
-                    p Вгадай точний рахунок запропонованих топ-матчів та помнож свої бали в турнірній таблиці. 
-                    p За 1 вгаданий рахунок - бали помножуються на х2.
-                    p За 2 вгаданих рахунки - бали помножуються на х3.
-                    p За 3 вгаданих ранунки- бали помножуються на х5.
-                    p 4. Отримуй бали та можливість виграти призи.
-                    p Чим більше балів, тим більше шансів здобути приз.
-                    p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
-                    p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
         .accordion__item._rules
             .accordion__header #[span.accordion__header-text(data-translate="accordionRules") Terms and Conditions:]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentAboutRules")
-                    p 1. Як взяти участь?
-                    p Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці Акції.
-                    p 2. Набір балів
-                    p З 14.06.2024 до 14.07.2024 роби виграшні ставки на спортивні події в рамках Євро 2024 у розділах «Спорт» та «LIVE» заробляй бали в загальну турнірну таблицю. 
-                    p Ставки на спортивні події повинні бути від 200 грн, розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар), або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».
-                    p 3.Вгадай точний рахунок топ-матчів етапу.
-                    p Вгадай точний рахунок запропонованих топ-матчів та помнож свої бали в турнірній таблиці. 
-                    p За 1 вгаданий рахунок - бали помножуються на х2.
-                    p За 2 вгаданих рахунки - бали помножуються на х3.
-                    p За 3 вгаданих ранунки- бали помножуються на х5.
-                    p 4. Отримуй бали та можливість виграти призи.
-                    p Чим більше балів, тим більше шансів здобути приз.
-                    p Бали нараховуватимуться та відображатимуться в Турнірній таблиці.
-                    p Після завершення кожного окремого періоду, переможці матимуть право отримати приз згідно із зайнятим призовим місцем.
     .popups
         .popup
             .popup__buble._bonus.fs22
@@ -220,8 +152,8 @@
                     .popup__title.euro20(data-translate="popupEuro20Prize") 20 € <br> Risk-free bet
                     .popup__title.euro30(data-translate="popupEuro30Prize") 30 € <br> Risk-free bet
                     .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Uđi u svoj #[a(href="#") korisnički pretinac] i aktiviraj svoj bonus unutar 3 dana.
-                    a(href="#" data-translate="popupTakeBonusBtn").popup__btn preuzmi svoj bonus
-                .popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
+                    .popup__btn(data-translate="popupTakeBonusBtn") preuzmi svoj bonus
+                //.popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
                 .popup__bottom._incomplete
                     .popup__text(data-translate="popupRemindSpinTitle") Također ne zaboravi na <br> “Samov izazov”
                     .popup__prize-text(data-translate="popupRemindSpin") Zavrti “Kolo sreće” 7 dana za redom i automatski <br> ostvari dodatni bonus
@@ -234,13 +166,13 @@
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") dan ]]
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") dan ]]
                     .popup__btn-wrap
-                        a(href="#").popup__btn-left #[span(data-translate="btnCasino") Igraj <br> casino]
-                        a(href="#").popup__btn-right #[span(data-translate="btnSportBet")   Kladi se <br> na sport]
+                        a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino") Igraj <br> casino]
+                        a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet") Kladi se <br> na sport]
                 .popup__bottom._done
                     .popup__text(data-translate="popupChallengeDone") Moj izazov je završen! <br> Evo tvog bonusa:
                     .popup__prize-title
                         .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 fs
                         .popup__prize-title-item(data-translate="wheelBubblePrize") + 207 € risk free bet
                     .popup__prize-text(data-translate="popupActiveBonusRemind") Aktiviraj bonus unutar 3 dana na <br> svom  računu!
-                    a(href="#" data-translate="popupTakeBonusBtn").popup__btn preuzmi svoj bonus
+                    .popup__btn(data-translate="popupTakeBonusBtn") preuzmi svoj bonus
                 .popup__close

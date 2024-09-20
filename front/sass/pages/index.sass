@@ -13,6 +13,12 @@ $font-suisse-intl-semib: SuisseIntl-SemiBold, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
 $font-lobster-reg: Lobster, sans-serif
 
+.overflow
+  overflow-x: hidden !important
+
+.hide
+  display: none !important
+
 .drop
   position: fixed
   top: 0
@@ -852,7 +858,7 @@ body
       top: 3px
       left: 5px
       height: 17px
-      width: 50%
+      width: 10%
       min-width: 3%
       max-width: 97%
       border-radius: 10px
@@ -1027,6 +1033,10 @@ body
             max-height: 330px
             .no-spins
               display: none
+            .head-drop,.no-spins
+              background: transparent
+              &::before
+                content: none
           &-item
             display: flex
             align-items: center
@@ -1035,10 +1045,6 @@ body
             background: #000067
             border-radius: 13px
             text-align: right
-            &:first-child
-              background: transparent
-              &::before
-                content: none
             &:not(:last-child)
               margin-bottom: 5px
             &::before
@@ -1053,8 +1059,9 @@ body
               font-family: inherit
               color: inherit
               font-size: inherit
-              margin-right: auto
-              padding-right: 15px
+              &:first-child
+                margin-right: auto
+                padding-right: 15px
           &.no-spins
             padding-top: 15px
             .accordion__content-item
@@ -1123,6 +1130,23 @@ body
         color: inherit
         &:not(:last-child)
           margin-bottom: 15px
+        strong
+          font-family: inherit
+      td,th
+        font-family: inherit
+      .retreat1
+        padding-left: 15px
+      .circle
+        padding-left: 25px
+        &:before
+          content: ''
+          width: 5px
+          height: 5px
+          background: $white
+          border-radius: 50%
+          display: inline-block
+          margin: 0 4px 2px 0
+
 .popups
   position: fixed
   opacity: 0
