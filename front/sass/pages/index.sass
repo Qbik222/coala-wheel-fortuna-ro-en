@@ -106,6 +106,7 @@ body
 .fav-page
   padding: 0 0 20px 0
   overflow: hidden
+
   &::before
     content: ""
     display: block
@@ -208,6 +209,10 @@ body
     margin-left: 15px
     z-index: 2
     animation: showLogo 2.2s ease
+    picture.hr
+      display: block
+    picture.en
+      display: none
     &::before, &::after
       content: ""
       display: block
@@ -2192,8 +2197,14 @@ body
 
 .en
   .wheel
+    &__arrow
+      background: url("../img/wheel/wheel-arrow-en.png") no-repeat 0 0/contain
     &__logo
       max-width: 550px
+      picture.en
+        display: block
+      picture.hr
+        display: none
       @media screen and (max-width: 1600px)
         max-width: 400px
       @media screen and (max-width: 880px)
@@ -2213,6 +2224,11 @@ body
           left: -55px
           @media screen and (max-width: 870px)
             left: -30px
+    &__sections
+      &::before
+        background: url("../img/wheel/wheel-sections-en.png") no-repeat 0 0/contain
+        @media screen and (max-width: 1050px)
+          background: url("../img/wheel/mob/wheel-sections-en.png") no-repeat 0 0/contain
   .popup
     &__buble
       &-text

@@ -17,7 +17,10 @@
     .wheel
         .spin-bg
         .wheel__logo
-            picture
+            picture.en
+                source(srcset="./img/wheel/mob/wheel-logo-en.png" media="(max-width: 1050px)")
+                img(src="./img/wheel/wheel-logo-en.png" alt="favbet")
+            picture.hr
                 source(srcset="./img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
                 img(src="./img/wheel/wheel-logo.png" alt="favbet")
         .wheel__wrap
