@@ -1,35 +1,20 @@
-.drop
-    button.drop-menu popups
-    .btns-wrap
-        button.drop-nothing nothing
-        button.drop-bonus.fs22 fs22
-        button.drop-bonus.fs33 fs33
-        button.drop-bonus.fs44 fs44
-        button.drop-bonus.fs55 fs55
-        button.drop-bonus.fs66 fs66
-        button.drop-bonus.euro10 euro10
-        button.drop-bonus.euro20 euro20
-        button.drop-bonus.euro30 euro30
-        button.drop-done done-popup
-        button.drop-lock lock
-        button.drop-sign sign
-.fav-page#wheel
+.fav-page.en#wheel
     .wheel
         .spin-bg
         .wheel__logo
             picture.en
-                source(srcset="./img/wheel/mob/wheel-logo-en.png" media="(max-width: 1050px)")
-                img(src="./img/wheel/wheel-logo-en.png" alt="favbet")
+                source(srcset="https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-logo-en.png" media="(max-width: 1050px)")
+                img(src="https://fav-prom.com/html/wheel-hr/img/wheel/wheel-logo-en.png" alt="favbet")
             picture.hr
-                source(srcset="./img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
-                img(src="./img/wheel/wheel-logo.png" alt="favbet")
-        .wheel__wrap
+                source(srcset="https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
+                img(src="https://fav-prom.com/html/wheel-hr/img/wheel/wheel-logo.png" alt="favbet")
+        .wheel__wrap._sign
             .wheel__lock-buble
-                .wheel__lock-title(data-translate="lockTitle") Danas si već zavrtio Kolo sreće.
-                .wheel__lock-text(data-translate="lockText") Dođi opet sutra od 00:01 do 23:59 i <br> iskušaj sreću
+                .wheel__lock-title(data-translate="lockTitle")
+                .wheel__lock-text(data-translate="lockText")
             .wheel__sign-buble
-                a(href="/login/" data-translate="signBtn").wheel__sign-btn.unauth-msg Prijavi se
-                .wheel__sign-btn.btn-join.hide(data-translate="partBtn") Sudjeluj
+                a(href="/login/" data-translate="signBtn").wheel__sign-btn.unauth-msg
+                .wheel__sign-btn.btn-join.hide(data-translate="partBtn")
             .wheel__border
                 .sector-prize
             .wheel__sections
@@ -37,145 +22,138 @@
             .wheel__arrow
             .wheel__point
             .wheel__leg
-            .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn") Zavrti]
+            .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn")]
             .wheel__days
-                .wheel__days-title(data-translate="wheelDaysTitle") Također ne zaboravi <br> na “Samov izazov”
+                .wheel__days-title(data-translate="wheelDaysTitle")
                 .wheel__days-container
                     .wheel__days-icons
                         .wheel__days-icons-decor
                         .wheel__buble._hidden
-                            .wheel__buble-title(data-translate="wheelBubbleTitle") Zavrti “Kolo sreće” 7 dana za redom i automatski ostvari dodatni bonus
+                            .wheel__buble-title(data-translate="wheelBubbleTitle")
                             .wheel__buble-prize
-                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans") 202 fs
-                                .wheel__buble-prize-item(data-translate="wheelBubblePrize") + 207 € risk free bet
+                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans")
+                                .wheel__buble-prize-item(data-translate="wheelBubblePrize")
                     .wheel__days-wrap
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-    .progress
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
+    .progress._sign
         .progress__top
-            a(href="/casino/").progress__top-left #[span(data-translate="btnCasino")  Igraj <br> casino]
+            a(href="/casino/").progress__top-left #[span(data-translate="btnCasino")]
             .progress__bar
                 .progress__bar-thumb
                     .progress__bar-wrap
                         .progress__bar-line
-                            .progress__bar-status 10 €
-                    .progress__bar-sum #[span.current 10€] / #[span.total 50€]
-            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Kladi se <br> na sport]
+                            .progress__bar-status 0 €
+                    .progress__bar-sum #[span.current 0€] / #[span.total 50€]
+            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet")]
         .progress__bottom
             .progress__bottom-wrap
-                .progress__bottom-title(data-translate="progressBottomTitle") 1 dan - 1 okretaj
-                .progress__bottom-text(data-translate="progressBottomText") Ostvari promet dobitnih oklada u iznosu od 50 € i osvoji okretaj u “Kolu Sreće”
+                .progress__bottom-title(data-translate="progressBottomTitle")
+                .progress__bottom-text(data-translate="progressBottomText")
     .days
-        .days__title(data-translate="daysTitle")  Challenge from Sam Spin 7 day in a row
+        .days__title(data-translate="daysTitle")
         .days__wrap
             .days__container
-                .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-            .days__text(data-translate="wheelBubbleTitle") Complete the challenge and automatically receive an additional bonus:
+                .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
+                .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
+            .days__text(data-translate="wheelBubbleTitle")
             .days__prize
-                .days__prize-item(data-translate="wheelBubbleSpans") 202 FS
-                .days__prize-item(data-translate="wheelBubblePrize") + 207 ₴ bonus “Bet Insurance”
+                .days__prize-item(data-translate="wheelBubbleSpans")
+                .days__prize-item(data-translate="wheelBubblePrize")
     .accordion
         .accordion__item._spins
-            .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins") Povijest okretaja]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins")]
             .accordion__content
-                .accordion__content-wrap(data-translate="accordionContentSpins")
-                    .accordion__content-item.head-drop(data-translate='spinsHeadPrize') #[span.content-date ДАТА] ПРИЗ
-                    .accordion__content-item(data-translate="spinsNoSpin").no-spins в тебе ще не було прокрутів
+                .accordion__content-item.head-drop.hide(data-translate='spinsHeadPrize') #[span.content-date]
+                .accordion__content-item(data-translate="spinsNoSpin").no-spins
+                .accordion__content-wrap
                     .accordion__list
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Iphone 15 Pro]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize EcoFlow RIVER 2]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Без призу]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize до 103 ₴ Страховка ставки]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Iphone 15 Pro]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize EcoFlow RIVER 2]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize Без призу]
-                        .accordion__content-item #[span.content-date 18.03] #[span.content-prize до 103 ₴ Страховка ставки]
+
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules") When and how can you spin the wheel?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules")]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentSpinRules")
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules") How are points calculated in the progress bar?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules")]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentProgressRules")
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules") What bonuses and physical prizes can I receive?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules")]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentPrizeRules")
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge") What is “Sam's Challenge”?]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge")]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentAboutChallenge")
         .accordion__item._rules
-            .accordion__header #[span.accordion__header-text(data-translate="accordionRules") Terms and Conditions:]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionRules")]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentAboutRules")
     .popups
         .popup
             .popup__buble._bonus.fs22
-                .popup__buble-title(data-translate="popupBonusTitle") Igraj - Haj!
-                .popup__buble-text(data-translate="popupBonusText") Iskušao si svoju sreću i <br> ostvario sjajan bonus
+                .popup__buble-title(data-translate="popupBonusTitle")
+                .popup__buble-text(data-translate="popupBonusText")
             .popup__buble._nothing
-                .popup__buble-title(data-translate="popupNothingTitle") Frende, danas nažalost nisi osvojio nagradu
+                .popup__buble-title(data-translate="popupNothingTitle")
             .popup__pers
                 picture._iphone
-                    source(srcset="./img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/iphone/pers.png" alt="sam favbet")
+                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/iphone/pers.png" alt="sam favbet")
                 picture._ecoflow
-                    source(srcset="./img/popups/ecoflow/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/ecoflow/pers.png" alt="sam favbet")
+                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/ecoflow/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/ecoflow/pers.png" alt="sam favbet")
                 picture._bonus
-                    source(srcset="./img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/bonus/pers.png" alt="sam favbet")
+                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/bonus/pers.png" alt="sam favbet")
                 picture._merch
-                    source(srcset="./img/popups/merch/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/merch/pers.png" alt="sam favbet")
+                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/merch/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/merch/pers.png" alt="sam favbet")
                 picture._nothing
-                    source(srcset="./img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/nothing/pers.png" alt="sam favbet")
+                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/nothing/pers.png" alt="sam favbet")
             .popup__main
                 .popup__item._bonus.fs22
-                    .popup__title.fs22(data-translate="popup22FsPrize") 22 FS <br> Risk-free bet
-                    .popup__title.fs33(data-translate="popup33FsPrize") 33 FS <br> Risk-free bet
-                    .popup__title.fs44(data-translate="popup44FsPrize") 44 FS <br> Risk-free bet
-                    .popup__title.fs55(data-translate="popup55FsPrize") 55 FS <br> Risk-free bet
-                    .popup__title.fs66(data-translate="popup66FsPrize") 66 FS <br> Risk-free bet
-                    .popup__title.euro10(data-translate="popupEuro10Prize") 10 € <br> Risk-free bet
-                    .popup__title.euro20(data-translate="popupEuro20Prize") 20 € <br> Risk-free bet
-                    .popup__title.euro30(data-translate="popupEuro30Prize") 30 € <br> Risk-free bet
-                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Uđi u svoj #[a(href="#") korisnički pretinac] i aktiviraj svoj bonus unutar 3 dana.
-                    .popup__btn(data-translate="popupTakeBonusBtn") preuzmi svoj bonus
+                    .popup__title.fs22(data-translate="popup22FsPrize")
+                    .popup__title.fs33(data-translate="popup33FsPrize")
+                    .popup__title.fs44(data-translate="popup44FsPrize")
+                    .popup__title.fs55(data-translate="popup55FsPrize")
+                    .popup__title.fs66(data-translate="popup66FsPrize")
+                    .popup__title.euro10(data-translate="popupEuro10Prize")
+                    .popup__title.euro20(data-translate="popupEuro20Prize")
+                    .popup__title.euro30(data-translate="popupEuro30Prize")
+                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus
+                    .popup__btn(data-translate="popupTakeBonusBtn")
                 //.popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
                 .popup__bottom._incomplete
-                    .popup__text(data-translate="popupRemindSpinTitle") Također ne zaboravi na <br> “Samov izazov”
-                    .popup__prize-text(data-translate="popupRemindSpin") Zavrti “Kolo sreće” 7 dana za redom i automatski <br> ostvari dodatni bonus
+                    .popup__text(data-translate="popupRemindSpinTitle")
+                    .popup__prize-text(data-translate="popupRemindSpin")
                     .popup__days
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") dan ]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") dan ]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
                     .popup__btn-wrap
-                        a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino") Igraj <br> casino]
-                        a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet") Kladi se <br> na sport]
+                        a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino")]
+                        a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet")]
                 .popup__bottom._done
-                    .popup__text(data-translate="popupChallengeDone") Moj izazov je završen! <br> Evo tvog bonusa:
+                    .popup__text(data-translate="popupChallengeDone")
                     .popup__prize-title
-                        .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 fs
-                        .popup__prize-title-item(data-translate="wheelBubblePrize") + 207 € risk free bet
-                    .popup__prize-text(data-translate="popupActiveBonusRemind") Aktiviraj bonus unutar 3 dana na <br> svom  računu!
-                    .popup__btn(data-translate="popupTakeBonusBtn") preuzmi svoj bonus
+                        .popup__prize-title-item(data-translate="wheelBubbleSpans")
+                        .popup__prize-title-item(data-translate="wheelBubblePrize")
+                    .popup__prize-text(data-translate="popupActiveBonusRemind")
+                    .popup__btn(data-translate="popupTakeBonusBtn")
                 .popup__close

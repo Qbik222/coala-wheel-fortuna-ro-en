@@ -34,10 +34,11 @@ $font-lobster-reg: Lobster, sans-serif
 
 //// for test
 
-body
+.fav-page
   overscroll-behavior: none
   -webkit-tap-highlight-color: transparent
   background: $blue
+  position: relative
   img
     max-width: 100%
     height: auto
@@ -49,7 +50,7 @@ body
   top: 0
   left: 0
   opacity: 0
-  background: url("../img/spin-bg.png") repeat 0 0/cover
+  background: url("https://fav-prom.com/html/wheel-hr/img/spin-bg.png") repeat 0 0/cover
   background-size: 100% auto
 .fireworks-wrap
   position: absolute
@@ -61,7 +62,7 @@ body
   z-index: 0
   .firework
     position: absolute
-    background: url("../img/firework.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/firework.png") no-repeat 0 0/contain
     &:nth-child(1)
       width: 240px
       height: 240px
@@ -106,11 +107,9 @@ body
 .fav-page
   padding: 0 0 20px 0
   overflow: hidden
-
   &::before
     content: ""
     display: block
-    z-index: -1
     position: absolute
     top: 0
     left: 0
@@ -118,20 +117,20 @@ body
     width: 100%
     height: 140%
     transition: all 2s ease-in-out
-    background: url("../img/bg-desc.jpg") no-repeat 50% 0/cover
+    background: url("https://fav-prom.com/html/wheel-hr/img/bg-desc.jpg") no-repeat 50% 0/cover
     background-size: 100% auto
     @media screen and (max-width: 1050px)
-      background: url("../img/bg-tab.jpg") no-repeat 50% 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/bg-tab.jpg") no-repeat 50% 0/cover
       height: 100%
       background-size: 100% auto
       transition: all 2s ease-in-out
     @media screen and (max-width: 600px)
-      background: url("../img/bg-mob.jpg") no-repeat 50% 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/bg-mob.jpg") no-repeat 50% 0/cover
       height: 840px
       background-size: 100% auto
       transition: all 2s ease-in-out
     @media screen and (max-width: 950px) and (max-height: 450px) and (orientation: landscape)
-      background: url("../img/bg-landscape.jpg") no-repeat 50% 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/bg-landscape.jpg") no-repeat 50% 0/cover
       transition: all 2s ease-in-out
 .bgScale
   overflow: hidden
@@ -157,9 +156,9 @@ body
     left: 0
     opacity: 0
     transition: opacity .3s ease-in-out
-    background: url("../img/wheel/sector-prize.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/sector-prize.png") no-repeat 0 0/contain
     @media screen and (max-width: 1050px)
-      background: url("../img/wheel/mob/sector-prize.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/sector-prize.png") no-repeat 0 0/contain
   &__sign
     &-buble
       position: absolute
@@ -168,7 +167,7 @@ body
       transform: translate(-50%, -50%)
       width: 331px
       height: 159px
-      background: url("../img/wheel/mob/wheel-buble-bg.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-buble-bg.png") no-repeat 0 0/contain
       z-index: 10
       display: none
       align-items: center
@@ -178,7 +177,7 @@ body
       padding: 0 25px
       height: 62px
       z-index: 1
-      background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done.png") no-repeat 0 0/cover
       background-size: 100% 100%
       display: flex
       align-items: center
@@ -198,7 +197,7 @@ body
         position: absolute
         box-shadow: 0px 0px 20px 0px #76FFD5
       &:hover
-        background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done-hover.png") no-repeat 0 0/cover
         background-size: 100% 100%
         cursor: pointer
   &__days
@@ -218,7 +217,7 @@ body
       display: block
       width: 100%
       height: 100%
-      background: url("../img/wheel/logo-light.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/logo-light.png") no-repeat 0 0/contain
       position: absolute
       z-index: -1
     &::before
@@ -248,7 +247,7 @@ body
         &__lock
           &-buble
             display: flex
-    &._lock, &._sign
+    &._lock, &._sign, &._block
       .wheel
         &__border
           &::before
@@ -271,7 +270,7 @@ body
           filter: grayscale(1)
           pointer-events: none
           &::before
-            background: url("../img/wheel/btn-bg-lock.png") no-repeat 0 0/contain
+            background: url("https://fav-prom.com/html/wheel-hr/img/wheel/btn-bg-lock.png") no-repeat 0 0/contain
           &-text
             filter: grayscale(1) brightness(.78)
             text-shadow: none
@@ -280,7 +279,7 @@ body
     &::before
       content: ""
       display: block
-      background: url("../img/wheel/wheel-light.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-light.png") no-repeat 0 0/contain
       width: 1262px
       height: 1262px
       z-index: 0
@@ -290,7 +289,7 @@ body
       transform: translate(-50%, -50%)
       animation: wheelLightScale 6s ease-in-out infinite
       @media screen and (max-width: 1050px)
-        background: url("../img/wheel/wheel-light.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-light.png") no-repeat 0 0/contain
     &::after
       content: ""
       display: block
@@ -301,10 +300,10 @@ body
       transform: translate(-50%, -50%)
       width: 720px
       height: 700px
-      background: url("../img/wheel/wheel-decor.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-decor.png") no-repeat 0 0/contain
       animation: spinWheelDecor 25s linear infinite
       @media screen and (max-width: 1050px)
-        background: url("../img/wheel/mob/wheel-decor.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-decor.png") no-repeat 0 0/contain
   &__leg
     position: absolute
     bottom: -55px
@@ -312,9 +311,9 @@ body
     transform: translate(-50%, 0)
     width: 762px
     height: 142px
-    background: url("../img/wheel/wheel-leg.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-leg.png") no-repeat 0 0/contain
     @media screen and (max-width: 1050px)
-      background: url("../img/wheel/mob/wheel-leg.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-leg.png") no-repeat 0 0/contain
   &__sections, &__border, &__bulbs, &__btn
     position: absolute
     top: 50%
@@ -335,12 +334,12 @@ body
       left: 50%
       transform: translate(-50%, -50%)
     &::before
-      background: url("../img/wheel/wheel-sections.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-sections.png") no-repeat 0 0/contain
       width: 100%
       height: 100%
       transform: translate(-50%, -50%)
       @media screen and (max-width: 1050px)
-        background: url("../img/wheel/mob/wheel-sections.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-sections.png") no-repeat 0 0/contain
     &::after
       box-shadow: 0px -2px 82px 28px $magenta
       border-radius: 50%
@@ -349,21 +348,21 @@ body
       opacity: .8
       animation: wheelLightBg 4s ease-in-out infinite
   &__border
-    background: url("../img/wheel/wheel-border.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-border.png") no-repeat 0 0/contain
     width: 720px
     height: 720px
     position: absolute
     z-index: 2
     border-radius: 100%
     @media screen and (max-width: 1050px)
-      background: url("../img/wheel/mob/wheel-border.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-border.png") no-repeat 0 0/contain
   &__bulbs
     width: 725px
     height: 745px
     z-index: 3
     animation: bulbsChange 4s steps(2, end) infinite
   &__point
-    background: url("../img/wheel/wheel-point.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-point.png") no-repeat 0 0/contain
     width: 186px
     height: 221px
     position: absolute
@@ -371,7 +370,7 @@ body
     left: calc(50% - 96px)
     z-index: 3
   &__arrow
-    background: url("../img/wheel/wheel-arrow.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-arrow.png") no-repeat 0 0/contain
     width: 350px
     height: 350px
     position: absolute
@@ -381,7 +380,7 @@ body
     animation: showArrow 1.8s ease-in-out, moveArrow 2s ease-in-out infinite
     transition: opacity ease-in-out
     @media screen and (max-width: 1050px)
-      background: url("../img/wheel/mob/wheel-arrow.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-arrow.png") no-repeat 0 0/contain
   &__btn
     width: 190px
     height: 190px
@@ -419,7 +418,7 @@ body
       position: absolute
       width: 100%
       height: 100%
-      background: url("../img/wheel/btn-bg.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/btn-bg.png") no-repeat 0 0/contain
       top: 0
       left: 0
       z-index: 1
@@ -441,7 +440,7 @@ body
     &:hover
       cursor: pointer
       &::before
-        background: url("../img/wheel/btn-active-bg.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/btn-active-bg.png") no-repeat 0 0/contain
       &::after
         box-shadow: 0px -2px 62px 28px #7FFFD7
       .wheel__btn-text
@@ -473,7 +472,7 @@ body
       align-items: center
       width: 285px
       height: 585px
-      background: url("../img/days/days-bg.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/days/days-bg.png") no-repeat 0 0/contain
     &-item
       position: relative
       &-text
@@ -508,11 +507,11 @@ body
             position: relative
             top: 10px
         &.next
-          background: url("../img/days/day1/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day1/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day1/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day1/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day1/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day1/active.png") no-repeat 0 0/contain
       &:nth-child(2)
         min-width: 90px
         max-width: 90px
@@ -530,11 +529,11 @@ body
             position: relative
             top: 10px
         &.next
-          background: url("../img/days/day2/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day2/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day2/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day2/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day2/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day2/active.png") no-repeat 0 0/contain
       &:nth-child(3)
         min-width: 90px
         max-width: 90px
@@ -552,11 +551,11 @@ body
             position: relative
             top: 10px
         &.next
-          background: url("../img/days/day3/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day3/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day3/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day3/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day3/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day3/active.png") no-repeat 0 0/contain
       &:nth-child(4)
         min-width: 95px
         max-width: 95px
@@ -574,11 +573,11 @@ body
             position: relative
             top: 13px
         &.next
-          background: url("../img/days/day4/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day4/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day4/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day4/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day4/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day4/active.png") no-repeat 0 0/contain
       &:nth-child(5)
         min-width: 110px
         max-width: 110px
@@ -596,11 +595,11 @@ body
             position: relative
             top: 13px
         &.next
-          background: url("../img/days/day5/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day5/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day5/next.png") no-repeat 0 0/contain
-        &.active
-          background: url("../img/days/day5/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day5/next.png") no-repeat 0 0/contain
+        //&.active
+        //  background: url("https://fav-prom.com/html/wheel-hr/img/days/day5/active.png") no-repeat 0 0/contain
       &:nth-child(6)
         min-width: 135px
         max-width: 135px
@@ -618,11 +617,11 @@ body
             position: relative
             top: 13px
         &.next
-          background: url("../img/days/day6/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day6/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day6/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day6/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day6/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day6/active.png") no-repeat 0 0/contain
       &:nth-child(7)
         min-width: 142px
         max-width: 142px
@@ -640,11 +639,11 @@ body
             position: relative
             top: 13px
         &.next
-          background: url("../img/days/day7/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day7/next.png") no-repeat 0 0/contain
         &.past
-          background: url("../img/days/day7/next.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day7/next.png") no-repeat 0 0/contain
         &.active
-          background: url("../img/days/day7/active.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/day7/active.png") no-repeat 0 0/contain
       &.remind
         .wheel__days-item-text
           transition: all 1.2s ease-in-out
@@ -679,13 +678,13 @@ body
       &:hover
         cursor: pointer
         &::after
-          background: url("../img/days/days-info-icon-hover.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/days/days-info-icon-hover.png") no-repeat 0 0/contain
       &-decor
         width: 55px
         height: 56px
         left: -43px
         top: -10px
-        background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/days/gift-decor.png") no-repeat 0 0/contain
         position: relative
         z-index: 0
         animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
@@ -699,7 +698,7 @@ body
         position: absolute
         z-index: 3
         transition: background .5s ease-in-out
-        background: url("../img/days/days-info-icon.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/days/days-info-icon.png") no-repeat 0 0/contain
       &::before
         content: ""
         display: block
@@ -708,7 +707,7 @@ body
         position: absolute
         left: -43px
         top: -10px
-        background: url("../img/days/days-gift.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/days/days-gift.png") no-repeat 0 0/contain
         z-index: -1
   &__buble
     position: absolute
@@ -717,7 +716,7 @@ body
     padding: 31px 65px 0px 40px
     width: 390px
     height: 185px
-    background: url("../img/wheel/wheel-buble-bg.png") no-repeat 0 0/cover
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-buble-bg.png") no-repeat 0 0/cover
     background-size: 100% 100%
     display: flex
     flex-direction: column
@@ -756,7 +755,7 @@ body
             display: block
             width: 54px
             height: 33px
-            background: url("../img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
+            background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
             background-size: 100% 100%
             filter: drop-shadow(0px 0px 15px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62))
           &::before
@@ -773,7 +772,7 @@ body
       right: 22%
       width: 360px
       height: 160px
-      background: url("../img/wheel/wheel-buble-bg.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-buble-bg.png") no-repeat 0 0/cover
       background-size: 100% 100%
       z-index: 6
       flex-direction: column
@@ -781,7 +780,7 @@ body
       justify-content: flex-start
       padding:  30px 10px 10px 5px
       @media screen and (max-width: 600px)
-        background: url("../img/wheel/mob/wheel-buble-bg.png") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-buble-bg.png") no-repeat 0 0/cover
         background-size: 100% 100%
         right: 27%
     &-title
@@ -835,7 +834,7 @@ body
       transform: translate(50%, 0)
       font-family: $font-lobster-reg
       height: 34px
-      background: url("../img/progress/progress-status-bg.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/progress/progress-status-bg.png") no-repeat 0 0/cover
       background-size: 100% 100%
       padding: 2px 10px 6px 29px
       color: #d4ba2c
@@ -854,7 +853,7 @@ body
       width: 347px
       height: 22px
       border-radius: 20px
-      background: url("../img/progress/progress-thumb.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/progress/progress-thumb.png") no-repeat 0 0/cover
       background-size: 100% 100%
       position: relative
       z-index: 0
@@ -863,7 +862,7 @@ body
       top: 3px
       left: 5px
       height: 17px
-      width: 10%
+      width: 0%
       min-width: 3%
       max-width: 97%
       border-radius: 10px
@@ -929,21 +928,21 @@ body
         &::before
           box-shadow: 0px 0px 44px 24px #7FFFD7
     &-left
-      background: url("../img/progress/btn-left.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-left.png") no-repeat 0 0/cover
       padding: 3px 7px 0 0
       transition: background .6s ease-in-out
       &:hover
-        background: url("../img/progress/btn-left-hover.png") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-left-hover.png") no-repeat 0 0/cover
       span
         transform: rotate(2.004deg)
         position: relative
         z-index: 1
     &-right
-      background: url("../img/progress/btn-right.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-right.png") no-repeat 0 0/cover
       padding: 3px 0 0 7px
       transition: background .6s ease-in-out
       &:hover
-        background: url("../img/progress/btn-right-hover.png") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-right-hover.png") no-repeat 0 0/cover
       span
         transform: rotate(-2.004deg)
         position: relative
@@ -956,7 +955,7 @@ body
     max-width: 940px
     min-height: 210px
     background: linear-gradient(180deg, #6E2A9A -1.21%, #19006E 44.44%, #1F008A 100.24%)
-    mask-image: url("../img/progress/bg-mask.png")
+    mask-image: url("https://fav-prom.com/html/wheel-hr/img/progress/bg-mask.png")
     mask-size: 100% 100%
     mask-repeat: no-repeat
     padding: 0 25px 20px 25px
@@ -1004,18 +1003,18 @@ body
           &::before
             content: none
         &-left
-          background: url("../img/progress/btn-left-lock.png") no-repeat 0 0/cover
+          background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-left-lock.png") no-repeat 0 0/cover
           background-size: 100% 100%
           @media screen and (max-width: 870px)
-            background: url("../img/progress/mob-btn-left-lock.png") no-repeat 0 0/cover
+            background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-left-lock.png") no-repeat 0 0/cover
             background-size: 100% 100%
             padding-top: 4px
         &-right
-          background: url("../img/progress/btn-right-lock.png") no-repeat 0 0/cover
+          background: url("https://fav-prom.com/html/wheel-hr/img/progress/btn-right-lock.png") no-repeat 0 0/cover
           background-size: 100% 100%
           @media screen and (max-width: 870px)
             padding-top: 4px
-            background: url("../img/progress/mob-btn-right-lock.png") no-repeat 0 0/cover
+            background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-right-lock.png") no-repeat 0 0/cover
             background-size: 100% 100%
 .days
   display: none
@@ -1033,15 +1032,17 @@ body
       .accordion
         &__content
           border: 1px solid $magenta
+          .head-drop,.no-spins
+            padding-top: 0
+            background: transparent
+            &::before
+              content: none
+          .no-spins
+            padding: 0
+            margin-bottom: 0
           &-wrap
             height: auto
             max-height: 330px
-            .no-spins
-              display: none
-            .head-drop,.no-spins
-              background: transparent
-              &::before
-                content: none
           &-item
             display: flex
             align-items: center
@@ -1050,6 +1051,9 @@ body
             background: #000067
             border-radius: 13px
             text-align: right
+            font-family: $font-suisse-intl-reg
+            color: $white
+            font-size: 17px
             &:not(:last-child)
               margin-bottom: 5px
             &::before
@@ -1058,7 +1062,7 @@ body
               width: 28px
               min-width: 28px
               height: 28px
-              background: url("../img/icon-spins.png") no-repeat 0 0/contain
+              background: url("https://fav-prom.com/html/wheel-hr/img/icon-spins.png") no-repeat 0 0/contain
               margin: 0 5px 3px 0
             span
               font-family: inherit
@@ -1076,7 +1080,7 @@ body
         &__header
           border: 1px solid $magenta
           &::before
-            background: url("../img/drop-arrow-magenta.png") no-repeat 0 0/contain
+            background: url("https://fav-prom.com/html/wheel-hr/img/drop-arrow-magenta.png") no-repeat 0 0/contain
   &__header
     background-color: $blue
     border: 1px solid #313FFF
@@ -1105,10 +1109,10 @@ body
       order: 2
       width: 40px
       height: 40px
-      background: url("../img/drop-arrow.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/drop-arrow.png") no-repeat 0 0/contain
   &__content
     display: none
-    padding: 35px 20px 15px 20px
+    padding: 24px 20px
     border: 2px solid #313FFF
     background-color: $blue
     border-radius: 20px
@@ -1116,7 +1120,7 @@ body
     overflow: hidden
     &-wrap
       overflow: auto
-      height: 330px
+      height: auto
       font-family: $font-suisse-intl-reg
       font-size: 17px
       line-height: 27px
@@ -1162,17 +1166,17 @@ body
   height: 100%
   min-height: 1170px
   overflow: hidden
-  background: url("../img/bg-desc.jpg") no-repeat 50% 0/cover
+  background: url("https://fav-prom.com/html/wheel-hr/img/bg-desc.jpg") no-repeat 50% 0/cover
   background-size: 100% 105vh
   @media screen and (max-width: 1050px)
-    background: url("../img/bg-tab.jpg") no-repeat 50% 0/cover
+    background: url("https://fav-prom.com/html/wheel-hr/img/bg-tab.jpg") no-repeat 50% 0/cover
     background-size: 100% 105vh
   @media screen and (max-width: 1050px) and (orientation: portrait) and (min-height: 1200px)
     background-size: 100% 100vh
   @media screen and (max-width: 600px)
-    background: url("../img/bg-mob.jpg") no-repeat 50% 0/cover
+    background: url("https://fav-prom.com/html/wheel-hr/img/bg-mob.jpg") no-repeat 50% 0/cover
   @media screen and (max-width: 950px) and (max-height: 450px) and (orientation: landscape)
-    background: url("../img/bg-landscape.jpg") no-repeat 50% 0/cover
+    background: url("https://fav-prom.com/html/wheel-hr/img/bg-landscape.jpg") no-repeat 50% 0/cover
     background-size: 100% 105vh
   .popup
     max-height: 100%
@@ -1195,7 +1199,7 @@ body
     &__close
       width: 38px
       height: 38px
-      background: url("../img/popups/btn-close.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-close.png") no-repeat 0 0/contain
       position: absolute
       top: 30px
       right: -10px
@@ -1204,7 +1208,7 @@ body
     &__item
       display: none
     &__buble
-      background: url("../img/popups/popup-buble-bg.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/popups/popup-buble-bg.png") no-repeat 0 0/cover
       background-size: 100% 100%
       width: 375px
       min-height: 204px
@@ -1230,7 +1234,7 @@ body
       transform: translate(0, 0)
       opacity: 1
     &__main
-      background: url("../img/popups/popup-main-bg.png") no-repeat 0 0/cover
+      background: url("https://fav-prom.com/html/wheel-hr/img/popups/popup-main-bg.png") no-repeat 0 0/cover
       background-size: 100% 100%
       width: 495px
       height: 545px
@@ -1279,11 +1283,11 @@ body
         height: 100%
         z-index: 0
       &::before
-        background: url("../img/popups/prize-decor-big.svg") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/popups/prize-decor-big.svg") no-repeat 0 0/cover
         background-size: 100% 100%
         animation: spin 10s linear infinite
       &::after
-        background: url("../img/popups/prize-decor-small.svg") no-repeat 0 0/cover
+        background: url("https://fav-prom.com/html/wheel-hr/img/popups/prize-decor-small.svg") no-repeat 0 0/cover
         background-size: 100% 100%
         animation: spin 10.3s linear infinite
       &-bottom._bonus
@@ -1305,7 +1309,7 @@ body
           display: block
           width: 37px
           height: 22px
-          background: url("../img/popups/contact-icon.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/popups/contact-icon.png") no-repeat 0 0/contain
           position: absolute
           top: 0
           left: 50%
@@ -1327,7 +1331,7 @@ body
           position: absolute
           content: ""
           display: block
-          background: url("../img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
+          background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
           background-size: 100% 100%
           filter: drop-shadow(0px 0px 2px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 0px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 10px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 0px rgba(0, 198, 255, 0.62))
       &-left
@@ -1428,7 +1432,7 @@ body
                     display: block
                     width: 54px
                     height: 33px
-                    background: url("../img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
+                    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-buble-arrow.png") no-repeat 0 0/cover
                     background-size: 100% 100%
                     filter: drop-shadow(0px 0px 15px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62)) drop-shadow(0px 0px 20px rgba(0, 198, 255, 0.62))
                   &::before
@@ -1462,7 +1466,7 @@ body
             padding: 0 25px
             height: 62px
             z-index: 1
-            background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+            background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done.png") no-repeat 0 0/cover
             background-size: 100% 100%
             display: flex
             align-items: center
@@ -1483,7 +1487,7 @@ body
               position: absolute
               box-shadow: 0px 0px 20px 0px #76FFD5
             &:hover
-              background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+              background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done-hover.png") no-repeat 0 0/cover
               background-size: 100% 100%
               cursor: pointer
       &._incomplete
@@ -1523,25 +1527,25 @@ body
                 color: inherit
                 font-size: inherit
             &-left
-              background: url("../img/progress/mob-btn-left.png") no-repeat 0 0/cover
+              background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-left.png") no-repeat 0 0/cover
               background-size: 100% 100%
               padding: 3px 7px 0 0
               transition: background .6s ease-in-out
               margin-right: 10px
               &:hover
-                background: url("../img/progress/mob-btn-left-hover.png") no-repeat 0 0/cover
+                background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-left-hover.png") no-repeat 0 0/cover
                 background-size: 100% 100%
               span
                 transform: rotate(2.004deg)
                 position: relative
                 z-index: 1
             &-right
-              background: url("../img/progress/mob-btn-right.png") no-repeat 0 0/cover
+              background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-right.png") no-repeat 0 0/cover
               background-size: 100% 100%
               padding: 3px 0 0 7px
               transition: background .6s ease-in-out
               &:hover
-                background: url("../img/progress/mob-btn-right-hover.png") no-repeat 0 0/cover
+                background: url("https://fav-prom.com/html/wheel-hr/img/progress/mob-btn-right-hover.png") no-repeat 0 0/cover
                 background-size: 100% 100%
               span
                 transform: rotate(-2.004deg)
@@ -1572,9 +1576,9 @@ body
               top: 7px
               width: 34px
               height: 34px
-              background: url("../img/days/days-gift.png") no-repeat 0 0/contain
+              background: url("https://fav-prom.com/html/wheel-hr/img/days/days-gift.png") no-repeat 0 0/contain
             &::after
-              background: url("../img/days/gift-decor.png") no-repeat 0 0/contain
+              background: url("https://fav-prom.com/html/wheel-hr/img/days/gift-decor.png") no-repeat 0 0/contain
               animation: giftAnim 5s cubic-bezier(0.7, 0, 0.3, 1) infinite
             &-item
               width: 59px
@@ -1596,10 +1600,10 @@ body
               &:not(:last-child)
                 margin-right: -5px
               &.past, &.next
-                background: url("../img/days/next-mob.png") no-repeat 0 0/cover
+                background: url("https://fav-prom.com/html/wheel-hr/img/days/next-mob.png") no-repeat 0 0/cover
                 background-size: 100% 100%
               &.active
-                background: url("../img/days/active-mob.png") no-repeat 0 0/cover
+                background: url("https://fav-prom.com/html/wheel-hr/img/days/active-mob.png") no-repeat 0 0/cover
                 background-size: 100% 100%
               &.active, &.past
                 .popup__days-item-text
@@ -1693,7 +1697,7 @@ body
                 cursor: pointer
                 text-decoration: none
             &::before
-              background: url("../img/popups/account-icon.png") no-repeat 0 0/contain
+              background: url("https://fav-prom.com/html/wheel-hr/img/popups/account-icon.png") no-repeat 0 0/contain
         &__main
           height: 500px
         &__bottom._done
@@ -1704,7 +1708,7 @@ body
           height: 62px
           padding: 0 25px
           z-index: 1
-          background: url("../img/popups/btn-done.png") no-repeat 0 0/cover
+          background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done.png") no-repeat 0 0/cover
           background-size: 100% 100%
           display: flex
           align-items: center
@@ -1725,7 +1729,7 @@ body
             position: absolute
             box-shadow: 0px 0px 10px 0px #76FFD5
           &:hover
-            background: url("../img/popups/btn-done-hover.png") no-repeat 0 0/cover
+            background: url("https://fav-prom.com/html/wheel-hr/img/popups/btn-done-hover.png") no-repeat 0 0/cover
             background-size: 100% 100%
             cursor: pointer
         &__item._bonus
@@ -1747,7 +1751,7 @@ body
         &__main
           height: 310px
           padding-top: 60px
-          background: url("../img/popups/popup-main-bg-small.png") no-repeat 0 0/cover
+          background: url("https://fav-prom.com/html/wheel-hr/img/popups/popup-main-bg-small.png") no-repeat 0 0/cover
           background-size: 100% 100%
         &__main._done
           padding-top: 5px
@@ -1813,16 +1817,16 @@ body
 
 @keyframes bulbsChange
   0%, 100%
-    background: url("../img/wheel/wheel-bulbs1.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-bulbs1.png") no-repeat 0 0/contain
   50%
-    background: url("../img/wheel/wheel-bulbs2.png") no-repeat 0 0/contain
+    background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-bulbs2.png") no-repeat 0 0/contain
 
 @media screen and (max-width: 1050px)
   @keyframes bulbsChange
     0%, 100%
-      background: url("../img/wheel/mob/wheel-bulbs1.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-bulbs1.png") no-repeat 0 0/contain
     50%
-      background: url("../img/wheel/mob/wheel-bulbs2.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-bulbs2.png") no-repeat 0 0/contain
 
 @keyframes wheelLightScale
   0%, 100%
@@ -2198,7 +2202,7 @@ body
 .en
   .wheel
     &__arrow
-      background: url("../img/wheel/wheel-arrow-en.png") no-repeat 0 0/contain
+      background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-arrow-en.png") no-repeat 0 0/contain
     &__logo
       max-width: 550px
       picture.en
@@ -2226,9 +2230,16 @@ body
             left: -30px
     &__sections
       &::before
-        background: url("../img/wheel/wheel-sections-en.png") no-repeat 0 0/contain
+        background: url("https://fav-prom.com/html/wheel-hr/img/wheel/wheel-sections-en.png") no-repeat 0 0/contain
         @media screen and (max-width: 1050px)
-          background: url("../img/wheel/mob/wheel-sections-en.png") no-repeat 0 0/contain
+          background: url("https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-sections-en.png") no-repeat 0 0/contain
+    &__days-title
+      top: -105px
+    &__lock
+      &-title
+        font-size: 29px
+      &-buble
+        padding: 25px 45px 10px 35px
   .popup
     &__buble
       &-text
