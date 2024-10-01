@@ -16,7 +16,7 @@
 
     let i18nData = {};
     const debug = false;
-    let userId; //= 1454805;
+    let userId;
 
     function loadTranslations() {
         return fetch(`${apiURL}/translates/${locale}`).then(res => res.json())
@@ -171,7 +171,7 @@
 
         spins.forEach(spin => {
             const spinDate = new Date(spin.date);
-            const formattedDate = spinDate.toLocaleDateString('uk-UA');
+            const formattedDate = spinDate.toLocaleDateString('hr-HR');
             const spinName = translateKey(spin.name) || '';
 
             const spinElement = document.createElement('div');
