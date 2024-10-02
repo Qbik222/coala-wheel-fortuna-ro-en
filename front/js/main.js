@@ -1,230 +1,230 @@
 (function () {
-    const apiURL = 'https://fav-prom.com/api_wheel_hr';
-
-    const
-        unauthMsgs = document.querySelectorAll('.unauth-msg'),
-        participateBtns = document.querySelectorAll('.btn-join');
-
-    const hrLeng = document.querySelector('#hrLeng');
-    const enLeng = document.querySelector('#enLeng');
-
-    let locale = 'en';
-
-    if (hrLeng) locale = 'hr';
-    if (enLeng) locale = 'en';
-
-
-    let i18nData = {};
-    const debug = false;
-    let userId;
-
-    function loadTranslations() {
-        return fetch(`${apiURL}/translates/${locale}`).then(res => res.json())
-            .then(json => {
-                i18nData = json;
-                translate();
-
-                var mutationObserver = new MutationObserver(function (mutations) {
-                    translate();
-                });
-                mutationObserver.observe(document.getElementById('wheel'), {
-                    childList: true,
-                    subtree: true,
-                });
-
-            });
-    }
-
-    function translate() {
-        const elems = document.querySelectorAll('[data-translate]')
-        if (elems && elems.length) {
-            elems.forEach(elem => {
-                const key = elem.getAttribute('data-translate');
-                elem.innerHTML = i18nData[key] || '*----NEED TO BE TRANSLATED----*   key:  ' + key;
-                elem.removeAttribute('data-translate');
-            })
-        }
-        refreshLocalizedClass();
-    }
-
-    function refreshLocalizedClass(element, baseCssClass) {
-        if (!element) {
-            return;
-        }
-        for (const lang of ['hr', 'en']) {
-            element.classList.remove(baseCssClass + lang);
-        }
-        element.classList.add(baseCssClass + locale);
-    }
-
-    const request = function (link, extraOptions) {
-        return fetch(apiURL + link, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            ...(extraOptions || {})
-        }).then(res => res.json())
-    }
-
-
-    function init() {
-        if (window.store) {
-            var state = window.store.getState();
-            userId = state.auth.isAuthorized && state.auth.id || '';
-            setupPage();
-        } else {
-            setupPage();
-            let c = 0;
-            var i = setInterval(function () {
-                if (c < 50) {
-                    if (!!window.g_user_id) {
-                        userId = window.g_user_id;
-                        setupPage();
-                        checkUserAuth();
-                        clearInterval(i);
-                    }
-                } else {
-                    clearInterval(i);
-                }
-            }, 200);
-        }
-
-        checkUserAuth();
-
-        participateBtns.forEach((authBtn, i) => {
-            authBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                participate();
-            });
-        });
-    }
-
-    function setupPage() {}
-
-    function participate() {
-        if (!userId) {
-            return;
-        }
-
-        const params = {userid: userId};
-        request('/user', {
-            method: 'POST',
-            body: JSON.stringify(params)
-        }).then(res => {
-            participateBtns.forEach(item => item.classList.add('hide'));
-            wheelWrap.classList.remove('_sign');
-            document.querySelector(".progress").classList.remove("_sign");
-            setupPage();
-        });
-    }
-
-
-
-    function checkUserAuth() {
-        if (userId) {
-            for (const unauthMes of unauthMsgs) {
-                unauthMes.classList.add('hide');
-            }
-            request(`/favuser/${userId}?nocache=1`)
-                .then(res => {
-                    if (res.userid) {
-                        participateBtns.forEach(item => item.classList.add('hide'));
-                        wheelWrap.classList.remove('_sign');
-                        document.querySelector(".progress").classList.remove("_sign");
-                        if (debug) {
-                            res.pointsPerDay = 30;
-                            res.spinAllowed = true;
-                            res.spinsStreak = 3;
-                        }
-                        refreshUserInfo(res);
-                        displayUserSpins(res.spins);
-                    } else {
-                        participateBtns.forEach(item => item.classList.remove('hide'));
-                    }
-                })
-        } else {
-            for (let participateBtn of participateBtns) {
-                participateBtn.classList.add('hide');
-            }
-            for (const unauthMes of unauthMsgs) {
-                unauthMes.classList.remove('hide');
-            }
-        }
-    }
-
-    function displayUserSpins(spins) {
-        const headDropItem = document.querySelector('.accordion__content-item.head-drop');
-        const noSpinItem = document.querySelector('.accordion__content-item.no-spins');
-
-        if (!spins || spins.length === 0) {
-            headDropItem.classList.add('hide');
-            noSpinItem.classList.remove('hide');
-            return;
-        }
-
-        const spinsContainer = document.querySelector('.accordion__content-wrap');
-        spinsContainer.innerHTML = '';
-
-        headDropItem.classList.remove('hide');
-        noSpinItem.classList.add('hide');
-
-        spins.forEach(spin => {
-            const spinDate = new Date(spin.date);
-            const formattedDate = spinDate.toLocaleDateString('hr-HR');
-            const spinName = translateKey(spin.name) || '';
-
-            const spinElement = document.createElement('div');
-            spinElement.classList.add('accordion__content-item');
-
-            spinElement.innerHTML = `
-            <span class="content-date">${formattedDate}</span>
-            <span class="content-prize">${spinName}</span>
-        `;
-
-            spinsContainer.appendChild(spinElement);
-        });
-    }
-
-    function translateKey(key) {
-        if (!key) {
-            return;
-        }
-        return i18nData[key] || '*----NEED TO BE TRANSLATED----*   key:  ' + key;
-    }
-
-    loadTranslations()
-        .then(init);
-
-    let mainPage = document.querySelector('.fav-page');
-    setTimeout(() => mainPage.classList.add('overflow'), 1000);
-
-
-    let i = 1;
-    function sendSpinRequest() {
-        if (!userId) {
-            return;
-        }
-
-        if (debug) {
-            return Promise.resolve({
-                number: i++,
-                type: 'test'
-            });
-        }
-
-        const params = {userid: userId};
-        return request('/spin', {
-            method: 'POST',
-            body: JSON.stringify(params)
-        });
-    }
+    // const apiURL = 'https://fav-prom.com/api_wheel_hr';
+    //
+    // const
+    //     unauthMsgs = document.querySelectorAll('.unauth-msg'),
+    //     participateBtns = document.querySelectorAll('.btn-join');
+    //
+    // const hrLeng = document.querySelector('#hrLeng');
+    // const enLeng = document.querySelector('#enLeng');
+    //
+    // let locale = 'en';
+    //
+    // if (hrLeng) locale = 'hr';
+    // if (enLeng) locale = 'en';
+    //
+    //
+    // let i18nData = {};
+    // const debug = false;
+    // let userId;
+    //
+    // function loadTranslations() {
+    //     return fetch(`${apiURL}/translates/${locale}`).then(res => res.json())
+    //         .then(json => {
+    //             i18nData = json;
+    //             translate();
+    //
+    //             var mutationObserver = new MutationObserver(function (mutations) {
+    //                 translate();
+    //             });
+    //             mutationObserver.observe(document.getElementById('wheel'), {
+    //                 childList: true,
+    //                 subtree: true,
+    //             });
+    //
+    //         });
+    // }
+    //
+    // function translate() {
+    //     const elems = document.querySelectorAll('[data-translate]')
+    //     if (elems && elems.length) {
+    //         elems.forEach(elem => {
+    //             const key = elem.getAttribute('data-translate');
+    //             elem.innerHTML = i18nData[key] || '*----NEED TO BE TRANSLATED----*   key:  ' + key;
+    //             elem.removeAttribute('data-translate');
+    //         })
+    //     }
+    //     refreshLocalizedClass();
+    // }
+    //
+    // function refreshLocalizedClass(element, baseCssClass) {
+    //     if (!element) {
+    //         return;
+    //     }
+    //     for (const lang of ['hr', 'en']) {
+    //         element.classList.remove(baseCssClass + lang);
+    //     }
+    //     element.classList.add(baseCssClass + locale);
+    // }
+    //
+    // const request = function (link, extraOptions) {
+    //     return fetch(apiURL + link, {
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         ...(extraOptions || {})
+    //     }).then(res => res.json())
+    // }
+    //
+    //
+    // function init() {
+    //     if (window.store) {
+    //         var state = window.store.getState();
+    //         userId = state.auth.isAuthorized && state.auth.id || '';
+    //         setupPage();
+    //     } else {
+    //         setupPage();
+    //         let c = 0;
+    //         var i = setInterval(function () {
+    //             if (c < 50) {
+    //                 if (!!window.g_user_id) {
+    //                     userId = window.g_user_id;
+    //                     setupPage();
+    //                     checkUserAuth();
+    //                     clearInterval(i);
+    //                 }
+    //             } else {
+    //                 clearInterval(i);
+    //             }
+    //         }, 200);
+    //     }
+    //
+    //     checkUserAuth();
+    //
+    //     participateBtns.forEach((authBtn, i) => {
+    //         authBtn.addEventListener('click', (e) => {
+    //             e.preventDefault();
+    //             participate();
+    //         });
+    //     });
+    // }
+    //
+    // function setupPage() {}
+    //
+    // function participate() {
+    //     if (!userId) {
+    //         return;
+    //     }
+    //
+    //     const params = {userid: userId};
+    //     request('/user', {
+    //         method: 'POST',
+    //         body: JSON.stringify(params)
+    //     }).then(res => {
+    //         participateBtns.forEach(item => item.classList.add('hide'));
+    //         wheelWrap.classList.remove('_sign');
+    //         document.querySelector(".progress").classList.remove("_sign");
+    //         setupPage();
+    //     });
+    // }
+    //
+    //
+    //
+    // function checkUserAuth() {
+    //     if (userId) {
+    //         for (const unauthMes of unauthMsgs) {
+    //             unauthMes.classList.add('hide');
+    //         }
+    //         request(`/favuser/${userId}?nocache=1`)
+    //             .then(res => {
+    //                 if (res.userid) {
+    //                     participateBtns.forEach(item => item.classList.add('hide'));
+    //                     wheelWrap.classList.remove('_sign');
+    //                     document.querySelector(".progress").classList.remove("_sign");
+    //                     if (debug) {
+    //                         res.pointsPerDay = 30;
+    //                         res.spinAllowed = true;
+    //                         res.spinsStreak = 3;
+    //                     }
+    //                     refreshUserInfo(res);
+    //                     displayUserSpins(res.spins);
+    //                 } else {
+    //                     participateBtns.forEach(item => item.classList.remove('hide'));
+    //                 }
+    //             })
+    //     } else {
+    //         for (let participateBtn of participateBtns) {
+    //             participateBtn.classList.add('hide');
+    //         }
+    //         for (const unauthMes of unauthMsgs) {
+    //             unauthMes.classList.remove('hide');
+    //         }
+    //     }
+    // }
+    //
+    // function displayUserSpins(spins) {
+    //     const headDropItem = document.querySelector('.accordion__content-item.head-drop');
+    //     const noSpinItem = document.querySelector('.accordion__content-item.no-spins');
+    //
+    //     if (!spins || spins.length === 0) {
+    //         headDropItem.classList.add('hide');
+    //         noSpinItem.classList.remove('hide');
+    //         return;
+    //     }
+    //
+    //     const spinsContainer = document.querySelector('.accordion__content-wrap');
+    //     spinsContainer.innerHTML = '';
+    //
+    //     headDropItem.classList.remove('hide');
+    //     noSpinItem.classList.add('hide');
+    //
+    //     spins.forEach(spin => {
+    //         const spinDate = new Date(spin.date);
+    //         const formattedDate = spinDate.toLocaleDateString('hr-HR');
+    //         const spinName = translateKey(spin.name) || '';
+    //
+    //         const spinElement = document.createElement('div');
+    //         spinElement.classList.add('accordion__content-item');
+    //
+    //         spinElement.innerHTML = `
+    //         <span class="content-date">${formattedDate}</span>
+    //         <span class="content-prize">${spinName}</span>
+    //     `;
+    //
+    //         spinsContainer.appendChild(spinElement);
+    //     });
+    // }
+    //
+    // function translateKey(key) {
+    //     if (!key) {
+    //         return;
+    //     }
+    //     return i18nData[key] || '*----NEED TO BE TRANSLATED----*   key:  ' + key;
+    // }
+    //
+    // loadTranslations()
+    //     .then(init);
+    //
+    // let mainPage = document.querySelector('.fav-page');
+    // setTimeout(() => mainPage.classList.add('overflow'), 1000);
+    //
+    //
+    // let i = 1;
+    // function sendSpinRequest() {
+    //     if (!userId) {
+    //         return;
+    //     }
+    //
+    //     if (debug) {
+    //         return Promise.resolve({
+    //             number: i++,
+    //             type: 'test'
+    //         });
+    //     }
+    //
+    //     const params = {userid: userId};
+    //     return request('/spin', {
+    //         method: 'POST',
+    //         body: JSON.stringify(params)
+    //     });
+    // }
 
     //Before Code
     const days = document.querySelectorAll(".wheel__days-item")
     const popupDays = document.querySelectorAll(".popup__days-item");
     const popupDaysMob = document.querySelectorAll(".days__item");
-    let currentDay = 0
+    let currentDay = 3
     function setDays(days, currentDay){
         days.forEach((day, i) =>{
             ++i
@@ -442,77 +442,77 @@
         })
     }
     initSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, spinBg, salut)
-
-    function refreshUserInfo(userInfo) {
-        refreshDailyPointsSection(userInfo);
-        refreshWheel(userInfo);
-        refreshStreak(userInfo);
-    }
-
-    function refreshWheel(userInfo) {
-        if (userInfo.spinAllowed) {
-            return;
-        }
-        if (userInfo.pointsPerDay >= 50) {
-            wheelWrap.classList.add('_lock');
-        } else {
-            wheelWrap.classList.add('_block');
-        }
-    }
-
-    function refreshDailyPointsSection(userInfo) {
-        const points = Math.min(userInfo.pointsPerDay || 0, 50);
-        const progressStatus = document.querySelector('.progress__bar-status');
-        progressStatus.innerHTML = `${points} €`;
-        const currentSpan = document.querySelector('.current');
-        currentSpan.innerHTML = `${points}€`;
-        const progressLine = document.querySelector('.progress__bar-line');
-        const progress = points / 50.0 * 100;
-        progressLine.style.width = `${progress}%`;
-    }
-
-    function refreshStreak(userInfo) {
-        const items = document.querySelectorAll('.wheel__days-item');
-        let i = 0;
-        let streak = userInfo.spinsStreak;
-        for (let item of items) {
-            item.classList.remove('past');
-            item.classList.remove('next');
-            if (i < streak) {
-                item.classList.add('past');
-            } else {
-                item.classList.add('next');
-            }
-            i++;
-        }
-
-        const popupDays = document.querySelectorAll('.popup__days-item');
-        let j = 0;
-        for (let item of popupDays) {
-            item.classList.remove('active');
-            item.classList.remove('past');
-            item.classList.remove('next');
-            if (j < streak) {
-                item.classList.add('past');
-            } else {
-                item.classList.add('next');
-            }
-            j++;
-        }
-
-        const mobileDays = document.querySelectorAll('.days__item');
-        let k = 0;
-        for (let item of mobileDays) {
-            item.classList.remove('past');
-            item.classList.remove('next');
-            if (k < streak) {
-                item.classList.add('past');
-            } else {
-                item.classList.add('next');
-            }
-            k++;
-        }
-    }
+    //
+    // function refreshUserInfo(userInfo) {
+    //     refreshDailyPointsSection(userInfo);
+    //     refreshWheel(userInfo);
+    //     refreshStreak(userInfo);
+    // }
+    //
+    // function refreshWheel(userInfo) {
+    //     if (userInfo.spinAllowed) {
+    //         return;
+    //     }
+    //     if (userInfo.pointsPerDay >= 50) {
+    //         wheelWrap.classList.add('_lock');
+    //     } else {
+    //         wheelWrap.classList.add('_block');
+    //     }
+    // }
+    //
+    // function refreshDailyPointsSection(userInfo) {
+    //     const points = Math.min(userInfo.pointsPerDay || 0, 50);
+    //     const progressStatus = document.querySelector('.progress__bar-status');
+    //     progressStatus.innerHTML = `${points} €`;
+    //     const currentSpan = document.querySelector('.current');
+    //     currentSpan.innerHTML = `${points}€`;
+    //     const progressLine = document.querySelector('.progress__bar-line');
+    //     const progress = points / 50.0 * 100;
+    //     progressLine.style.width = `${progress}%`;
+    // }
+    //
+    // function refreshStreak(userInfo) {
+    //     const items = document.querySelectorAll('.wheel__days-item');
+    //     let i = 0;
+    //     let streak = userInfo.spinsStreak;
+    //     for (let item of items) {
+    //         item.classList.remove('past');
+    //         item.classList.remove('next');
+    //         if (i < streak) {
+    //             item.classList.add('past');
+    //         } else {
+    //             item.classList.add('next');
+    //         }
+    //         i++;
+    //     }
+    //
+    //     const popupDays = document.querySelectorAll('.popup__days-item');
+    //     let j = 0;
+    //     for (let item of popupDays) {
+    //         item.classList.remove('active');
+    //         item.classList.remove('past');
+    //         item.classList.remove('next');
+    //         if (j < streak) {
+    //             item.classList.add('past');
+    //         } else {
+    //             item.classList.add('next');
+    //         }
+    //         j++;
+    //     }
+    //
+    //     const mobileDays = document.querySelectorAll('.days__item');
+    //     let k = 0;
+    //     for (let item of mobileDays) {
+    //         item.classList.remove('past');
+    //         item.classList.remove('next');
+    //         if (k < streak) {
+    //             item.classList.add('past');
+    //         } else {
+    //             item.classList.add('next');
+    //         }
+    //         k++;
+    //     }
+    // }
 
 
 //// accordion

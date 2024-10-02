@@ -1,14 +1,14 @@
-.fav-page.en#wheel
+.fav-page#wheel
     .wheel
         .spin-bg
         .wheel__logo
             picture.en
-                source(srcset="https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-logo-en.png" media="(max-width: 1050px)")
-                img(src="https://fav-prom.com/html/wheel-hr/img/wheel/wheel-logo-en.png" alt="favbet")
-            picture.hr
-                source(srcset="https://fav-prom.com/html/wheel-hr/img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
-                img(src="https://fav-prom.com/html/wheel-hr/img/wheel/wheel-logo.png" alt="favbet")
-        .wheel__wrap._sign
+                source(srcset="./img/wheel/mob/wheel-logo-en.png" media="(max-width: 1050px)")
+                img(src="./img/wheel/wheel-logo-en.png" alt="favbet")
+            picture.ro
+                source(srcset="./img/wheel/mob/wheel-logo.png" media="(max-width: 1050px)")
+                img(src="./img/wheel/wheel-logo.png" alt="favbet")
+        .wheel__wrap
             .wheel__lock-buble
                 .wheel__lock-title(data-translate="lockTitle")
                 .wheel__lock-text(data-translate="lockText")
@@ -22,7 +22,7 @@
             .wheel__arrow
             .wheel__point
             .wheel__leg
-            .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn")]
+            .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn") Învârte]
             .wheel__days
                 .wheel__days-title(data-translate="wheelDaysTitle")
                 .wheel__days-container
@@ -34,42 +34,42 @@
                                 .wheel__buble-prize-item(data-translate="wheelBubbleSpans")
                                 .wheel__buble-prize-item(data-translate="wheelBubblePrize")
                     .wheel__days-wrap
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
-    .progress._sign
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .wheel__days-item #[span.wheel__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+    .progress
         .progress__top
-            a(href="/casino/").progress__top-left #[span(data-translate="btnCasino")]
+            a(href="/casino/").progress__top-left #[span(data-translate="btnCasino") Joacă la Casino]
             .progress__bar
                 .progress__bar-thumb
                     .progress__bar-wrap
                         .progress__bar-line
                             .progress__bar-status 0 €
-                    .progress__bar-sum #[span.current 0€] / #[span.total 50€]
-            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet")]
+                    .progress__bar-sum #[span.current 0] / #[span.total 100]
+            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Pariază pe Sport]
         .progress__bottom
             .progress__bottom-wrap
-                .progress__bottom-title(data-translate="progressBottomTitle")
-                .progress__bottom-text(data-translate="progressBottomText")
+                .progress__bottom-title(data-translate="progressBottomTitle") 1 zi - 1 încercare
+                .progress__bottom-text(data-translate="progressBottomText") Realizează rulajul de 100 lei și obține o rotire pe „Roata Norocului”.
     .days
         .days__title(data-translate="daysTitle")
         .days__wrap
             .days__container
-                .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
-                .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
-            .days__text(data-translate="wheelBubbleTitle")
+                .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+            .days__text(data-translate="wheelBubbleTitle") Îndeplinește provocarea și primești automat un bonus suplimentar
             .days__prize
-                .days__prize-item(data-translate="wheelBubbleSpans")
-                .days__prize-item(data-translate="wheelBubblePrize")
+                .days__prize-item(data-translate="wheelBubbleSpans") 202 Rotiri
+                .days__prize-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
     .accordion
         .accordion__item._spins
             .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins")]
@@ -108,20 +108,20 @@
                 .popup__buble-title(data-translate="popupNothingTitle")
             .popup__pers
                 picture._iphone
-                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/iphone/pers.png" alt="sam favbet")
+                    source(srcset="./img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="./img/popups/iphone/pers.png" alt="sam favbet")
                 picture._ecoflow
-                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/ecoflow/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/ecoflow/pers.png" alt="sam favbet")
+                    source(srcset="./img/popups/ecoflow/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="./img/popups/ecoflow/pers.png" alt="sam favbet")
                 picture._bonus
-                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/bonus/pers.png" alt="sam favbet")
+                    source(srcset="./img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="./img/popups/bonus/pers.png" alt="sam favbet")
                 picture._merch
-                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/merch/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/merch/pers.png" alt="sam favbet")
+                    source(srcset="./img/popups/merch/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="./img/popups/merch/pers.png" alt="sam favbet")
                 picture._nothing
-                    source(srcset="https://fav-prom.com/html/wheel-hr/img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="https://fav-prom.com/html/wheel-hr/img/popups/nothing/pers.png" alt="sam favbet")
+                    source(srcset="./img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
+                    img(src="./img/popups/nothing/pers.png" alt="sam favbet")
             .popup__main
                 .popup__item._bonus.fs22
                     .popup__title.fs22(data-translate="popup22FsPrize")
@@ -139,13 +139,13 @@
                     .popup__text(data-translate="popupRemindSpinTitle")
                     .popup__prize-text(data-translate="popupRemindSpin")
                     .popup__days
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay")]]
-                        .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay")]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 3] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 4] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 5] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") ziua]]
+                        .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") ziua]]
                     .popup__btn-wrap
                         a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino")]
                         a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet")]
