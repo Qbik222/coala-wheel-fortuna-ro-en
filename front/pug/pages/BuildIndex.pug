@@ -1,3 +1,10 @@
+.drop
+    .drop-menu
+        button.fs20 fs20
+        button.lei25 lei25
+        button.nothing nothing
+        button.lock lock
+        button.sign sign
 .fav-page#wheel
     .wheel
         .spin-bg
@@ -10,8 +17,8 @@
                 img(src="./img/wheel/wheel-logo.png" alt="favbet")
         .wheel__wrap
             .wheel__lock-buble
-                .wheel__lock-title(data-translate="lockTitle")
-                .wheel__lock-text(data-translate="lockText")
+                .wheel__lock-title(data-translate="lockTitle") Danas si već zavrtio Kolo sreće.
+                .wheel__lock-text(data-translate="lockText") Dođi opet sutra od 00:01 do 23:59 i iskušaj sreću
             .wheel__sign-buble
                 a(href="/login/" data-translate="signBtn").wheel__sign-btn.unauth-msg
                 .wheel__sign-btn.btn-join.hide(data-translate="partBtn")
@@ -29,10 +36,10 @@
                     .wheel__days-icons
                         .wheel__days-icons-decor
                         .wheel__buble._hidden
-                            .wheel__buble-title(data-translate="wheelBubbleTitle")
+                            .wheel__buble-title(data-translate="wheelBubbleTitle") Îndeplinește provocarea și primești automat un bonus suplimentar
                             .wheel__buble-prize
-                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans")
-                                .wheel__buble-prize-item(data-translate="wheelBubblePrize")
+                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans") 202 Rotiri
+                                .wheel__buble-prize-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
                     .wheel__days-wrap
                         .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
                         .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") ziua]]

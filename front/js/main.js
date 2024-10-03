@@ -15,7 +15,7 @@
     //
     //
     // let i18nData = {};
-    // const debug = false;
+    const debug = true;
     // let userId;
     //
     // function loadTranslations() {
@@ -386,62 +386,65 @@
             btn.style.pointerEvents = "none"
         }
     }
-    function initSpin(sections, btn, wheel, arrow, spinBg, salut) {
+    function initSpin(sections, btn, wheel, arrow, spinBg, salut, prize) {
         btn.addEventListener("click", () =>{
-            sendSpinRequest().then(res => {
-                console.log(res);
-                if (!res || !!res.error) {
-                    btnWheel.classList.add('pulse-btn');
-                    btnWheel.classList.remove('_disabled')
-                    return;
-                }
-                const prize = res.number;
-                const streakBonus = res.streakBonus || debug;
-                if(prize === "nothing"){
-                    popup.classList.add("_nothing")
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", streakBonus, spinBg, popupCloseBtn, popupContainer, popup), {once: true})
-                    spinWheel(1872, "nothingPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "fs22"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs22"), {once: true})
-                    spinWheel(1800, "fs22anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "fs33"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs33"), {once: true})
-                    spinWheel(1762, "fs33anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "fs44"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs44"), {once: true})
-                    spinWheel(2088, "fs44anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "fs55"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs55"), {once: true})
-                    spinWheel(2052.5, "fs55anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "fs66"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs66"), {once: true})
-                    spinWheel(2016.5, "fs66anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "euro10"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro10"), {once: true})
-                    spinWheel(1980, "euro10anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "euro20"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro20"), {once: true})
-                    spinWheel(1942, "euro20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "euro30"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro30"), {once: true})
-                    spinWheel(1908, "euro30anim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-                if(prize === "respin"){
-                    sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "respin"), {once: true})
-                    spinWheel(72.5, "respinAnim", sections, btn, wheel, arrow, prize, spinBg, salut)
-                }
-            });
+            // sendSpinRequest().then(res => {
+            //     console.log(res);
+            //     if (!res || !!res.error) {
+            //         btnWheel.classList.add('pulse-btn');
+            //         btnWheel.classList.remove('_disabled')
+            //         return;
+            //     }
+            // });
+
+
+            // const prize = res.number;
+            // const streakBonus = res.streakBonus || debug;
+            const streakBonus = true
+            if(prize === "nothing"){
+                popup.classList.add("_nothing")
+                sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", streakBonus, spinBg, popupCloseBtn, popupContainer, popup), {once: true})
+                spinWheel(1872, "nothingPrize", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs20"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs20"), {once: true})
+                spinWheel(1800, "fs20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs25"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs25"), {once: true})
+                spinWheel(1762, "fs25anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs40"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs40"), {once: true})
+                spinWheel(2088, "fs40anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs50"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs50"), {once: true})
+                spinWheel(2052.5, "fs50anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "fs75"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs75"), {once: true})
+                spinWheel(2016.5, "fs75anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro10"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro10"), {once: true})
+                spinWheel(1980, "euro10anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro20"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro20"), {once: true})
+                spinWheel(1942, "euro20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "euro30"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro30"), {once: true})
+                spinWheel(1908, "euro30anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
+            if(prize === "respin"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "respin"), {once: true})
+                spinWheel(72.5, "respinAnim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            }
         })
     }
-    initSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, spinBg, salut)
+    initSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, spinBg, salut, "respin")
     //
     // function refreshUserInfo(userInfo) {
     //     refreshDailyPointsSection(userInfo);
@@ -535,5 +538,12 @@
             }
         });
     });
+
+    // for test
+
+    const fs20 = document.querySelector('.fs20')
+
+   initSpin(wheelSections, fs20, wheelWrap, wheelArrow, spinBg, salut, "fs20")
+
 
 })();
