@@ -542,8 +542,12 @@
     // for test
 
     const fs20 = document.querySelector('.fs20')
+    const dropBonusButton = document.querySelector('.drop-bonus');
+    const dropNothingButton = document.querySelector('.drop-nothing');
 
-   initSpin(wheelSections, fs20, wheelWrap, wheelArrow, spinBg, salut, "fs20")
+    initSpin(wheelSections, fs20, wheelWrap, wheelArrow, spinBg, salut, "fs20")
+    // initSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, spinBg, salut)
+    initSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, spinBg, salut, "nothing")
 
 
 })();
