@@ -1581,6 +1581,7 @@ body
               color: $white
               font-family: $font-suisse-intl-reg
               margin-top: 10px
+              max-width: 370px
           &__days
             display: flex
             align-items: center
@@ -2288,51 +2289,101 @@ body
         font-size: 29px
       &-buble
         padding: 25px 45px 10px 35px
-  .popup
-    &__title
-      font-size: 37px
-      line-height: 39px
-    &__buble
-      &-text
-        font-size: 25px
-        margin-top: 10px
-    &__main
-      height: 575px
-    &__bottom._done
-      .popup__text
-        br
-          display: block
-          @media screen and (max-width: 600px)
-            display: block
-    &__bottom._incomplete
-      .popup__text
-        br
-          display: none
-    &._nothing
-      .popup
-        &__text
+  .popups
+    .popup
+      &._nothing
+        .popup__main
+          height: 365px
+        .popup__buble
+          padding: 50px 30px 30px 40px
+          &-title
+            font-size: 33px
+            line-height: 33px
+            @media screen and (max-width: 600px)
+              font-size: 26px
+              line-height: 26px
+
+      &__title
+        font-size: 37px
+        line-height: 39px
+      &__buble
+        &-text
+          font-size: 25px
+          margin-top: 10px
+      &__main
+        height: 575px
+      &__bottom._done
+        .popup__text
           br
             display: block
-        &__main
-          padding-top: 50px
-    &._bonus
-      .popup
-        &__buble
-          &-text
-            font-size: 29px
-            line-height: 37px
-        &__main
-          height: 530px
-    &._incomplete
-      .popup
-        &__main
-          height: 480px
-  .popup._nothing._incomplete
-    .popup__main
-      height: 340px
+            @media screen and (max-width: 600px)
+              display: block
+        .popup__prize-title
+          width: 310px
+      &__bottom._incomplete
+        .popup__text
+          br
+            display: none
+      &._nothing
+        .popup
+          &__text
+            br
+              display: block
+          &__main
+            padding-top: 50px
+      &._bonus
+        .popup__bottom._incomplete
+          .popup__text
+            max-width: 320px
+            font-size: 24px
+            line-height: 28px
+        .popup
+          &__buble
+            &-text
+              font-size: 29px
+              line-height: 37px
+          &__main
+            height: 530px
+      &._bonus.fs40
+        .popup
+          &__main
+            height: 580px
+      &._bonus.lei15, &._bonus.lei20, &._bonus.lei25
+        .popup
+          &__main
+            height: 500px
+      &._incomplete
+        .popup
+          &__main
+            @media screen and (max-width: 600px)
+              min-height: 530px
+      &._incomplete.lei15, &._incomplete.lei20, &._incomplete.lei25
+        .popup
+          &__main
+            height: 470px
+    .popup._nothing._incomplete
+      .popup__text
+        font-size: 24px
+        line-height: 28px
+      .popup__main
+        height: 320px
+        min-height: 320px
+
 
 @media screen and (max-width: 600px)
   .en
+    .popups
+      .popup._nothing
+        .popup__main._done
+          .popup__text
+            font-size: 18px
+            max-width: 290px
+    .days
+      &__title
+        font-size: 24px
+        line-height: 28px
+      &__prize
+        width: 310px
     .popups
       .popup
         &__text

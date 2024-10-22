@@ -26,8 +26,8 @@
                 img(src="./img/wheel/wheel-logo.png" alt="favbet")
         .wheel__wrap
             .wheel__lock-buble
-                .wheel__lock-title(data-translate="lockTitle") Danas si već zavrtio Kolo sreće.
-                .wheel__lock-text(data-translate="lockText") Dođi opet sutra od 00:01 do 23:59 i iskušaj sreću
+                .wheel__lock-title(data-translate="lockTitle") You already made a spin today.
+                .wheel__lock-text(data-translate="lockText") Come back tomorrow.
             .wheel__sign-buble
                 a(href="/login/" data-translate="signBtn").wheel__sign-btn.unauth-msg Login
                 .wheel__sign-btn.btn-join.hide(data-translate="partBtn")
@@ -45,10 +45,10 @@
                     .wheel__days-icons
                         .wheel__days-icons-decor
                         .wheel__buble._hidden
-                            .wheel__buble-title(data-translate="wheelBubbleTitle") Îndeplinește provocarea și primești automat un bonus suplimentar
+                            .wheel__buble-title(data-translate="wheelBubbleTitle") Complete the challenge and automatically receive an additional bonus:
                             .wheel__buble-prize
-                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans") 202 Rotiri
-                                .wheel__buble-prize-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
+                                .wheel__buble-prize-item(data-translate="wheelBubbleSpans") 202 Free Spins
+                                .wheel__buble-prize-item(data-translate="wheelBubblePrize") + 100 lei Risk Free Bet.
                     .wheel__days-wrap
                         .wheel__days-item #[span.wheel__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") day]]
                         .wheel__days-item #[span.wheel__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") day]]
@@ -70,10 +70,10 @@
             a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Bet on <br> sports]
         .progress__bottom
             .progress__bottom-wrap
-                .progress__bottom-title(data-translate="progressBottomTitle") 1 day — 1 attempt
-                .progress__bottom-text(data-translate="progressBottomText") Make a total turnover of winning bets of 2 000₴ and get a spin on the “Sam’s Wheel”.
+                .progress__bottom-title(data-translate="progressBottomTitle") 1 day — 1 try
+                .progress__bottom-text(data-translate="progressBottomText") Place a total of 100 lei in bets and receive a spin on the "Wheel of Fortune"
     .days
-        .days__title(data-translate="daysTitle") Provocarea lui Sam
+        .days__title(data-translate="daysTitle") Challenge from Sam Spin 7 day in a row
         .days__wrap
             .days__container
                 .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") day]]
@@ -85,8 +85,8 @@
                 .days__item #[span.days__item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") day]]
             .days__text(data-translate="wheelBubbleTitle") Îndeplinește provocarea și primești automat un bonus suplimentar
             .days__prize
-                .days__prize-item(data-translate="wheelBubbleSpans") 202 Rotiri
-                .days__prize-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
+                .days__prize-item(data-translate="wheelBubbleSpans") 202 Free Spins
+                .days__prize-item(data-translate="wheelBubblePrize") + 100 lei Risk Free Bet.
     .accordion
         .accordion__item._spins
             .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins") Rotirile mele ]
@@ -155,7 +155,7 @@
                 .popup__buble-title(data-translate="popupBonusTitle") What luck! <br> You won one of the bonuses!
                 //.popup__buble-text(data-translate="popupBonusText") Bucură-te de acest bonus <br> extraordinar.
             .popup__buble._nothing
-                .popup__buble-title(data-translate="popupNothingTitle") Frende, danas nažalost nisi osvojio nagradu
+                .popup__buble-title(data-translate="popupNothingTitle") No prizes today. What we can do? Fortune has turned the other way.
             .popup__pers
                 picture._bonus
                     source(srcset="./img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
@@ -166,19 +166,19 @@
             .popup__main
                 .popup__item._bonus
                     .popup__title.fs20(data-translate="popup20FsPrize") 20 Free Spins <br> CRAZY HOT - 1.2 lei <br> (Chilli Games)
-                    .popup__title.fs25(data-translate="popup25FsPrize") 25 Free Spins <br> 100 BURNING HOT - 1 lei <br> (Amusnet)
+                    .popup__title.fs25(data-translate="popup25FsPrize") 25 Free Spins <br> 100 BURNING HOT <br> 1 lei (Amusnet)
                     .popup__title.fs40(data-translate="popup40FsPrize") 40 Free Spins <br> ALADDIN AND <br>THE MAGIC CARPET <br> 0.5 lei (Synot)
                     .popup__title.fs50(data-translate="popup50FsPrize") 50 Free Spins <br> Gem Blast - 0.3 lei <br> (Endorphina)
-                    .popup__title.fs75(data-translate="popup75FsPrize") 75 Free Spins <br>  20 SUPER HOT - 0.2 lei  <br>(Amunset)
+                    .popup__title.fs75(data-translate="popup75FsPrize") 75 Free Spins <br>  20 SUPER HOT <br> 0.2 lei (Amunset)
                     .popup__title.lei15(data-translate="popupLei15Prize") 15 lei <br> Risk Free Bet
                     .popup__title.lei20(data-translate="popupLei20Prize") 20 lei <br> Risk Free Bet
                     .popup__title.lei25(data-translate="popupLei25Prize") 25 lei <br> Risk Free Bet
-                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Mergi la Contul meu și activează <br> bonusul în termen de 3 zile.
-                    .popup__btn(data-translate="popupTakeBonusBtn") Acceptă bonusul
+                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Activate the bonus within 72 hours from My Account.
+                    a(href="/personal-office/bonuses/casino/" data-translate="popupTakeBonusBtn").popup__btn Take the bonus
                 //.popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
                 .popup__bottom._incomplete
-                    .popup__text(data-translate="popupRemindSpinTitle") Provocarea lui Sam
-                    .popup__prize-text(data-translate="popupRemindSpin") Învârte timp de 7 zile consecutive
+                    .popup__text(data-translate="popupRemindSpinTitle") Don’t forget about Sam's Challenge.
+                    .popup__prize-text(data-translate="popupRemindSpin") Spin the Wheel of Fortune for 7 consecutive days and you’ll receive an additional bonus.
                     .popup__days
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") day]]
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") day]]
@@ -191,10 +191,10 @@
                         a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino") play <br> casino ]
                         a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet") Bet on <br> sports]
                 .popup__bottom._done
-                    .popup__text(data-translate="popupChallengeDone") Provocarea este completă! <br> Iată bonusul tău:
+                    .popup__text(data-translate="popupChallengeDone") I’m sorry, luck isn’t on your side today <br> but I’ll be waiting for you tomorrow!
                     .popup__prize-title
-                        .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 Rotiri
-                        .popup__prize-title-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
-                    .popup__prize-text(data-translate="popupActiveBonusRemind") Activează bonusul în termen de 3 zile din Contul meu.
+                        .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 Free Spins
+                        .popup__prize-title-item(data-translate="wheelBubblePrize") + 100 lei Risk Free Bet.
+                    .popup__prize-text(data-translate="popupActiveBonusRemind") Activate the bonus within 72 hours from My Account.
                     .popup__btn(data-translate="popupTakeBonusBtn") Acceptă bonusul
                 .popup__close
