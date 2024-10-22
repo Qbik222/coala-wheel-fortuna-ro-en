@@ -285,17 +285,17 @@
     setDays(popupDaysMob, currentDay)
 
 /// wheel logic
-    const wheelSections = document.querySelector(".wheel__sections")
-    const wheelWrap = document.querySelector(".wheel__wrap")
-    const wheelArrow = document.querySelector(".wheel__arrow")
-    const wheelBtn = document.querySelector(".wheel__btn")
-    const spinBg = document.querySelector(".spin-bg")
-    const salut = document.querySelector(".fireworks-wrap")
-    const bubleBtn = document.querySelector(".wheel__days-icons")
-    const wheelBuble = document.querySelector(".wheel__buble")
-    const popupContainer = document.querySelector(".popups")
-    const popup = document.querySelector(".popup")
-    const popupCloseBtn = document.querySelector(".popup__close")
+    const wheelSections = document.querySelector(".wheel__sections"),
+          wheelWrap = document.querySelector(".wheel__wrap"),
+          wheelArrow = document.querySelector(".wheel__arrow"),
+          wheelBtn = document.querySelector(".wheel__btn"),
+          spinBg = document.querySelector(".spin-bg"),
+          salut = document.querySelector(".fireworks-wrap"),
+          bubleBtn = document.querySelector(".wheel__days-icons"),
+          wheelBuble = document.querySelector(".wheel__buble"),
+          popupContainer = document.querySelector(".popups"),
+          popup = document.querySelector(".popup"),
+          popupCloseBtn = document.querySelector(".popup__close")
 
     bubleBtn.addEventListener("mouseover", (e) =>{
         wheelBuble.classList.remove("_hidden")
@@ -556,6 +556,9 @@
     const dropBonusButton = document.querySelector('.drop-bonus');
     const dropNothingButton = document.querySelector('.drop-nothing');
 
+    const dropLock = document.querySelector('.lock');
+    const dropSign = document.querySelector('.sign');
+
     var streakBonus = JSON.parse(localStorage.getItem('streakBonus')) || false;
 
     if(streakBonus){
@@ -589,6 +592,19 @@
     initSpin(wheelSections, lei25, wheelWrap, wheelArrow, spinBg, salut, "lei25", streakBonus)
     // initSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, spinBg, salut)
     initSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, spinBg, salut, "nothing", streakBonus)
+
+    dropLock.addEventListener("click", function () {
+        wheelWrap.classList.toggle("_lock");
+        document.querySelector(".progress").classList.toggle("_lock");
+        wheelWrap.classList.remove("_sign");
+        document.querySelector(".progress").classList.remove("_sign");
+    });
+    dropSign.addEventListener("click", function () {
+        wheelWrap.classList.toggle("_sign");
+        document.querySelector(".progress").classList.toggle("_sign");
+        wheelWrap.classList.remove("_lock");
+        document.querySelector(".progress").classList.remove("_lock");
+    });
 
 
 })();
