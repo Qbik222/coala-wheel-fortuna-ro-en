@@ -2272,13 +2272,26 @@ body
         @media screen and (max-width: 1050px)
           background: url("../img/wheel/mob/wheel-sections-en.png") no-repeat 0 0/contain
     &__days-title
-      top: -105px
+      top: -75px
+      left: 15px
+      max-width: none
+      font-size: 30px
+      line-height: 34px
+      @media screen and (max-width: 880px)
+        font-size: 21px
+        line-height: 24px
+        max-width: 175px
+        top: -20px
+        left: 25px
     &__lock
       &-title
         font-size: 29px
       &-buble
         padding: 25px 45px 10px 35px
   .popup
+    &__title
+      font-size: 37px
+      line-height: 39px
     &__buble
       &-text
         font-size: 25px
@@ -2309,11 +2322,11 @@ body
             font-size: 29px
             line-height: 37px
         &__main
-          height: 490px
+          height: 530px
     &._incomplete
       .popup
         &__main
-          height: 460px
+          height: 480px
   .popup._nothing._incomplete
     .popup__main
       height: 340px
