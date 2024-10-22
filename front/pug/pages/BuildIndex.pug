@@ -1,12 +1,20 @@
 .drop
+    button.drop-btn menu
     .drop-menu
         button.fs20 fs20
+        button.fs25 fs25
+        button.fs40 fs40
+        button.fs50 fs50
+        button.fs75 fs75
+        button.lei15 lei15
+        button.lei20 lei20
         button.lei25 lei25
         button.drop-nothing nothing
         button.lock lock
         button.sign sign
+        button.streak done
         //button.drop-bonus bonus
-.fav-page#wheel
+.fav-page#wheel.en
     .wheel
         .spin-bg
         .wheel__logo
@@ -32,7 +40,7 @@
             .wheel__leg
             .wheel__btn #[span.wheel__btn-text(data-translate="wheelBtn") Învârte]
             .wheel__days
-                .wheel__days-title(data-translate="wheelDaysTitle")
+                .wheel__days-title(data-translate="wheelDaysTitle") Provocarea lui Sam
                 .wheel__days-container
                     .wheel__days-icons
                         .wheel__days-icons-decor
@@ -58,13 +66,14 @@
                         .progress__bar-line
                             .progress__bar-status 0 €
                     .progress__bar-sum #[span.current 0] / #[span.total 100]
-            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Pariază pe Sport]
+                    .progress__bar-data.hide #[span(data-translate="lastUpdate")] Ultima actualizare: #[span.current-data XX:XX ]
+            a(href="/sports/sport/soccer/").progress__top-right #[span(data-translate="btnSportBet") Pariază pe <br> Sport]
         .progress__bottom
             .progress__bottom-wrap
                 .progress__bottom-title(data-translate="progressBottomTitle") 1 zi - 1 încercare
                 .progress__bottom-text(data-translate="progressBottomText") Realizează rulajul de 100 lei și obține o rotire pe „Roata Norocului”.
     .days
-        .days__title(data-translate="daysTitle")
+        .days__title(data-translate="daysTitle") Provocarea lui Sam
         .days__wrap
             .days__container
                 .days__item #[span.days__item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
@@ -80,72 +89,96 @@
                 .days__prize-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
     .accordion
         .accordion__item._spins
-            .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionMySpins") Rotirile mele ]
             .accordion__content
                 .accordion__content-item.head-drop.hide(data-translate='spinsHeadPrize') #[span.content-date]
                 .accordion__content-item(data-translate="spinsNoSpin").no-spins
+                .accordion__content-item #[span.content-date 18.03] Iphone 15 Pro
+                .accordion__content-item #[span.content-date 18.03] EcoFlow RIVER 2
+                .accordion__content-item #[span.content-date 18.03] Без призу
+                .accordion__content-item #[span.content-date 18.03] до 103 ₴ Страховка ставки
+                .accordion__content-item #[span.content-date 18.03] Iphone 15 Pro
+                .accordion__content-item #[span.content-date 18.03] EcoFlow RIVER 2
+                .accordion__content-item #[span.content-date 18.03] Без призу
+                .accordion__content-item #[span.content-date 18.03] до 103 ₴ Страховка ставки
                 .accordion__content-wrap
                     .accordion__list
-
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionSpinRules") Când și cum poți învârte roata?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentSpinRules")
+                    p Roata Norocului este disponibilă pentru rotire o dată pe zi, de la ora 00:01 la 23:59.
+                    p Pentru a participa la promoție, participantul trebuie să apese o singură dată butonul „Participă”, cu excepția cazului în care partcipantul a fost inactiv în promoție timp de 30 de zile.
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionProgressRules") Cum se încarcă bara de progres?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentProgressRules")
+                    p Pentru a putea învârte roata, participantul trebuie să plaseze pariuri în valoare totală de 100 lei în secțiunile  „Casino”, „Live” și „Sport”.
+                    p Bara de progres va înregistra activitatea în secțiunea "Casino" pentru mize de minimum 2 lei, iar în secțiunile "Sport" și "Live" pentru pariuri de minimum 5 lei.
+                    p Exemplu: Dacă participantul a plasat un pariu de 5 lei într-un joc promoțional și a câștigat 100 lei, atunci 5 lei vor fi acumulați în bara de progres.
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionPrizeRules") Ce bonusuri pot câștiga?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentPrizeRules")
+                    p Roata Norocului este alcătuită din 10 sectoare separate: 8 sectoare cu bonusuri desemnate, 1 sector cu șansa de a învârti din nou roata și 1 sector fără câștig.
+                    p Bonusuri pe „Roata Norocului”:
+                    p 20 Rotiri Gratuite la Chilli Games cu miza de 1.20 lei
+                    p 25 Rotiri Gratuite la Amusnet cu miza de 1.00 lei
+                    p 40 Rotiri Gratuite la Endorphina cu miza de 0.30 lei
+                    p 50 Rotiri Gratuite la Amusnet cu miza de 0.20 lei
+                    p 15 lei Pariu Fără Risc
+                    p 20 lei Pariu Fără Risc
+                    p 25 lei Pariu Fără Risc
         .accordion__item
-            .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionAboutChallenge") Ce este „Provocarea lui Sam”?]
             .accordion__content
                 .accordion__content-wrap(data-translate="accordionContentAboutChallenge")
+                    p “Provocarea lui Sam” oferă șansa de a câștiga bonusuri suplimentare. Pentru a obține acest bonus, participantul trebuie să învârtă roata timp de 7 zile consecutive. Progresul în "Provocarea lui Sam" este înregistrat indiferent de sectorul pe care se oprește roata, cu excepția sectorului „Încearcă din nou”, unde participantul trebuie să efectueze rotirea repetată până la ora 23:30 a aceleiași zile.
+                    p Notă: „Provocarea lui Sam” se va reseta pentru ziua următoare, începând cu ora 00:01, în următoarele cazuri: dacă participantul nu are activitate în promoție (zile consecutive) sau dacă nu se completează bara de progres. De asemenea, provocarea se va reseta dacă roata se oprește pe sectorul „Încearcă din nou” și roțirea nu este folosită în aceași zi.
+                    p Bonusuri „Provocari lui Sam”:
+                    p 1. 202 Rotiri în jocul „40 Super Hot” de la providerul Amusnet, fiecare rotire gratuită având valoarea de 0.40 lei.
+                    p 2. 100 de lei Pariu Fără Risc
         .accordion__item._rules
-            .accordion__header #[span.accordion__header-text(data-translate="accordionRules")]
+            .accordion__header #[span.accordion__header-text(data-translate="accordionRules") Lorem ipsum dolor sit amet, eum ut dictas fuisset erroribus.]
             .accordion__content
-                .accordion__content-wrap(data-translate="accordionContentAboutRules")
+                .accordion__content-wrap(data-translate="accordionContentAboutRules").
+                    Lorem ipsum dolor sit amet, eum ut dictas fuisset erroribus. An sit affert aliquid nonumes,
+                    nobis probatus eos ea, utinam ceteros eu cum. Cibo alienum cum ad. In eos minim facilis intellegat,
+                    option fierent has ex. Ea sit munere alienum indoctum.
+                    Eos cu denique qualisque. Omnes alienum scribentur an pri, te sint ignota disputando vim, ut
+                    eos vidisse invidunt. Ad mea copiosae scribentur. Duis instructior mei cu, cu alia unum aliquam eam,
+                    docendi vituperata te his. Duo assum tincidunt ad, duo aeque ridens eruditi ut. His no regione copiosae pericula,
+                    sumo oratio cotidieque mel ad.
     .popups
         .popup
-            .popup__buble._bonus.fs22
-                .popup__buble-title(data-translate="popupBonusTitle")
-                .popup__buble-text(data-translate="popupBonusText")
+            .popup__buble._bonus
+                .popup__buble-title(data-translate="popupBonusTitle") Norocul este de <br> partea ta!
+                .popup__buble-text(data-translate="popupBonusText") Bucură-te de acest bonus <br> extraordinar.
             .popup__buble._nothing
-                .popup__buble-title(data-translate="popupNothingTitle")
+                .popup__buble-title(data-translate="popupNothingTitle") Frende, danas nažalost nisi osvojio nagradu
             .popup__pers
-                picture._iphone
-                    source(srcset="./img/popups/iphone/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/iphone/pers.png" alt="sam favbet")
-                picture._ecoflow
-                    source(srcset="./img/popups/ecoflow/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/ecoflow/pers.png" alt="sam favbet")
                 picture._bonus
                     source(srcset="./img/popups/bonus/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
                     img(src="./img/popups/bonus/pers.png" alt="sam favbet")
-                picture._merch
-                    source(srcset="./img/popups/merch/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
-                    img(src="./img/popups/merch/pers.png" alt="sam favbet")
                 picture._nothing
                     source(srcset="./img/popups/nothing/pers-mob.png" media="(max-width: 600px) and (orientation: portrait)")
                     img(src="./img/popups/nothing/pers.png" alt="sam favbet")
             .popup__main
-                .popup__item._bonus.fs22
-                    .popup__title.fs20(data-translate="popup20FsPrize")
-                    .popup__title.fs25(data-translate="popup25FsPrize")
-                    .popup__title.fs40(data-translate="popup40FsPrize")
-                    .popup__title.fs50(data-translate="popup50FsPrize")
-                    .popup__title.fs75(data-translate="popup75FsPrize")
-                    .popup__title.euro10(data-translate="popupLei15Prize")
-                    .popup__title.euro20(data-translate="popupLei20Prize")
-                    .popup__title.euro30(data-translate="popupLei25Prize")
-                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus
-                    .popup__btn(data-translate="popupTakeBonusBtn")
+                .popup__item._bonus
+                    .popup__title.fs20(data-translate="popup20FsPrize") 20 Rotiri - 1.2 lei <br> Chilli Games
+                    .popup__title.fs25(data-translate="popup25FsPrize") 25 Rotiri - 1 Leu <br> Amusnet
+                    .popup__title.fs40(data-translate="popup40FsPrize") 40 Rotiri - 0.5 lei <br> Synot
+                    .popup__title.fs50(data-translate="popup50FsPrize") 50 Rotiri - 0.3 lei <br> Endorphina
+                    .popup__title.fs75(data-translate="popup75FsPrize") 75 Rotiri - 0.2 lei <br> Amunset
+                    .popup__title.lei15(data-translate="popupLei15Prize") 15 lei Pariu <br> Fără Risc
+                    .popup__title.lei20(data-translate="popupLei20Prize") 20 lei Pariu <br> Fără Risc
+                    .popup__title.lei25(data-translate="popupLei25Prize") 30 lei Pariu <br> Fără Risc
+                    .popup__prize-bottom(data-translate="popupBonusPrizeLink")._bonus Mergi la Contul meu și activează <br> bonusul în termen de 3 zile.
+                    .popup__btn(data-translate="popupTakeBonusBtn") Acceptă bonusul
                 //.popup__prize-bottom(data-translate="popupCallback") Our team will contact you to clarify <br> all the details.
                 .popup__bottom._incomplete
-                    .popup__text(data-translate="popupRemindSpinTitle")
-                    .popup__prize-text(data-translate="popupRemindSpin")
+                    .popup__text(data-translate="popupRemindSpinTitle") Provocarea lui Sam
+                    .popup__prize-text(data-translate="popupRemindSpin") Învârte timp de 7 zile consecutive
                     .popup__days
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 1] <br> #[span.popup-day(data-translate="popupDay") ziua]]
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 2] <br> #[span.popup-day(data-translate="popupDay") ziua]]
@@ -155,13 +188,13 @@
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 6] <br> #[span.popup-day(data-translate="popupDay") ziua]]
                         .popup__days-item #[span.popup__days-item-text #[span.day-num 7] <br> #[span.popup-day(data-translate="popupDay") ziua]]
                     .popup__btn-wrap
-                        a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino")]
-                        a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet")]
+                        a(href="/casino/").popup__btn-left #[span(data-translate="btnCasino") Joacă la <br> Casino ]
+                        a(href="/sports/sport/soccer/").popup__btn-right #[span(data-translate="btnSportBet") Pariază pe <br> Sport]
                 .popup__bottom._done
-                    .popup__text(data-translate="popupChallengeDone")
+                    .popup__text(data-translate="popupChallengeDone") Provocarea este completă! <br> Iată bonusul tău:
                     .popup__prize-title
-                        .popup__prize-title-item(data-translate="wheelBubbleSpans")
-                        .popup__prize-title-item(data-translate="wheelBubblePrize")
-                    .popup__prize-text(data-translate="popupActiveBonusRemind")
-                    .popup__btn(data-translate="popupTakeBonusBtn")
+                        .popup__prize-title-item(data-translate="wheelBubbleSpans") 202 Rotiri
+                        .popup__prize-title-item(data-translate="wheelBubblePrize") + 100 lei Pariu Fără Risc
+                    .popup__prize-text(data-translate="popupActiveBonusRemind") Activează bonusul în termen de 3 zile din Contul meu.
+                    .popup__btn(data-translate="popupTakeBonusBtn") Acceptă bonusul
                 .popup__close

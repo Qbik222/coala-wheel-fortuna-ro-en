@@ -224,7 +224,7 @@
     const days = document.querySelectorAll(".wheel__days-item")
     const popupDays = document.querySelectorAll(".popup__days-item");
     const popupDaysMob = document.querySelectorAll(".days__item");
-    let currentDay = 3
+    let currentDay = 5
     function setDays(days, currentDay){
         days.forEach((day, i) =>{
             ++i
@@ -386,7 +386,9 @@
             btn.style.pointerEvents = "none"
         }
     }
-    function initSpin(sections, btn, wheel, arrow, spinBg, salut, prize) {
+
+
+    function initSpin(sections, btn, wheel, arrow, spinBg, salut, prize, streakBonus) {
         btn.addEventListener("click", () =>{
             // sendSpinRequest().then(res => {
             //     console.log(res);
@@ -400,7 +402,8 @@
 
             // const prize = res.number;
             // const streakBonus = res.streakBonus || debug;
-            const streakBonus = true
+            // const streakBonus = true
+            console.log(streakBonus)
             if(prize === "nothing"){
                 popup.classList.add("_nothing")
                 sections.addEventListener("animationend", () => showPopup(sections, wheel,"_nothing", streakBonus, spinBg, popupCloseBtn, popupContainer, popup), {once: true})
@@ -426,17 +429,17 @@
                 sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "fs75"), {once: true})
                 spinWheel(2016.5, "fs75anim", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
-            if(prize === "euro10"){
-                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro10"), {once: true})
-                spinWheel(1980, "euro10anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            if(prize === "lei15"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "lei15"), {once: true})
+                spinWheel(1980, "lei15anim", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
-            if(prize === "euro20"){
-                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro20"), {once: true})
-                spinWheel(1942, "euro20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            if(prize === "lei20"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "lei20"), {once: true})
+                spinWheel(1942, "lei20anim", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
-            if(prize === "euro30"){
-                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "euro30"), {once: true})
-                spinWheel(1908, "euro30anim", sections, btn, wheel, arrow, prize, spinBg, salut)
+            if(prize === "lei30"){
+                sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "lei20"), {once: true})
+                spinWheel(1908, "lei30anim", sections, btn, wheel, arrow, prize, spinBg, salut)
             }
             if(prize === "respin"){
                 sections.addEventListener("animationend", () => showPopup(sections, wheel, "_bonus", streakBonus, spinBg, popupCloseBtn, popupContainer, popup, "respin"), {once: true})
@@ -444,7 +447,7 @@
             }
         })
     }
-    initSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, spinBg, salut, "respin")
+    initSpin(wheelSections, wheelBtn, wheelWrap, wheelArrow, spinBg, salut, "lei30", streakBonus)
     //
     // function refreshUserInfo(userInfo) {
     //     refreshDailyPointsSection(userInfo);
@@ -542,12 +545,50 @@
     // for test
 
     const fs20 = document.querySelector('.fs20')
+    const fs25 = document.querySelector('.fs25')
+    const fs40 = document.querySelector('.fs40')
+    const fs50 = document.querySelector('.fs50')
+    const fs75 = document.querySelector('.fs75')
+    const lei15 = document.querySelector('.lei15')
+    const lei20 = document.querySelector('.lei20')
+    const lei25 = document.querySelector('.lei25')
+    const done = document.querySelector('.streak')
     const dropBonusButton = document.querySelector('.drop-bonus');
     const dropNothingButton = document.querySelector('.drop-nothing');
 
-    initSpin(wheelSections, fs20, wheelWrap, wheelArrow, spinBg, salut, "fs20")
+    var streakBonus = JSON.parse(localStorage.getItem('streakBonus')) || false;
+
+    if(streakBonus){
+        done.style.background = "green"
+    }
+    if(!streakBonus){
+        done.style.background = "red"
+    }
+
+    done.addEventListener("click", () => {
+        streakBonus = !streakBonus;
+        localStorage.setItem('streakBonus', JSON.stringify(streakBonus));
+        streakBonus = JSON.parse(localStorage.getItem('streakBonus')) || false;
+        console.log(streakBonus)
+        window.location.reload()
+
+    });
+
+    document.querySelector(".drop-btn").addEventListener("click", () =>{
+        document.querySelector(".drop-menu").classList.toggle("_hidden")
+    })
+
+
+    initSpin(wheelSections, fs20, wheelWrap, wheelArrow, spinBg, salut, "fs20", streakBonus)
+    initSpin(wheelSections, fs25, wheelWrap, wheelArrow, spinBg, salut, "fs25", streakBonus)
+    initSpin(wheelSections, fs40, wheelWrap, wheelArrow, spinBg, salut, "fs40", streakBonus)
+    initSpin(wheelSections, fs50, wheelWrap, wheelArrow, spinBg, salut, "fs50", streakBonus)
+    initSpin(wheelSections, fs75, wheelWrap, wheelArrow, spinBg, salut, "fs75", streakBonus)
+    initSpin(wheelSections, lei15, wheelWrap, wheelArrow, spinBg, salut, "lei15", streakBonus)
+    initSpin(wheelSections, lei20, wheelWrap, wheelArrow, spinBg, salut, "lei20", streakBonus)
+    initSpin(wheelSections, lei25, wheelWrap, wheelArrow, spinBg, salut, "lei25", streakBonus)
     // initSpin(wheelSections, dropBonusButton, wheelWrap, wheelArrow, spinBg, salut)
-    initSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, spinBg, salut, "nothing")
+    initSpin(wheelSections, dropNothingButton, wheelWrap, wheelArrow, spinBg, salut, "nothing", streakBonus)
 
 
 })();
