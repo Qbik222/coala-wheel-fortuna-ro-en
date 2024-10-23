@@ -229,8 +229,8 @@
         margin: 0 40px 0 auto
         position: relative
         &::before
-         box-shadow: 2px 0px 14px 14px #76FFD5
-         transform: rotate(2deg)
+          box-shadow: 2px 0px 14px 14px #76FFD5
+          transform: rotate(2deg)
         &::after
           content: ""
           display: block
@@ -649,26 +649,8 @@
             min-height: 460px
             max-height: 460px
             &._done
-              min-height: 520px
-              max-height: 520px
-      &._bonus.fs40
-        .popup
-          &__main
-            min-height: 560px
-      &._bonus.fs40._incomplete
-        .popup
-          &__main
-            min-height: 570px
-      &._bonus.lei15, &._bonus.lei20, &._bonus.lei25
-        .popup
-          &__main
-            height: 490px
-            min-height: 490px
-      &._incomplete.lei15, &._incomplete.lei20, &._incomplete.lei25
-        .popup
-          &__main
-           min-height: 480px
-           height: 480px
+              min-height: 490px
+              max-height: 490px
       &__decor
         &-left
           &::before
@@ -779,7 +761,7 @@
     .popup
       transform: scale(.95) translate(-50%, -50%)
       transform-origin: top left
-      top: 45%
+      top: 47%
     .popup._nothing
       transform: scale(.95) translate(-50%, -65%)
 
@@ -787,14 +769,14 @@
   .popups
     .popup
       transform: scale(.9) translate(-50%, -50%)
-      top: 42%
+      top: 37%
     .popup._nothing
       transform: scale(.9) translate(-50%, -65%)
 
 @media screen and (max-width: 430px) and (min-height: 890px) and (orientation: portrait)
   .popups
     .popup
-      top: 45%
+      top: 48%
 
 @media screen and (max-width: 400px) and (max-height: 790px) and (orientation: portrait)
   .popups
@@ -827,6 +809,7 @@
       transform: scale(.83) translate(-50%, -50%)
     .popup._nothing
       transform: scale(.83) translate(-50%, -65%)
+      top: 37%
 
 @media screen and (max-width: 375px) and (max-height: 600px) and (orientation: portrait)
   .popups
@@ -854,7 +837,7 @@
 @media screen and (max-width: 360px) and (max-height: 750px) and (orientation: portrait)
   .popups
     .popup
-      top: 37%
+      top: 41%
       transform: scale(.87) translate(-50%, -50%)
     .popup._nothing
       transform: scale(.87) translate(-50%, -65%)
@@ -862,7 +845,7 @@
 @media screen and (max-width: 360px) and (max-height: 650px) and (orientation: portrait)
   .popups
     .popup
-      top: 35%
+      top: 37%
       transform: scale(.8) translate(-50%, -50%)
     .popup._nothing
       transform: scale(.8) translate(-50%, -65%)
@@ -882,6 +865,7 @@
       transform: scale(.88) translate(-50%, -50%)
     .popup._nothing
       transform: scale(.88) translate(-50%, -65%)
+      top: 47%
 
 @media screen and (max-width: 320px) and ( min-height: 720px)
   .popups
@@ -894,7 +878,7 @@
 @media screen and (max-width: 320px) and ( max-height: 660px)
   .popups
     .popup
-      top: 35%
+      top: 38%
       transform: scale(.8) translate(-50%, -50%)
     .popup._nothing
       transform: scale(.8) translate(-50%, -65%)
